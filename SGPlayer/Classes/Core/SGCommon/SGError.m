@@ -19,13 +19,13 @@ NSError * SGGetFFError(int result, SGActionCode operation)
     if (result >= 0) {
         return nil;
     }
-	NSMutableDictionary *errDict = [[NSMutableDictionary alloc] init];
-	errDict[SGErrorUserInfoKeyOperation] = @(operation);
-	errDict[SGErrorUserInfoKeyFFMpegErrorNumber] = @(result);
+    NSMutableDictionary *errDict = [[NSMutableDictionary alloc] init];
+    errDict[SGErrorUserInfoKeyOperation] = @(operation);
+    errDict[SGErrorUserInfoKeyFFMpegErrorNumber] = @(result);
     char *data = malloc(256);
     av_strerror(result, data, 256);
-	NSString *descriptionStr = [[NSString alloc] initWithBytesNoCopy:data length:strnlen(data, 256) encoding:NSUTF8StringEncoding freeWhenDone:YES];
-	errDict[NSLocalizedDescriptionKey] = descriptionStr;
+    NSString *descriptionStr = [[NSString alloc] initWithBytesNoCopy:data length:strnlen(data, 256) encoding:NSUTF8StringEncoding freeWhenDone:YES];
+    errDict[NSLocalizedDescriptionKey] = descriptionStr;
     if (result == AVERROR_EXIT) {
         result = SGErrorImmediateExitRequested;
     } else if (result == AVERROR_EOF) {

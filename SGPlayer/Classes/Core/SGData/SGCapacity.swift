@@ -9,21 +9,21 @@
 import Foundation
 
 public extension SGCapacity {
-	@inlinable static func +(_ lhs: SGCapacity, _ rhs: SGCapacity) -> SGCapacity {
-		return SGCapacityAdd(lhs, rhs)
-	}
-	
-	@inlinable var isEmpty: Bool {
-		return SGCapacityIsEmpty(self)
-	}
-	
-	@inlinable var isEnough: Bool {
-		return SGCapacityIsEnough(self)
-	}
+    @inlinable static func +(_ lhs: SGCapacity, _ rhs: SGCapacity) -> SGCapacity {
+        return SGCapacityAdd(lhs, rhs)
+    }
+    
+    @inlinable var isEmpty: Bool {
+        return SGCapacityIsEmpty(self)
+    }
+    
+    @inlinable var isEnough: Bool {
+        return SGCapacityIsEnough(self)
+    }
 }
 
 extension SGCapacity: Equatable {
-	@inlinable public static func == (lhs: SGCapacity, rhs: SGCapacity) -> Bool {
-		return SGCapacityIsEqual(lhs, rhs)
-	}
+    @inlinable public static func == (lhs: SGCapacity, rhs: SGCapacity) -> Bool {
+        return SGCapacityIsEqual(lhs, rhs)
+    }
 }

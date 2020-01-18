@@ -8,6 +8,8 @@
 
 #import "SGSegment.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGURLSegment : SGSegment
 
 + (instancetype)new NS_UNAVAILABLE;
@@ -49,3 +51,5 @@
 @property (nonatomic, readonly) CMTime scale;
 
 @end
+
+NS_ASSUME_NONNULL_END

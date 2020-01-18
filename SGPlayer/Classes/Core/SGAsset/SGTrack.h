@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SGDefines.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGTrack : NSObject <NSCopying>
 
 + (instancetype)new NS_UNAVAILABLE;
@@ -19,7 +21,7 @@
  @abstract
     Indicates the pointer to the AVStream.
  */
-@property (nonatomic, readonly) void *coreptr;
+@property (nonatomic, readonly, nullable) void *coreptr;
 
 /*!
  @property type
@@ -40,20 +42,22 @@
  @abstract
    Get track with media type.
 */
-+ (SGTrack *)trackWithTracks:(NSArray<SGTrack *> *)tracks type:(SGMediaType)type;
++ (nullable SGTrack *)trackWithTracks:(NSArray<SGTrack *> *)tracks type:(SGMediaType)type NS_SWIFT_NAME(track(with:type:));
 
 /*!
  @method trackWithTracks:index:
  @abstract
    Get track with index.
 */
-+ (SGTrack *)trackWithTracks:(NSArray<SGTrack *> *)tracks index:(NSInteger)index;
++ (nullable SGTrack *)trackWithTracks:(NSArray<SGTrack *> *)tracks index:(NSInteger)index NS_SWIFT_NAME(track(with:index:));
 
 /*!
  @method tracksWithTracks:type:
  @abstract
    Get tracks with media types.
 */
-+ (NSArray<SGTrack *> *)tracksWithTracks:(NSArray<SGTrack *> *)tracks type:(SGMediaType)type;
++ (nullable NSArray<SGTrack *> *)tracksWithTracks:(NSArray<SGTrack *> *)tracks type:(SGMediaType)type;
 
 @end
+
+NS_ASSUME_NONNULL_END

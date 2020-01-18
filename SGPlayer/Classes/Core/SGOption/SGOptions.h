@@ -11,14 +11,16 @@
 #import "SGDecoderOptions.h"
 #import "SGDemuxerOptions.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGOptions : NSObject <NSCopying>
 
 /*!
- @method sharedOptions
+ @property sharedOptions
  @abstract
     Globally shared configuration options.
  */
-+ (instancetype)sharedOptions;
+@property (class, strong, readonly) SGOptions *sharedOptions;
 
 /*!
  @property demuxer
@@ -42,3 +44,5 @@
 @property (nonatomic, strong) SGProcessorOptions *processor;
 
 @end
+
+NS_ASSUME_NONNULL_END

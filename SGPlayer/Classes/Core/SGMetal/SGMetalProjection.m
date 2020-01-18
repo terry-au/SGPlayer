@@ -9,6 +9,8 @@
 #import "SGMetalProjection.h"
 #import "SGMetalTypes.h"
 
+static matrix_float4x4 SGMatrixFloat4x4FromGLKMatrix4(GLKMatrix4 matrix);
+
 @implementation SGMetalProjection
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device

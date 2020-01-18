@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SGDefines.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGVideoDescriptor : NSObject <NSCopying>
 
 /*!
@@ -67,11 +69,11 @@
 @property (nonatomic, readonly) SGRational presentationSize;
 
 /*!
- @method numberOfPlanes
+ @@property numberOfPlanes
  @abstract
     Get the number of planes.
  */
-- (int)numberOfPlanes;
+@property (readonly) int numberOfPlanes;
 
 /*!
  @method isEqualToDescriptor:
@@ -81,3 +83,5 @@
 - (BOOL)isEqualToDescriptor:(SGVideoDescriptor *)descriptor;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -19,6 +19,6 @@
           @"user-agent" : @"SGPlayer",
           @"timeout" : @(20 * 1000 * 1000)}
  */
-@property (nonatomic, copy) NSDictionary *options;
+@property (nonatomic, copy, nullable) NSDictionary *options;
 
 @end

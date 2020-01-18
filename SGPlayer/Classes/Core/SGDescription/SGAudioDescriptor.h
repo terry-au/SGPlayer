@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGAudioDescriptor : NSObject <NSCopying>
 
 /*!
@@ -42,25 +44,25 @@
 @property (nonatomic) uint64_t channelLayout;
 
 /*!
- @method isPlanar
+ @property isPlanar
  @abstract
     Get whether the sample format is planar.
  */
-- (BOOL)isPlanar;
+@property (readonly, getter=isPlanar) BOOL planar;
 
 /*!
- @method bytesPerSample
+ @@property bytesPerSample
  @abstract
     Get the bytes per sample.
  */
-- (int)bytesPerSample;
+@property (readonly) int bytesPerSample;
 
 /*!
- @method numberOfPlanes
+ @@property numberOfPlanes
  @abstract
     Get the number of planes.
  */
-- (int)numberOfPlanes;
+@property (readonly) int numberOfPlanes;
 
 /*!
  @method linesize:
@@ -77,3 +79,5 @@
 - (BOOL)isEqualToDescriptor:(SGAudioDescriptor *)descriptor;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -20,7 +20,11 @@ typedef UIView SGPLFView;
 
 #endif
 
+NS_ASSUME_NONNULL_BEGIN
+
 void SGPLFViewSetBackgroundColor(SGPLFView *view, SGPLFColor *color);
 void SGPLFViewInsertSubview(SGPLFView *superView, SGPLFView *subView, NSInteger index);
 
-SGPLFImage * SGPLFViewGetCurrentSnapshot(SGPLFView *view);
+SGPLFImage *_Nullable SGPLFViewGetCurrentSnapshot(SGPLFView *view);
+
+NS_ASSUME_NONNULL_END

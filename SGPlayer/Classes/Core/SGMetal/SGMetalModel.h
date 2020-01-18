@@ -8,6 +8,8 @@
 
 #import <Metal/Metal.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGMetalModel : NSObject
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device;
@@ -16,7 +18,9 @@
 @property (nonatomic) MTLIndexType indexType;
 @property (nonatomic) MTLPrimitiveType primitiveType;
 @property (nonatomic, strong) id<MTLDevice> device;
-@property (nonatomic, strong) id<MTLBuffer> indexBuffer;
-@property (nonatomic, strong) id<MTLBuffer> vertexBuffer;
+@property (nonatomic, strong, nullable) id<MTLBuffer> indexBuffer;
+@property (nonatomic, strong, nullable) id<MTLBuffer> vertexBuffer;
 
 @end
+
+NS_ASSUME_NONNULL_END

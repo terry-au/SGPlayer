@@ -10,6 +10,8 @@
 #import "SGAudioDescriptor.h"
 #import "SGTime.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGDecoderOptions : NSObject <NSCopying>
 
 /*!
@@ -18,7 +20,7 @@
     The options for avformat_open_input.
     Default is nil.
  */
-@property (nonatomic, copy) NSDictionary *options;
+@property (nonatomic, copy, nullable) NSDictionary *options;
 
 /*!
  @property threadsAuto
@@ -91,3 +93,5 @@
 @property (nonatomic) CMTime preferredFrameRate;
 
 @end
+
+NS_ASSUME_NONNULL_END

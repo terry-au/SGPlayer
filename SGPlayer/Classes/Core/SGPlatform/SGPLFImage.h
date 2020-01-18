@@ -20,13 +20,17 @@ typedef UIImage SGPLFImage;
 
 #endif
 
+NS_ASSUME_NONNULL_BEGIN
+
 SGPLFImage * SGPLFImageWithCGImage(CGImageRef image);
 
 // CVPixelBufferRef
-SGPLFImage * SGPLFImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer);
-CIImage * SGPLFImageCIImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer);
-CGImageRef SGPLFImageCGImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer);
+SGPLFImage *_Nullable SGPLFImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer);
+CIImage *_Nullable SGPLFImageCIImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer);
+CGImageRef _Nullable SGPLFImageCGImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer);
 
 // RGB data buffer
-SGPLFImage * SGPLFImageWithRGBData(uint8_t *rgb_data, int linesize, int width, int height);
-CGImageRef SGPLFImageCGImageWithRGBData(uint8_t *rgb_data, int linesize, int width, int height);
+SGPLFImage *_Nullable SGPLFImageWithRGBData(uint8_t *rgb_data, int linesize, int width, int height);
+CGImageRef SGPLFImageCGImageWithRGBData(uint8_t *rgb_data, int linesize, int width, int height) CF_RETURNS_RETAINED;
+
+NS_ASSUME_NONNULL_END

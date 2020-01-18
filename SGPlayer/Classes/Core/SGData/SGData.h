@@ -46,16 +46,16 @@ typedef NS_OPTIONS(NSUInteger, SGDataFlags) {
 /**
  *
  */
-- (CMTime)duration;
+@property (readonly) CMTime duration;
 
 /**
  *
  */
-- (CMTime)timeStamp;
+@property (readonly) CMTime timeStamp;
 
 /**
  *
  */
-- (int)size;
+@property (readonly) int size;
 
 @end

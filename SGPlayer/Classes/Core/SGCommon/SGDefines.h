@@ -15,6 +15,8 @@
 #define SGPLAYER_EXTERN extern
 #endif
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, SGMediaType) {
     SGMediaTypeUnknown  = 0,
     SGMediaTypeAudio    = 1,
@@ -77,4 +79,6 @@ typedef struct {
 typedef void (^SGBlock)(void);
 typedef void (^SGHandler)(SGPlayer *player);
 typedef BOOL (^SGTimeReader)(CMTime *desire, BOOL *drop);
-typedef void (^SGSeekResult)(CMTime time, NSError *error);
+typedef void (^SGSeekResult)(CMTime time, NSError *_Nullable error);
+
+NS_ASSUME_NONNULL_END

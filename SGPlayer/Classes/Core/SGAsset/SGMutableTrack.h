@@ -10,6 +10,8 @@
 #import "SGSegment.h"
 #import "SGTrack.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGMutableTrack : SGTrack
 
 /*!
@@ -34,3 +36,5 @@
 - (BOOL)appendSegment:(SGSegment *)segment;
 
 @end
+
+NS_ASSUME_NONNULL_END

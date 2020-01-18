@@ -10,6 +10,8 @@
 #import "SGCapacity.h"
 #import "SGFrame.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol SGRenderableDelegate;
 
 /**
@@ -38,7 +40,7 @@ typedef NS_ENUM(NSUInteger, SGRenderableState) {
 /**
  *
  */
-- (SGCapacity)capacity;
+@property (nonatomic, readonly) SGCapacity capacity;
 
 /**
  *
@@ -87,6 +89,8 @@ typedef NS_ENUM(NSUInteger, SGRenderableState) {
 /**
  *
  */
-- (__kindof SGFrame *)renderable:(id<SGRenderable>)renderable fetchFrame:(SGTimeReader)timeReader;
+- (__kindof SGFrame *_Nullable)renderable:(id<SGRenderable>)renderable fetchFrame:(SGTimeReader)timeReader;
 
 @end
+
+NS_ASSUME_NONNULL_END

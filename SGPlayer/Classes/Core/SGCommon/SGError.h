@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SGDefines.h"
 
-typedef NS_ENUM(NSUInteger, SGErrorCode) {
+NS_ASSUME_NONNULL_BEGIN
+
+SGPLAYER_EXTERN NSErrorDomain const SGErrorDomain;
+SGPLAYER_EXTERN NSErrorUserInfoKey const SGErrorUserInfoKeyOperation;
+
+typedef NS_ERROR_ENUM(SGErrorDomain, SGErrorCode) {
     SGErrorCodeUnknown = 0,
     SGErrorImmediateExitRequested,
     SGErrorCodeNoValidFormat,
@@ -35,5 +41,7 @@ typedef NS_ENUM(NSUInteger, SGActionCode) {
     SGActionCodeNextFrame,
 };
 
-NSError * SGGetFFError(int result, SGActionCode operation);
-NSError * SGCreateError(NSUInteger code, SGActionCode operation);
+SGPLAYER_EXTERN NSError *_Nullable SGGetFFError(int result, SGActionCode operation);
+SGPLAYER_EXTERN NSError * SGCreateError(NSUInteger code, SGActionCode operation);
+
+NS_ASSUME_NONNULL_END

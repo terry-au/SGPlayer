@@ -61,7 +61,7 @@
 /**
  *  Playback.
  */
-- (BOOL)isPlaying;
+@property (readonly, getter=isPlaying) BOOL playing;
 
 /**
  *  Play.

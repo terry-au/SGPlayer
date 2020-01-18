@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "SGData.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGObjectPool : NSObject
 
-+ (instancetype)sharedPool;
+@property (class, strong, readonly) SGObjectPool *sharedPool;
 
 /**
  *
@@ -29,3 +31,5 @@
 - (void)flush;
 
 @end
+
+NS_ASSUME_NONNULL_END

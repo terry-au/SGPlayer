@@ -8,6 +8,8 @@
 
 #import "SGAsset.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGURLAsset : SGAsset
 
 + (instancetype)new NS_UNAVAILABLE;
@@ -28,3 +30,5 @@
 @property (nonatomic, copy, readonly) NSURL *URL;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -31,7 +31,7 @@ SGCapacity SGCapacityMinimum(SGCapacity c1, SGCapacity c2)
     if (CMTimeCompare(c1.duration, c2.duration) < 0) {
         return c1;
     } else if (CMTimeCompare(c1.duration, c2.duration) > 0) {
-        return c1;
+        return c2;
     }
     if (c1.count < c2.count) {
         return c1;

@@ -31,7 +31,7 @@
 /**
  *
  */
-- (SGCapacity)capacity;
+@property (readonly) SGCapacity capacity;
 
 /**
  *

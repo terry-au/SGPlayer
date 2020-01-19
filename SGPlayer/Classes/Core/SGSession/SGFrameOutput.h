@@ -13,6 +13,8 @@
 #import "SGAsset.h"
 #import "SGFrame.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol SGFrameOutputDelegate;
 
 /**
@@ -112,7 +114,7 @@ typedef NS_ENUM(NSUInteger, SGFrameOutputState) {
 /**
  *
  */
-- (BOOL)seekable;
+@property (nonatomic, readonly) BOOL seekable;
 
 /**
  *
@@ -122,12 +124,12 @@ typedef NS_ENUM(NSUInteger, SGFrameOutputState) {
 /**
  *
  */
-- (BOOL)seekToTime:(CMTime)time result:(SGSeekResult)result;
+- (BOOL)seekToTime:(CMTime)time result:(nullable SGSeekResult)result;
 
 /**
  *
  */
-- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result;
+- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(nullable SGSeekResult)result;
 
 /**
  *
@@ -159,3 +161,5 @@ typedef NS_ENUM(NSUInteger, SGFrameOutputState) {
 - (void)frameOutput:(SGFrameOutput *)frameOutput didOutputFrames:(NSArray<__kindof SGFrame *> *)frames needsDrop:(BOOL(^)(void))needsDrop;
 
 @end
+
+NS_ASSUME_NONNULL_END

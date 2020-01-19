@@ -11,6 +11,8 @@
 #import "SGPacket.h"
 #import "SGAsset.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol SGPacketOutputDelegate;
 
 /**
@@ -111,12 +113,12 @@ typedef NS_ENUM(NSUInteger, SGPacketOutputState) {
 /**
  *
  */
-- (BOOL)seekToTime:(CMTime)time result:(SGSeekResult)result;
+- (BOOL)seekToTime:(CMTime)time result:(nullable SGSeekResult)result;
 
 /**
  *
  */
-- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result;
+- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(nullable SGSeekResult)result;
 
 @end
 
@@ -133,3 +135,5 @@ typedef NS_ENUM(NSUInteger, SGPacketOutputState) {
 - (void)packetOutput:(SGPacketOutput *)packetOutput didOutputPacket:(SGPacket *)packet;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -11,6 +11,8 @@
 #import "SGAsset.h"
 #import "SGTrack.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGPlayerItem : NSObject
 
 + (instancetype)new NS_UNAVAILABLE;
@@ -28,7 +30,7 @@
  @abstract
     If the loading item failed, this describes the error that caused the failure.
  */
-@property (nonatomic, copy, readonly) NSError *error;
+@property (nonatomic, copy, readonly, nullable) NSError *error;
 
 /*!
  @property tracks
@@ -56,27 +58,29 @@
  @abstract
     Indicates the audioSelection of the item.
  */
-@property (nonatomic, copy, readonly) SGTrackSelection *audioSelection;
+@property (nonatomic, copy, readonly, nullable) SGTrackSelection *audioSelection;
 
 /*!
  @method setAudioSelection:action:
  @abstract
     Select specific audio tracks.
  */
-- (void)setAudioSelection:(SGTrackSelection *)audioSelection action:(SGTrackSelectionAction)action;
+- (void)setAudioSelection:(nullable SGTrackSelection *)audioSelection action:(SGTrackSelectionAction)action;
 
 /*!
  @property duration
  @abstract
     Indicates the videoSelection of the item.
  */
-@property (nonatomic, copy, readonly) SGTrackSelection *videoSelection;
+@property (nonatomic, copy, readonly, nullable) SGTrackSelection *videoSelection;
 
 /*!
  @method setVideoSelection:action:
  @abstract
     Select specific video tracks.
  */
-- (void)setVideoSelection:(SGTrackSelection *)videoSelection action:(SGTrackSelectionAction)action;
+- (void)setVideoSelection:(nullable SGTrackSelection *)videoSelection action:(SGTrackSelectionAction)action;
 
 @end
+
+NS_ASSUME_NONNULL_END

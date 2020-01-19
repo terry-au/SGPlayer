@@ -27,7 +27,7 @@ SGPLFImage * SGPLFImageWithCGImage(CGImageRef image);
 // CVPixelBufferRef
 SGPLFImage *_Nullable SGPLFImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer);
 CIImage *_Nullable SGPLFImageCIImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer);
-CGImageRef _Nullable SGPLFImageCGImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer);
+CGImageRef _Nullable SGPLFImageCGImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer) CF_RETURNS_RETAINED;
 
 // RGB data buffer
 SGPLFImage *_Nullable SGPLFImageWithRGBData(uint8_t *rgb_data, int linesize, int width, int height);

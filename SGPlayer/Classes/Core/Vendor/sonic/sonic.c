@@ -231,16 +231,16 @@ void sonicSetVolume(sonicStream stream, float volume) {
 /* Free stream buffers. */
 static void freeStreamBuffers(sonicStream stream) {
   if (stream->inputBuffer != NULL) {
-    free(stream->inputBuffer);
+    free(stream->inputBuffer); stream->inputBuffer = NULL;
   }
   if (stream->outputBuffer != NULL) {
-    free(stream->outputBuffer);
+    free(stream->outputBuffer); stream->outputBuffer = NULL;
   }
   if (stream->pitchBuffer != NULL) {
-    free(stream->pitchBuffer);
+    free(stream->pitchBuffer); stream->pitchBuffer = NULL;
   }
   if (stream->downSampleBuffer != NULL) {
-    free(stream->downSampleBuffer);
+    free(stream->downSampleBuffer); stream->downSampleBuffer = NULL;
   }
 }
 

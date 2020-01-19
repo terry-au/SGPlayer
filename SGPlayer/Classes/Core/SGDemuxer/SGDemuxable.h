@@ -10,6 +10,8 @@
 #import "SGDemuxerOptions.h"
 #import "SGPacket.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol SGDemuxableDelegate;
 
 @protocol SGDemuxable <NSObject>
@@ -32,7 +34,7 @@
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *finishedTracks;
+@property (nonatomic, copy, readonly, nullable) NSArray<SGTrack *> *finishedTracks;
 
 /**
  *
@@ -47,37 +49,37 @@
 /**
  *
  */
-- (id<SGDemuxable>)sharedDemuxer;
+- (nullable id<SGDemuxable>)sharedDemuxer;
 
 /**
  *
  */
-- (NSError *)open;
+- (nullable NSError *)open;
 
 /**
  *
  */
-- (NSError *)close;
+- (nullable NSError *)close;
 
 /**
  *
  */
-- (NSError *)seekable;
+- (nullable NSError *)seekable;
 
 /**
  *
  */
-- (NSError *)seekToTime:(CMTime)time;
+- (nullable NSError *)seekToTime:(CMTime)time;
 
 /**
  *
  */
-- (NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter;
+- (nullable NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter;
 
 /**
  *
  */
-- (NSError *)nextPacket:(SGPacket **)packet;
+- (nullable NSError *)nextPacket:(SGPacket *_Nullable*_Nullable)packet;
 
 @end
 
@@ -89,3 +91,5 @@
 - (BOOL)demuxableShouldAbortBlockingFunctions:(id<SGDemuxable>)demuxable;
 
 @end
+
+NS_ASSUME_NONNULL_END

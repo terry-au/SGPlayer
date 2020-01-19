@@ -1038,6 +1038,7 @@
 				9C3A685921CB76B10031DDE1 /* sonic.h */,
 				9C3A685A21CB76B10031DDE1 /* sonic.c */,
 			);
+			indentWidth = 2;
 			path = sonic;
 			sourceTree = "<group>";
 		};
@@ -1988,7 +1989,7 @@
 		9CEFA6CD1E7122BF00835CAB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = single;
 				TargetAttributes = {
 					9C8637F521904A0900D730EC = {
@@ -2572,6 +2573,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

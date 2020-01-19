@@ -13,6 +13,10 @@ public extension SGCapacity {
         return SGCapacityAdd(lhs, rhs)
     }
     
+    @inlinable static func +=(_ lhs: inout SGCapacity, _ rhs: SGCapacity) {
+        lhs = SGCapacityAdd(lhs, rhs)
+    }
+    
     @inlinable var isEmpty: Bool {
         return SGCapacityIsEmpty(self)
     }

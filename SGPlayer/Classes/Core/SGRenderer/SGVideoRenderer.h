@@ -12,6 +12,8 @@
 #import "SGPLFImage.h"
 #import "SGPLFView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, SGDisplayMode) {
     SGDisplayModePlane = 0,
     SGDisplayModeVR    = 1,
@@ -27,11 +29,11 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
 @interface SGVideoRenderer : NSObject
 
 /*!
- @method supportedPixelFormats
+ @property supportedPixelFormats
  @abstract
     Indicates all supported pixel formats.
 */
-+ (NSArray<NSNumber *> *)supportedPixelFormats;
+@property (class, nonatomic, readonly, copy) NSArray<NSNumber *> *supportedPixelFormats;
 
 /*!
  @method isSupportedInputFormat:
@@ -58,7 +60,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic, strong, readonly) SGVRViewport *viewport;
+@property (nonatomic, strong, readonly, nullable) SGVRViewport *viewport;
 
 /*!
  @property frameOutput
@@ -68,7 +70,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic, copy) void (^frameOutput)(SGVideoFrame *frame);
+@property (nonatomic, copy, nullable) void (^frameOutput)(SGVideoFrame *frame);
 
 /*!
  @property preferredFramesPerSecond
@@ -109,6 +111,8 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-- (SGPLFImage *)currentImage;
+- (nullable SGPLFImage *)currentImage;
 
 @end
+
+NS_ASSUME_NONNULL_END

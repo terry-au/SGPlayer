@@ -26,7 +26,7 @@
 /**
  *
  */
-- (SGCapacity)capacity;
+@property (nonatomic, readonly) SGCapacity capacity;
 
 /**
  *

@@ -89,7 +89,7 @@ typedef NS_ENUM(NSUInteger, SGRenderableState) {
 /**
  *
  */
-- (__kindof SGFrame *_Nullable)renderable:(id<SGRenderable>)renderable fetchFrame:(SGTimeReader)timeReader;
+- (__kindof SGFrame *_Nullable)renderable:(id<SGRenderable>)renderable fetchFrame:(nullable SGTimeReader)timeReader;
 
 @end
 

@@ -42,6 +42,6 @@ typedef NS_ENUM(NSUInteger, SGActionCode) {
 };
 
 SGPLAYER_EXTERN NSError *_Nullable SGGetFFError(int result, SGActionCode operation);
-SGPLAYER_EXTERN NSError * SGCreateError(NSUInteger code, SGActionCode operation);
+SGPLAYER_EXTERN NSError * SGCreateError(NSInteger code, SGActionCode operation);
 
 NS_ASSUME_NONNULL_END

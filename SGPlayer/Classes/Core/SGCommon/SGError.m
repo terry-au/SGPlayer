@@ -34,7 +34,7 @@ NSError * SGGetFFError(int result, SGActionCode operation)
     return [NSError errorWithDomain:SGErrorDomain code:result userInfo:errDict];
 }
 
-NSError * SGCreateError(NSUInteger code, SGActionCode operation)
+NSError * SGCreateError(NSInteger code, SGActionCode operation)
 {
     return [NSError errorWithDomain:SGErrorDomain code:(NSInteger)code userInfo:@{SGErrorUserInfoKeyOperation : @(operation)}];
 }

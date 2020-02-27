@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
     The options for avformat_open_input.
     Default is nil.
  */
-@property (nonatomic, copy, nullable) NSDictionary *options;
+@property (nonatomic, copy, nullable) NSDictionary<NSString*,id> *options;
 
 /*!
  @property threadsAuto

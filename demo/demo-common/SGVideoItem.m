@@ -15,7 +15,7 @@
     NSURL *i_see_fire = [[NSBundle mainBundle] URLForResource:@"i-see-fire" withExtension:@"mp4"];
     NSURL *google_help_vr = [[NSBundle mainBundle] URLForResource:@"google-help-vr" withExtension:@"mp4"];
     
-    NSMutableArray *items = [NSMutableArray array];
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:8];
     {
         SGVideoItem *item = [[SGVideoItem alloc] init];
         item.name = @"I See Fire";

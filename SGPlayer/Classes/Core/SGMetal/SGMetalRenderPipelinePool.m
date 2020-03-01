@@ -11,15 +11,6 @@
 #import "SGMetalNV12RenderPipeline.h"
 #import "SGMetalBGRARenderPipeline.h"
 
-#import "SGPLFTargets.h"
-#if SGPLATFORM_TARGET_OS_IPHONE
-#import "SGMetalShader_iOS.h"
-#elif SGPLATFORM_TARGET_OS_TV
-#import "SGMetalShader_tvOS.h"
-#elif SGPLATFORM_TARGET_OS_MAC
-#import "SGMetalShader_macOS.h"
-#endif
-
 @interface SGMetalRenderPipelinePool ()
 
 @property (nonatomic, strong) id<MTLDevice> device;
@@ -36,7 +27,7 @@
 {
     if (self = [super init]) {
         self.device = device;
-        self.library = [device newLibraryWithData:dispatch_data_create(metallib, sizeof(metallib), dispatch_get_global_queue(0, 0), ^{}) error:NULL];
+        self.library = [device newDefaultLibraryWithBundle:[NSBundle bundleForClass:[SGMetalRenderPipelinePool class]] error:NULL];
     }
     return self;
 }

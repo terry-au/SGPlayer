@@ -8,6 +8,8 @@
 
 #import "SGPlayerHeader.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - SGPlayer
 
 @interface SGPlayer : NSObject
@@ -24,25 +26,25 @@
 @property (nonatomic, strong) SGOptions *options;
 
 /*!
- @method error
+ @property error
  @abstract
     Get player error information.
  */
-- (NSError *)error;
+@property (readonly, strong, nullable) NSError *error;
 
 /*!
- @method timeInfo
+ @property timeInfo
  @abstract
     Get player time information.
  */
-- (SGTimeInfo)timeInfo;
+@property (readonly) SGTimeInfo timeInfo;
 
 /*!
- @method sstateInfo
+ @property sstateInfo
  @abstract
     Get player state information.
  */
-- (SGStateInfo)sstateInfo;
+@property (readonly) SGStateInfo sstateInfo;
 
 /*!
  @method stateInfo:timeInfo:error:
@@ -63,13 +65,13 @@
 @interface SGPlayer ()
 
 /*!
- @method currentItem
+ @property currentItem
  @abstract
     Indicates the current item of the Player.
  @result
     Returns nil if the player is idle.
  */
-- (SGPlayerItem *)currentItem;
+@property (nonatomic, strong, readonly, nullable) SGPlayerItem *currentItem;
 
 /*!
  @property readyHandler
@@ -198,7 +200,7 @@
     Equivalent:
         [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid result:result];
  */
-- (BOOL)seekToTime:(CMTime)time result:(SGSeekResult)result;
+- (BOOL)seekToTime:(CMTime)time result:(nullable SGSeekResult)result;
 
 /*!
  @method seekToTime:toleranceBefor:toleranceAfter:result:
@@ -208,7 +210,7 @@
  @discussion
     Use this method to seek to a specified time for the current player item and to be notified when the seek operation is complete. The result handler for any prior seek request that is still in process will be invoked immediately with the error parameter. If the new request completes without being interrupted by another seek request or by any other operation the specified result handler will be invoked without error.
  */
-- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result;
+- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(nullable SGSeekResult)result;
 
 @end
 
@@ -224,7 +226,7 @@
  @discussion
     The life cycle is consistent with the player. The settings for the renderer will always take effect.
  */
-- (SGAudioRenderer *)audioRenderer;
+@property (readonly) SGAudioRenderer *audioRenderer;
 
 /*!
  @property videoRenderer
@@ -234,7 +236,7 @@
  @discussion
     The life cycle is consistent with the player. The settings for the renderer will always take effect.
  */
-- (SGVideoRenderer *)videoRenderer;
+@property (readonly) SGVideoRenderer *videoRenderer;
 
 @end
 
@@ -318,3 +320,5 @@ SGPLAYER_EXTERN NSString * const SGPlayerInfoActionUserInfoKey;
 @property (nonatomic, strong) NSOperationQueue *notificationQueue;
 
 @end
+
+NS_ASSUME_NONNULL_END

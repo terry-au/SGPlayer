@@ -41,22 +41,22 @@
 /**
  *  Rate.
  */
-@property (NS_NONATOMIC_IOSONLY) float rate;
+@property (nonatomic) float rate;
 
 /**
  *  Pitch.
  */
-@property (NS_NONATOMIC_IOSONLY) float pitch;
+@property (nonatomic) float pitch;
 
 /**
  *  Volume.
  */
-@property (NS_NONATOMIC_IOSONLY) float volume;
+@property (nonatomic) float volume;
 
 /**
  *  ASBD.
  */
-@property (NS_NONATOMIC_IOSONLY) AudioStreamBasicDescription asbd;
+@property (nonatomic) AudioStreamBasicDescription asbd;
 
 /**
  *  Playback.

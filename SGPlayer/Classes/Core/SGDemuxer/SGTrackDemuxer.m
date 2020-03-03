@@ -111,7 +111,7 @@
     self->_currentLayout = self->_layouts.firstObject;
     self->_currentDemuxer = self->_demuxers.firstObject;
     [self->_currentDemuxer seekToTime:kCMTimeZero withError:NULL];
-    return nil;
+    return YES;
 }
 
 - (BOOL)closeWithError:(NSError *__autoreleasing  _Nullable *)error
@@ -182,7 +182,7 @@
         }
         BOOL success = [self->_currentDemuxer nextPacket:packet withError:&error];
         if (!success) {
-            if (error.code == SGErrorImmediateExitRequested) {
+            if (error.code == SGErrorCodeImmediateExitRequested) {
                 break;
             }
             NSInteger nextIndex = self->_currentIndex + 1;

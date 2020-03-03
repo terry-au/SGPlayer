@@ -202,7 +202,7 @@ SGGet0Map(NSDictionary *, metadata, self->_demuxable)
         }
         BOOL success = [self->_demuxable nextPacket:&pkt withError:&error];
         if (!success) {
-            if (error.code == SGErrorImmediateExitRequested) {
+            if (error.code == SGErrorCodeImmediateExitRequested) {
                 break;
             }
             self->_flags.finished = YES;

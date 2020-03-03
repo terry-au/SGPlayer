@@ -176,7 +176,7 @@
         }
         BOOL success = [demuxable nextPacket:packet withError:&error];
         if (!success) {
-            if (error.code == SGErrorImmediateExitRequested) {
+            if (error.code == SGErrorCodeImmediateExitRequested) {
                 break;
             }
             [self->_finishedDemuxers addObject:demuxable];

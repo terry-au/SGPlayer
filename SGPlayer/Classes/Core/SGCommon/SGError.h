@@ -16,7 +16,7 @@ SGPLAYER_EXTERN NSErrorUserInfoKey const SGErrorUserInfoKeyOperation;
 
 typedef NS_ERROR_ENUM(SGErrorDomain, SGErrorCode) {
     SGErrorCodeUnknown = 0,
-    SGErrorImmediateExitRequested,
+    SGErrorCodeImmediateExitRequested,
     SGErrorCodeNoValidFormat,
     SGErrorCodeFormatNotSeekable,
     SGErrorCodePacketOutputCancelSeek,

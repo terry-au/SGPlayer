@@ -69,7 +69,7 @@
     asbd.mBitsPerChannel   = byteSize * 8;
     asbd.mBytesPerFrame    = byteSize;
     asbd.mChannelsPerFrame = 2;
-    asbd.mFormatFlags      = kAudioFormatFlagIsFloat | kAudioFormatFlagIsNonInterleaved;
+    asbd.mFormatFlags      = kAudioFormatFlagIsFloat | kAudioFormatFlagIsNonInterleaved | kAudioFormatFlagsNativeEndian;
     asbd.mFormatID         = kAudioFormatLinearPCM;
     asbd.mFramesPerPacket  = 1;
     asbd.mBytesPerPacket   = asbd.mFramesPerPacket * asbd.mBytesPerFrame;

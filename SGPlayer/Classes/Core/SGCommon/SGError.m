@@ -27,7 +27,7 @@ NSError * SGGetFFError(int result, SGActionCode operation)
     NSString *descriptionStr = [[NSString alloc] initWithBytesNoCopy:data length:strnlen(data, 256) encoding:NSUTF8StringEncoding freeWhenDone:YES];
     errDict[NSLocalizedDescriptionKey] = descriptionStr;
     if (result == AVERROR_EXIT) {
-        result = SGErrorImmediateExitRequested;
+        result = SGErrorCodeImmediateExitRequested;
     } else if (result == AVERROR_EOF) {
         result = SGErrorCodeDemuxerEndOfFile;
     }

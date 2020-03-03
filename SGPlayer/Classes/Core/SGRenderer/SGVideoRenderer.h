@@ -50,7 +50,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (NS_NONATOMIC_IOSONLY, strong) SGPLFView *view;
+@property (nonatomic, strong) SGPLFView *view;
 
 /*!
  @property viewport
@@ -81,7 +81,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (NS_NONATOMIC_IOSONLY) NSInteger preferredFramesPerSecond;
+@property (nonatomic) NSInteger preferredFramesPerSecond;
 
 /*!
  @property scalingMode
@@ -101,7 +101,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (NS_NONATOMIC_IOSONLY) SGDisplayMode displayMode;
+@property (nonatomic) SGDisplayMode displayMode;
 
 /*!
  @method currentImage

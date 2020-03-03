@@ -26,12 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, readonly) CMTime scale;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime scale;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime offset;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime offset;
 
 /**
  *

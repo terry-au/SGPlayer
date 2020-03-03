@@ -17,10 +17,10 @@ static NSInteger kMaxPredecoderCount = 2;
 
 @interface SGDecodeContextUnit : NSObject
 
-@property (nonatomic, strong) NSArray *frames;
-@property (nonatomic, strong) id<SGDecodable> decoder;
-@property (nonatomic, strong) SGObjectQueue *packetQueue;
-@property (nonatomic, strong) SGCodecDescriptor *codecDescriptor;
+@property (NS_NONATOMIC_IOSONLY, strong) NSArray *frames;
+@property (NS_NONATOMIC_IOSONLY, strong) id<SGDecodable> decoder;
+@property (NS_NONATOMIC_IOSONLY, strong) SGObjectQueue *packetQueue;
+@property (NS_NONATOMIC_IOSONLY, strong) SGCodecDescriptor *codecDescriptor;
 
 @end
 
@@ -38,12 +38,12 @@ static NSInteger kMaxPredecoderCount = 2;
 
 @interface SGDecodeContext ()
 
-@property (nonatomic, readonly) BOOL needsFlush;
-@property (nonatomic, readonly) NSInteger decodeIndex;
-@property (nonatomic, readonly) NSInteger predecodeIndex;
-@property (nonatomic, strong, readonly) Class decoderClass;
-@property (nonatomic, strong, readonly) NSMutableArray<id<SGDecodable>> *decoders;
-@property (nonatomic, strong, readonly) NSMutableArray<SGDecodeContextUnit *> *units;
+@property (NS_NONATOMIC_IOSONLY, readonly) BOOL needsFlush;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger decodeIndex;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger predecodeIndex;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) Class decoderClass;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableArray<id<SGDecodable>> *decoders;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableArray<SGDecodeContextUnit *> *units;
 
 @end
 

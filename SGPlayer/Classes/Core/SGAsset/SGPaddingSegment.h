@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, readonly) CMTime duration;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime duration;
 
 @end
 

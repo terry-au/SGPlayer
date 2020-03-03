@@ -23,13 +23,13 @@
  @abstract
     Indicates the current pitch.
  */
-@property (nonatomic) Float64 pitch;
+@property (NS_NONATOMIC_IOSONLY) Float64 pitch;
 
 /*!
  @property volume
  @abstract
     Indicates the current volume.
  */
-@property (nonatomic) Float64 volume;
+@property (NS_NONATOMIC_IOSONLY) Float64 volume;
 
 @end

@@ -44,47 +44,47 @@ typedef NS_ENUM(NSUInteger, SGFrameOutputState) {
 /**
  *
  */
-@property (nonatomic, copy) SGDemuxerOptions *demuxerOptions;
+@property (NS_NONATOMIC_IOSONLY, copy) SGDemuxerOptions *demuxerOptions;
 
 /**
  *
  */
-@property (nonatomic, copy) SGDecoderOptions *decoderOptions;
+@property (NS_NONATOMIC_IOSONLY, copy) SGDecoderOptions *decoderOptions;
 
 /**
  *
  */
-@property (nonatomic, weak) id<SGFrameOutputDelegate> delegate;
+@property (NS_NONATOMIC_IOSONLY, weak) id<SGFrameOutputDelegate> delegate;
 
 /**
  *
  */
-@property (nonatomic, readonly) SGFrameOutputState state;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGFrameOutputState state;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSError *error;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSError *error;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *tracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *tracks;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *selectedTracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *selectedTracks;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSDictionary *metadata;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSDictionary *metadata;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime duration;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime duration;
 
 /**
  *

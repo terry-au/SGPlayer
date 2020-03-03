@@ -43,42 +43,42 @@ typedef NS_ENUM(NSUInteger, SGPacketOutputState) {
 /**
  *
  */
-@property (nonatomic, copy) SGDemuxerOptions *options;
+@property (NS_NONATOMIC_IOSONLY, copy) SGDemuxerOptions *options;
 
 /**
  *
  */
-@property (nonatomic, weak) id<SGPacketOutputDelegate> delegate;
+@property (NS_NONATOMIC_IOSONLY, weak) id<SGPacketOutputDelegate> delegate;
 
 /**
  *
  */
-@property (nonatomic, readonly) SGPacketOutputState state;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGPacketOutputState state;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSError *error;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSError *error;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *tracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *tracks;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *finishedTracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *finishedTracks;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSDictionary *metadata;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSDictionary *metadata;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime duration;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime duration;
 
 /**
  *

@@ -16,17 +16,17 @@
 /**
  *
  */
-@property (nonatomic, weak) id<SGClockDelegate> delegate;
+@property (NS_NONATOMIC_IOSONLY, weak) id<SGClockDelegate> delegate;
 
 /**
  *
  */
-@property (nonatomic) Float64 rate;
+@property (NS_NONATOMIC_IOSONLY) Float64 rate;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime currentTime;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime currentTime;
 
 /**
  *

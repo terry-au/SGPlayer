@@ -16,7 +16,7 @@
 /**
  *
  */
-@property (nonatomic, strong) SGDecoderOptions *options;
+@property (NS_NONATOMIC_IOSONLY, strong) SGDecoderOptions *options;
 
 /**
  *

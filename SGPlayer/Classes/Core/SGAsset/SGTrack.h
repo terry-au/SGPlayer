@@ -21,21 +21,21 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Indicates the pointer to the AVStream.
  */
-@property (nonatomic, readonly, nullable) void *coreptr;
+@property (NS_NONATOMIC_IOSONLY, readonly, nullable) void *coreptr;
 
 /*!
  @property type
  @abstract
     Indicates the track media type.
  */
-@property (nonatomic, readonly) SGMediaType type;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGMediaType type;
 
 /*!
  @property type
  @abstract
     Indicates the track index.
  */
-@property (nonatomic, readonly) NSInteger index;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger index;
 
 /*!
  @method trackWithTracks:type:

@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
     The options for avformat_open_input.
     Default is nil.
  */
-@property (nonatomic, copy, nullable) NSDictionary<NSString*,id> *options;
+@property (NS_NONATOMIC_IOSONLY, copy, nullable) NSDictionary<NSString*,id> *options;
 
 /*!
  @property threadsAuto
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
     The option for avformat_open_input.
     Default is YES.
  */
-@property (nonatomic) BOOL threadsAuto;
+@property (NS_NONATOMIC_IOSONLY) BOOL threadsAuto;
 
 /*!
  @property refcountedFrames
@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
     The option for avformat_open_input.
     Default is YES.
  */
-@property (nonatomic) BOOL refcountedFrames;
+@property (NS_NONATOMIC_IOSONLY) BOOL refcountedFrames;
 
 /*!
  @property hardwareDecodeH264
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
     Indicates whether hardware decoding is enabled for H264.
     Default is YES.
  */
-@property (nonatomic) BOOL hardwareDecodeH264;
+@property (NS_NONATOMIC_IOSONLY) BOOL hardwareDecodeH264;
 
 /*!
  @property hardwareDecodeH265
@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
     Indicates whether hardware decoding is enabled for H265.
     Default is YES.
  */
-@property (nonatomic) BOOL hardwareDecodeH265;
+@property (NS_NONATOMIC_IOSONLY) BOOL hardwareDecodeH265;
 
 /*!
  @property preferredPixelFormat
@@ -60,21 +60,21 @@ NS_ASSUME_NONNULL_BEGIN
     Indicates the default hardware decoding output format.
     Default is kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange.
  */
-@property (nonatomic) OSType preferredPixelFormat;
+@property (NS_NONATOMIC_IOSONLY) OSType preferredPixelFormat;
 
 /*!
  @property supportedPixelFormats
  @abstract
     Indicates the supported pixel formats.
  */
-@property (nonatomic, copy) NSArray<NSNumber *> *supportedPixelFormats;
+@property (NS_NONATOMIC_IOSONLY, copy) NSArray<NSNumber *> *supportedPixelFormats;
 
 /*!
  @property supportedAudioDescriptors
  @abstract
     Indicates the supported audio descriptors.
  */
-@property (nonatomic, copy) NSArray<SGAudioDescriptor *> *supportedAudioDescriptors;
+@property (NS_NONATOMIC_IOSONLY, copy) NSArray<SGAudioDescriptor *> *supportedAudioDescriptors;
 
 /*!
  @property resetFrameRate
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
     Indicates whether video decoder needs reset frame rate.
     Default is NO.
  */
-@property (nonatomic) BOOL resetFrameRate;
+@property (NS_NONATOMIC_IOSONLY) BOOL resetFrameRate;
 
 /*!
  @property preferredFrameRate
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
     Indicates the preferred video track frame rate.
     Default is (1, 25).
  */
-@property (nonatomic) CMTime preferredFrameRate;
+@property (NS_NONATOMIC_IOSONLY) CMTime preferredFrameRate;
 
 @end
 

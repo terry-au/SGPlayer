@@ -12,7 +12,7 @@
 
 @interface SGPaddingDemuxer ()
 
-@property (nonatomic, readonly) CMTime lasttime;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime lasttime;
 
 @end
 

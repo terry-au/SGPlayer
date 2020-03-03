@@ -22,10 +22,10 @@
     } _flags;
 }
 
-@property (nonatomic, strong, readonly) SGTrack *track;
-@property (nonatomic, strong, readonly) SGTimeLayout *scaleLayout;
-@property (nonatomic, strong, readonly) SGTimeLayout *offsetLayout;
-@property (nonatomic, strong, readonly) SGObjectQueue *packetQueue;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGTrack *track;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGTimeLayout *scaleLayout;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGTimeLayout *offsetLayout;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGObjectQueue *packetQueue;
 
 @end
 

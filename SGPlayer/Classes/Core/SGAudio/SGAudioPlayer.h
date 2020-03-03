@@ -36,32 +36,32 @@
 /**
  *  Delegate.
  */
-@property (nonatomic, weak) id<SGAudioPlayerDelegate> delegate;
+@property (NS_NONATOMIC_IOSONLY, weak) id<SGAudioPlayerDelegate> delegate;
 
 /**
  *  Rate.
  */
-@property (nonatomic) float rate;
+@property (NS_NONATOMIC_IOSONLY) float rate;
 
 /**
  *  Pitch.
  */
-@property (nonatomic) float pitch;
+@property (NS_NONATOMIC_IOSONLY) float pitch;
 
 /**
  *  Volume.
  */
-@property (nonatomic) float volume;
+@property (NS_NONATOMIC_IOSONLY) float volume;
 
 /**
  *  ASBD.
  */
-@property (nonatomic) AudioStreamBasicDescription asbd;
+@property (NS_NONATOMIC_IOSONLY) AudioStreamBasicDescription asbd;
 
 /**
  *  Playback.
  */
-@property (readonly, getter=isPlaying) BOOL playing;
+@property (NS_NONATOMIC_IOSONLY, readonly, getter=isPlaying) BOOL playing;
 
 /**
  *  Play.

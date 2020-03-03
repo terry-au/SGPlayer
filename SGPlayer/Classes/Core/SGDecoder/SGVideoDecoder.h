@@ -13,6 +13,6 @@
 /**
  *
  */
-@property (nonatomic) BOOL outputFromKeyFrame;
+@property (NS_NONATOMIC_IOSONLY) BOOL outputFromKeyFrame;
 
 @end

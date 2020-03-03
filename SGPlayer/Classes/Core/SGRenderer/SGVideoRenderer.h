@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @abstract
     Indicates all supported pixel formats.
 */
-@property (class, nonatomic, readonly, copy) NSArray<NSNumber *> *supportedPixelFormats;
+@property (class, NS_NONATOMIC_IOSONLY, readonly, copy) NSArray<NSNumber *> *supportedPixelFormats;
 
 /*!
  @method isSupportedInputFormat:
@@ -50,7 +50,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic, strong) SGPLFView *view;
+@property (NS_NONATOMIC_IOSONLY, strong) SGPLFView *view;
 
 /*!
  @property viewport
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic, strong, readonly, nullable) SGVRViewport *viewport;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly, nullable) SGVRViewport *viewport;
 
 /*!
  @property frameOutput
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic, copy, nullable) void (^frameOutput)(SGVideoFrame *frame);
+@property (NS_NONATOMIC_IOSONLY, copy, nullable) void (^frameOutput)(SGVideoFrame *frame);
 
 /*!
  @property preferredFramesPerSecond
@@ -81,7 +81,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic) NSInteger preferredFramesPerSecond;
+@property (NS_NONATOMIC_IOSONLY) NSInteger preferredFramesPerSecond;
 
 /*!
  @property scalingMode
@@ -91,7 +91,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic) SGScalingMode scalingMode;
+@property (NS_NONATOMIC_IOSONLY) SGScalingMode scalingMode;
 
 /*!
  @property displayMode
@@ -101,7 +101,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic) SGDisplayMode displayMode;
+@property (NS_NONATOMIC_IOSONLY) SGDisplayMode displayMode;
 
 /*!
  @method currentImage

@@ -31,21 +31,21 @@
     SGCapacity _capacity;
 }
 
-@property (nonatomic, strong, readonly) NSLock *lock;
-@property (nonatomic, strong, readonly) SGClock *clock;
-@property (nonatomic, strong, readonly) SGRenderTimer *fetchTimer;
-@property (nonatomic, strong, readonly) SGVideoFrame *currentFrame;
-@property (nonatomic, strong, readonly) SGVRProjection *matrixMaker;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGClock *clock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGRenderTimer *fetchTimer;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGVideoFrame *currentFrame;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGVRProjection *matrixMaker;
 
-@property (nonatomic, strong, readonly) MTKView *metalView;
-@property (nonatomic, strong, readonly) SGMetalModel *planeModel;
-@property (nonatomic, strong, readonly) SGMetalModel *sphereModel;
-@property (nonatomic, strong, readonly) SGMetalRenderer *renderer;
-@property (nonatomic, strong, readonly) SGMetalProjection *projection1;
-@property (nonatomic, strong, readonly) SGMetalProjection *projection2;
-@property (nonatomic, strong, readonly) SGMetalRenderPipeline *pipeline;
-@property (nonatomic, strong, readonly) SGMetalTextureLoader *textureLoader;
-@property (nonatomic, strong, readonly) SGMetalRenderPipelinePool *pipelinePool;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) MTKView *metalView;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMetalModel *planeModel;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMetalModel *sphereModel;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMetalRenderer *renderer;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMetalProjection *projection1;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMetalProjection *projection2;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMetalRenderPipeline *pipeline;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMetalTextureLoader *textureLoader;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMetalRenderPipelinePool *pipelinePool;
 
 @end
 

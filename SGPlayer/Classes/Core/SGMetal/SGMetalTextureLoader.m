@@ -10,8 +10,8 @@
 
 @interface SGMetalTextureLoader ()
 
-@property (nonatomic, strong) id<MTLDevice> device;
-@property (nonatomic) CVMetalTextureCacheRef textureCache;
+@property (NS_NONATOMIC_IOSONLY, strong) id<MTLDevice> device;
+@property (NS_NONATOMIC_IOSONLY) CVMetalTextureCacheRef textureCache;
 
 @end
 

@@ -19,14 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Indicates the sub tracks.
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *subTracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *subTracks;
 
 /*!
  @property segments
  @abstract
     Provides array of SGMutableTrack segments.
  */
-@property (nonatomic, copy, readonly) NSArray<SGSegment *> *segments;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGSegment *> *segments;
 
 /*!
  @method appendSegment:

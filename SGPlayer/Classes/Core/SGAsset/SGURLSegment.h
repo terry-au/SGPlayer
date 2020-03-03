@@ -27,28 +27,28 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Indicates the URL of the segment.
  */
-@property (nonatomic, copy, readonly) NSURL *URL;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSURL *URL;
 
 /*!
  @property type
  @abstract
     Indicates the index.
  */
-@property (nonatomic, readonly) NSInteger index;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger index;
 
 /*!
  @property timeRange
  @abstract
     Indicates the timeRange of the segment.
  */
-@property (nonatomic, readonly) CMTimeRange timeRange;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTimeRange timeRange;
 
 /*!
  @property scale
  @abstract
     Indicates the scale of the segment.
  */
-@property (nonatomic, readonly) CMTime scale;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime scale;
 
 @end
 

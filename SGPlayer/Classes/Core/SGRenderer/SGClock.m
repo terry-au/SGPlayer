@@ -22,7 +22,7 @@
     CMTimebaseRef _playbackTimebase;
 }
 
-@property (nonatomic, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
 
 @end
 

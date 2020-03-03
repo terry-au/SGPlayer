@@ -10,11 +10,11 @@
 
 @interface SGVRViewport : NSObject
 
-@property (nonatomic) Float64 degress;       //!< Default value is 60.
-@property (nonatomic) Float64 x;             //!< Default value is 0, range is (-360, 360).
-@property (nonatomic) Float64 y;             //!< Default value is 0, range is (-360, 360).
-@property (nonatomic) BOOL flipX;            //!< Default value is NO.
-@property (nonatomic) BOOL flipY;            //!< Default value is NO.
-@property (nonatomic) BOOL sensorEnable;     //!< Default value is YES.
+@property (NS_NONATOMIC_IOSONLY) Float64 degress;       //!< Default value is 60.
+@property (NS_NONATOMIC_IOSONLY) Float64 x;             //!< Default value is 0, range is (-360, 360).
+@property (NS_NONATOMIC_IOSONLY) Float64 y;             //!< Default value is 0, range is (-360, 360).
+@property (NS_NONATOMIC_IOSONLY) BOOL flipX;            //!< Default value is NO.
+@property (NS_NONATOMIC_IOSONLY) BOOL flipY;            //!< Default value is NO.
+@property (NS_NONATOMIC_IOSONLY) BOOL sensorEnable;     //!< Default value is YES.
 
 @end

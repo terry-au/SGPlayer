@@ -16,10 +16,10 @@
 
 @interface SGURLDemuxer ()
 
-@property (nonatomic, readonly) CMTime basetime;
-@property (nonatomic, readonly) CMTime seektime;
-@property (nonatomic, readonly) CMTime seektimeMinimum;
-@property (nonatomic, readonly) AVFormatContext *context;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime basetime;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime seektime;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime seektimeMinimum;
+@property (NS_NONATOMIC_IOSONLY, readonly) AVFormatContext *context;
 
 @end
 

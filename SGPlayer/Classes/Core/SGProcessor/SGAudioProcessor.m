@@ -11,8 +11,8 @@
 
 @interface SGAudioProcessor ()
 
-@property (nonatomic, strong, readonly) SGAudioMixer *mixer;
-@property (nonatomic, strong, readonly) SGTrackSelection *selection;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGAudioMixer *mixer;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGTrackSelection *selection;
 
 @end
 

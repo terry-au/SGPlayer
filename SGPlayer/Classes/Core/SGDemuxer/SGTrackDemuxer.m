@@ -14,13 +14,13 @@
 
 @interface SGTrackDemuxer ()
 
-@property (nonatomic, readonly) NSInteger currentIndex;
-@property (nonatomic, strong, readonly) SGMutableTrack *track;
-@property (nonatomic, strong, readonly) SGTimeLayout *currentLayout;
-@property (nonatomic, strong, readonly) id<SGDemuxable> currentDemuxer;
-@property (nonatomic, strong, readonly) NSMutableArray<SGTimeLayout *> *layouts;
-@property (nonatomic, strong, readonly) NSMutableArray<id<SGDemuxable>> *demuxers;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, id<SGDemuxable>> *sharedDemuxers;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger currentIndex;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGMutableTrack *track;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGTimeLayout *currentLayout;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) id<SGDemuxable> currentDemuxer;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableArray<SGTimeLayout *> *layouts;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableArray<id<SGDemuxable>> *demuxers;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableDictionary<NSString *, id<SGDemuxable>> *sharedDemuxers;
 
 @end
 

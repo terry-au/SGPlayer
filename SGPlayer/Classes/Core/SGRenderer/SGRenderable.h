@@ -30,17 +30,17 @@ typedef NS_ENUM(NSUInteger, SGRenderableState) {
 /**
  *
  */
-@property (nonatomic, weak) id<SGRenderableDelegate> delegate;
+@property (NS_NONATOMIC_IOSONLY, weak) id<SGRenderableDelegate> delegate;
 
 /**
  *
  */
-@property (nonatomic, readonly) SGRenderableState state;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGRenderableState state;
 
 /**
  *
  */
-@property (nonatomic, readonly) SGCapacity capacity;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGCapacity capacity;
 
 /**
  *

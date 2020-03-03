@@ -63,7 +63,7 @@
 #endif
 }
 
-- (BOOL)ready
+- (BOOL)isReady
 {
 #if SGPLATFORM_TARGET_OS_IPHONE
     if (self.viewport.sensorEnable) {
@@ -142,6 +142,20 @@
     self.lastMatrix21 = modelViewProjectionMatrix1;
     self.lastMatrix22 = modelViewProjectionMatrix2;
     return YES;
+}
+
+@end
+
+
+@implementation SGVRProjection (deprecated)
+
+- (BOOL)ready
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLog(@"The function -[SGMotionSensor ready] was called inside your code. make sure you are calling -[SGMotionSensor isReady] instead. This will only be displayed once.");
+    });
+    return self.isReady;
 }
 
 @end

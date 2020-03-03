@@ -16,10 +16,10 @@
 
 @interface SGCodecContext ()
 
-@property (nonatomic, readonly) AVRational timebase;
-@property (nonatomic, readonly) AVCodecParameters *codecpar;
-@property (nonatomic, readonly) AVCodecContext *codecContext;
-@property (nonatomic, copy, readonly) __kindof SGFrame *(^frameGenerator)(void);
+@property (NS_NONATOMIC_IOSONLY, readonly) AVRational timebase;
+@property (NS_NONATOMIC_IOSONLY, readonly) AVCodecParameters *codecpar;
+@property (NS_NONATOMIC_IOSONLY, readonly) AVCodecContext *codecContext;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) __kindof SGFrame *(^frameGenerator)(void);
 
 @end
 

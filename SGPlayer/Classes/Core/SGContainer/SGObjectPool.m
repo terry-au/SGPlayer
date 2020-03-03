@@ -10,8 +10,8 @@
 
 @interface SGObjectPool ()
 
-@property (nonatomic, strong, readonly) NSLock *lock;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, NSMutableSet<id<SGData>> *> *pool;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableDictionary<NSString *, NSMutableSet<id<SGData>> *> *pool;
 
 @end
 

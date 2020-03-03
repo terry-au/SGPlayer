@@ -32,22 +32,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, readonly) CMTime duration;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime duration;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime timeStamp;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime timeStamp;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime decodeTimeStamp;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime decodeTimeStamp;
 
 /**
  *
  */
-@property (nonatomic, readonly) int size;
+@property (NS_NONATOMIC_IOSONLY, readonly) int size;
 
 @end
 

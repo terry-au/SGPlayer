@@ -10,8 +10,8 @@
 
 @interface SGRenderTimer ()
 
-@property (nonatomic, copy) dispatch_block_t handler;
-@property (nonatomic, strong) NSTimer *timer;
+@property (NS_NONATOMIC_IOSONLY, copy) dispatch_block_t handler;
+@property (NS_NONATOMIC_IOSONLY, strong) NSTimer *timer;
 
 @end
 

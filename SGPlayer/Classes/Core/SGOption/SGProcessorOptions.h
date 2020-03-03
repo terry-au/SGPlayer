@@ -16,7 +16,7 @@
     The audio frame processor class.
     Default is SGAudioProcessor.
  */
-@property (nonatomic, copy) Class audioClass;
+@property (NS_NONATOMIC_IOSONLY, copy) Class audioClass;
 
 /*!
  @property videoClass
@@ -24,6 +24,6 @@
     The video frame processor class.
     Default is SGVideoProcessor.
  */
-@property (nonatomic, copy) Class videoClass;
+@property (NS_NONATOMIC_IOSONLY, copy) Class videoClass;
 
 @end

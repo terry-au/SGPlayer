@@ -24,26 +24,26 @@
 /**
  *
  */
-@property (nonatomic, strong, readonly) id<SGDemuxable> demuxable;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) id<SGDemuxable> demuxable;
 
 /**
  *
  */
-@property (nonatomic, readonly) NSInteger index;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSInteger index;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTimeRange timeRange;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTimeRange timeRange;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime scale;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime scale;
 
 /**
  *
  */
-@property (nonatomic) BOOL overgop;
+@property (NS_NONATOMIC_IOSONLY) BOOL overgop;
 
 @end

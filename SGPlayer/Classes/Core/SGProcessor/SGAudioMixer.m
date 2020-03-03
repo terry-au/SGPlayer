@@ -12,9 +12,9 @@
 
 @interface SGAudioMixer ()
 
-@property (nonatomic, readonly) CMTime startTime;
-@property (nonatomic, strong, readonly) SGAudioDescriptor *descriptor;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSNumber *, SGAudioMixerUnit *> *units;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime startTime;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGAudioDescriptor *descriptor;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableDictionary<NSNumber *, SGAudioMixerUnit *> *units;
 
 @end
 

@@ -11,7 +11,7 @@
 
 @interface SGVideoProcessor ()
 
-@property (nonatomic, strong, readonly) SGTrackSelection *selection;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGTrackSelection *selection;
 
 @end
 

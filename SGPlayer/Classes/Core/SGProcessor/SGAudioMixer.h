@@ -26,12 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *tracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *tracks;
 
 /**
  *
  */
-@property (nonatomic, copy) NSArray<NSNumber *> *weights;
+@property (NS_NONATOMIC_IOSONLY, copy) NSArray<NSNumber *> *weights;
 
 /**
  *
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, readonly) SGCapacity capacity;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGCapacity capacity;
 
 /**
  *

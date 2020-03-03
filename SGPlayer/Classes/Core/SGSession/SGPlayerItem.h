@@ -30,35 +30,35 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     If the loading item failed, this describes the error that caused the failure.
  */
-@property (nonatomic, copy, readonly, nullable) NSError *error;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly, nullable) NSError *error;
 
 /*!
  @property tracks
  @abstract
     Provides array of SGPlayerItem tracks.
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *tracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *tracks;
 
 /*!
  @property duration
  @abstract
     Indicates the metadata of the item.
  */
-@property (nonatomic, copy, readonly) NSDictionary *metadata;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSDictionary *metadata;
 
 /*!
  @property duration
  @abstract
     Indicates the duration of the item.
  */
-@property (nonatomic, readonly) CMTime duration;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime duration;
 
 /*!
  @property duration
  @abstract
     Indicates the audioSelection of the item.
  */
-@property (nonatomic, copy, readonly, nullable) SGTrackSelection *audioSelection;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly, nullable) SGTrackSelection *audioSelection;
 
 /*!
  @method setAudioSelection:action:
@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Indicates the videoSelection of the item.
  */
-@property (nonatomic, copy, readonly, nullable) SGTrackSelection *videoSelection;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly, nullable) SGTrackSelection *videoSelection;
 
 /*!
  @method setVideoSelection:action:

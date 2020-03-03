@@ -16,12 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, strong, readonly) SGAudioDescriptor *descriptor;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGAudioDescriptor *descriptor;
 
 /**
  *
  */
-@property (nonatomic, readonly) int numberOfSamples;
+@property (NS_NONATOMIC_IOSONLY, readonly) int numberOfSamples;
 
 /**
  *

@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device library:(id<MTLLibrary>)library;
 
-@property (nonatomic, strong) id<MTLDevice> device;
-@property (nonatomic, strong) id<MTLLibrary> library;
-@property (nonatomic, strong, nullable) id<MTLRenderPipelineState> state;
-@property (nonatomic, strong, nullable) MTLRenderPipelineDescriptor *descriptor;
+@property (NS_NONATOMIC_IOSONLY, strong) id<MTLDevice> device;
+@property (NS_NONATOMIC_IOSONLY, strong) id<MTLLibrary> library;
+@property (NS_NONATOMIC_IOSONLY, strong, nullable) id<MTLRenderPipelineState> state;
+@property (NS_NONATOMIC_IOSONLY, strong, nullable) MTLRenderPipelineDescriptor *descriptor;
 
 @end
 

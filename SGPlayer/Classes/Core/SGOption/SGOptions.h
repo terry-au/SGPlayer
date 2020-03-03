@@ -27,21 +27,21 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     The options for demuxer.
  */
-@property (nonatomic, strong) SGDemuxerOptions *demuxer;
+@property (NS_NONATOMIC_IOSONLY, strong) SGDemuxerOptions *demuxer;
 
 /*!
  @property decoder
  @abstract
     The options for decoder.
  */
-@property (nonatomic, strong) SGDecoderOptions *decoder;
+@property (NS_NONATOMIC_IOSONLY, strong) SGDecoderOptions *decoder;
 
 /*!
  @property processor
  @abstract
     The options for processor.
  */
-@property (nonatomic, strong) SGProcessorOptions *processor;
+@property (NS_NONATOMIC_IOSONLY, strong) SGProcessorOptions *processor;
 
 @end
 

@@ -21,12 +21,12 @@
 /**
  *
  */
-@property (nonatomic, readonly) AVFrame *core;
+@property (NS_NONATOMIC_IOSONLY, readonly) AVFrame *core;
 
 /**
  *
  */
-@property (nonatomic, strong) SGCodecDescriptor *codecDescriptor;
+@property (NS_NONATOMIC_IOSONLY, strong) SGCodecDescriptor *codecDescriptor;
 
 /**
  *

@@ -14,7 +14,7 @@
     SGCapacity _capacity;
 }
 
-@property (nonatomic, strong, readonly) NSMutableArray<SGAudioFrame *> *frames;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableArray<SGAudioFrame *> *frames;
 
 @end
 

@@ -19,32 +19,32 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, copy) SGDemuxerOptions *options;
+@property (NS_NONATOMIC_IOSONLY, copy) SGDemuxerOptions *options;
 
 /**
  *
  */
-@property (nonatomic, weak) id<SGDemuxableDelegate> delegate;
+@property (NS_NONATOMIC_IOSONLY, weak) id<SGDemuxableDelegate> delegate;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSArray<SGTrack *> *tracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *tracks;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly, nullable) NSArray<SGTrack *> *finishedTracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly, nullable) NSArray<SGTrack *> *finishedTracks;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) NSDictionary *metadata;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSDictionary *metadata;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime duration;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime duration;
 
 /**
  *

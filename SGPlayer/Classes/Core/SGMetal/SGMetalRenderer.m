@@ -11,9 +11,9 @@
 
 @interface SGMetalRenderer ()
 
-@property (nonatomic, strong) id<MTLDevice> device;
-@property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
-@property (nonatomic, strong) MTLRenderPassDescriptor *renderPassDescriptor;
+@property (NS_NONATOMIC_IOSONLY, strong) id<MTLDevice> device;
+@property (NS_NONATOMIC_IOSONLY, strong) id<MTLCommandQueue> commandQueue;
+@property (NS_NONATOMIC_IOSONLY, strong) MTLRenderPassDescriptor *renderPassDescriptor;
 
 @end
 

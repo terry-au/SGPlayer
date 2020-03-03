@@ -25,12 +25,12 @@
 /**
  *
  */
-@property (nonatomic, copy) SGDecoderOptions *options;
+@property (NS_NONATOMIC_IOSONLY, copy) SGDecoderOptions *options;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime decodeTimeStamp;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime decodeTimeStamp;
 
 /**
  *

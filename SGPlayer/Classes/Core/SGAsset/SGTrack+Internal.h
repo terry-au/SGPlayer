@@ -24,7 +24,7 @@
  @abstract
     Indicates the pointer to the AVStream.
 */
-@property (nonatomic) AVStream *core;
+@property (NS_NONATOMIC_IOSONLY) AVStream *core;
 
 @end
 
@@ -35,6 +35,6 @@
  @abstract
     Indicates the sub tracks.
  */
-@property (nonatomic, copy) NSArray<SGTrack *> *subTracks;
+@property (NS_NONATOMIC_IOSONLY, copy) NSArray<SGTrack *> *subTracks;
 
 @end

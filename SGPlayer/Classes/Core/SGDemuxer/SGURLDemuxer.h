@@ -25,6 +25,6 @@
  @abstract
     Indicates the URL of the demuxer.
  */
-@property (nonatomic, copy, readonly) NSURL *URL;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSURL *URL;
 
 @end

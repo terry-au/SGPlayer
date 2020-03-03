@@ -27,12 +27,12 @@
 /**
  *
  */
-@property (nonatomic) Float64 rate;
+@property (NS_NONATOMIC_IOSONLY) Float64 rate;
 
 /**
  *
  */
-@property (nonatomic, copy, readonly) SGAudioDescriptor *descriptor;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) SGAudioDescriptor *descriptor;
 
 @end
 
@@ -49,6 +49,6 @@
 /**
  *
  */
-@property (nonatomic) Float64 rate;
+@property (NS_NONATOMIC_IOSONLY) Float64 rate;
 
 @end

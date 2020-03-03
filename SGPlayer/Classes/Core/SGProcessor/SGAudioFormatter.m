@@ -12,9 +12,9 @@
 
 @interface SGAudioFormatter ()
 
-@property (nonatomic, readonly) SGTrack *track;
-@property (nonatomic, readonly) CMTime nextTimeStamp;
-@property (nonatomic, strong, readonly) SGSWResample *context;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGTrack *track;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime nextTimeStamp;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGSWResample *context;
 
 @end
 

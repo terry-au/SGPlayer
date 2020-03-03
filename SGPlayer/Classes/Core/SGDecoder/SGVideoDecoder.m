@@ -24,11 +24,11 @@
     } _flags;
 }
 
-@property (nonatomic, strong, readonly) SGSWScale *scaler;
-@property (nonatomic, strong, readonly) SGCodecContext *codecContext;
-@property (nonatomic, strong, readonly) SGVideoFrame *lastDecodeFrame;
-@property (nonatomic, strong, readonly) SGVideoFrame *lastOutputFrame;
-@property (nonatomic, strong, readonly) SGCodecDescriptor *codecDescriptor;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGSWScale *scaler;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGCodecContext *codecContext;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGVideoFrame *lastDecodeFrame;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGVideoFrame *lastOutputFrame;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGCodecDescriptor *codecDescriptor;
 
 @end
 

@@ -17,7 +17,7 @@
  @abstract
     Provides array of mutable asset tracks.
 */
-@property (nonatomic, copy, readonly) NSArray<SGMutableTrack *> *tracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGMutableTrack *> *tracks;
 
 /*!
  @method addTrack:

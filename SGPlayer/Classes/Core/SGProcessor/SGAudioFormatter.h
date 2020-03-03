@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, copy, nullable) SGAudioDescriptor *descriptor;
+@property (NS_NONATOMIC_IOSONLY, copy, nullable) SGAudioDescriptor *descriptor;
 
 /**
  *

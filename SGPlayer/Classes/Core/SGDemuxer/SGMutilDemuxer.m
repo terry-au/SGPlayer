@@ -11,10 +11,10 @@
 
 @interface SGMutilDemuxer ()
 
-@property (nonatomic, strong, readonly) NSArray<id<SGDemuxable>> *demuxers;
-@property (nonatomic, strong, readonly) NSMutableArray<SGTrack *> *finishedTracksInternal;
-@property (nonatomic, strong, readonly) NSMutableArray<id<SGDemuxable>> *finishedDemuxers;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, NSValue *> *timeStamps;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSArray<id<SGDemuxable>> *demuxers;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableArray<SGTrack *> *finishedTracksInternal;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableArray<id<SGDemuxable>> *finishedDemuxers;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableDictionary<NSString *, NSValue *> *timeStamps;
 
 @end
 

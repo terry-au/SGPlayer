@@ -19,37 +19,37 @@ static int const SGFramePlaneCount = 8;
 /**
  *
  */
-@property (nonatomic, readonly) void *coreptr;
+@property (NS_NONATOMIC_IOSONLY, readonly) void *coreptr;
 
 /**
  *
  */
-@property (nonatomic, strong, readonly, nullable) SGTrack *track;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly, nullable) SGTrack *track;
 
 /**
  *
  */
-@property (nonatomic, strong, readonly) NSDictionary *metadata;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSDictionary *metadata;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime duration;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime duration;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime timeStamp;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime timeStamp;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime decodeTimeStamp;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime decodeTimeStamp;
 
 /**
  *
  */
-@property (nonatomic, readonly) int size;
+@property (NS_NONATOMIC_IOSONLY, readonly) int size;
 
 @end
 

@@ -35,27 +35,27 @@ typedef NS_ENUM(NSUInteger, SGPlayerItemState) {
 /**
  *
  */
-@property (nonatomic, copy) SGDemuxerOptions *demuxerOptions;
+@property (NS_NONATOMIC_IOSONLY, copy) SGDemuxerOptions *demuxerOptions;
 
 /**
  *
  */
-@property (nonatomic, copy) SGDecoderOptions *decoderOptions;
+@property (NS_NONATOMIC_IOSONLY, copy) SGDecoderOptions *decoderOptions;
 
 /**
  *
  */
-@property (nonatomic, copy) SGProcessorOptions *processorOptions;
+@property (NS_NONATOMIC_IOSONLY, copy) SGProcessorOptions *processorOptions;
 
 /**
  *
  */
-@property (nonatomic, weak) id<SGPlayerItemDelegate> delegate;
+@property (NS_NONATOMIC_IOSONLY, weak) id<SGPlayerItemDelegate> delegate;
 
 /**
  *
  */
-@property (nonatomic, readonly) SGPlayerItemState state;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGPlayerItemState state;
 
 /**
  *

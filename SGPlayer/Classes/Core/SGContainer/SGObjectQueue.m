@@ -19,9 +19,9 @@
     } _flags;
 }
 
-@property (nonatomic, strong, readonly) NSCondition *wakeup;
-@property (nonatomic, strong, readonly) id<SGData> puttingObject;
-@property (nonatomic, strong, readonly) NSMutableArray<id<SGData>> *objects;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSCondition *wakeup;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) id<SGData> puttingObject;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableArray<id<SGData>> *objects;
 
 @end
 

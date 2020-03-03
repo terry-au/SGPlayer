@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device;
 
-@property (nonatomic) NSUInteger indexCount;
-@property (nonatomic) MTLIndexType indexType;
-@property (nonatomic) MTLPrimitiveType primitiveType;
-@property (nonatomic, strong) id<MTLDevice> device;
-@property (nonatomic, strong, nullable) id<MTLBuffer> indexBuffer;
-@property (nonatomic, strong, nullable) id<MTLBuffer> vertexBuffer;
+@property (NS_NONATOMIC_IOSONLY) NSUInteger indexCount;
+@property (NS_NONATOMIC_IOSONLY) MTLIndexType indexType;
+@property (NS_NONATOMIC_IOSONLY) MTLPrimitiveType primitiveType;
+@property (NS_NONATOMIC_IOSONLY, strong) id<MTLDevice> device;
+@property (NS_NONATOMIC_IOSONLY, strong, nullable) id<MTLBuffer> indexBuffer;
+@property (NS_NONATOMIC_IOSONLY, strong, nullable) id<MTLBuffer> vertexBuffer;
 
 @end
 

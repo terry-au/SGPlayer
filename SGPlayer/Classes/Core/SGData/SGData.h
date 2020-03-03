@@ -23,12 +23,12 @@ typedef NS_OPTIONS(NSUInteger, SGDataFlags) {
 /**
  *
  */
-@property (nonatomic) SGDataFlags flags;
+@property (NS_NONATOMIC_IOSONLY) SGDataFlags flags;
 
 /**
  *
  */
-@property (nonatomic, copy) NSString *reuseName;
+@property (NS_NONATOMIC_IOSONLY, copy) NSString *reuseName;
 
 /**
  *
@@ -48,17 +48,17 @@ typedef NS_OPTIONS(NSUInteger, SGDataFlags) {
 /**
  *
  */
-@property (nonatomic, readonly) CMTime duration;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime duration;
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTime timeStamp;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTime timeStamp;
 
 /**
  *
  */
-@property (nonatomic, readonly) int size;
+@property (NS_NONATOMIC_IOSONLY, readonly) int size;
 
 @end
 

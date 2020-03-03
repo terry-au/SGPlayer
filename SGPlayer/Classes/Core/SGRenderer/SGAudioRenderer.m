@@ -6,6 +6,7 @@
 //  Copyright © 2018年 single. All rights reserved.
 //
 
+#import <CoreMedia/CoreMedia.h>
 #import "SGAudioRenderer.h"
 #import "SGRenderer+Internal.h"
 #import "SGAudioPlayer.h"
@@ -27,10 +28,10 @@
     SGCapacity _capacity;
 }
 
-@property (nonatomic, strong, readonly) NSLock *lock;
-@property (nonatomic, strong, readonly) SGClock *clock;
-@property (nonatomic, strong, readonly) SGAudioPlayer *player;
-@property (nonatomic, strong, readonly) SGAudioFrame *currentFrame;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGClock *clock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGAudioPlayer *player;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGAudioFrame *currentFrame;
 
 @end
 

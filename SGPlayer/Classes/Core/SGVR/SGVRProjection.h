@@ -12,9 +12,9 @@
 
 @interface SGVRProjection : NSObject
 
-@property (nonatomic, strong) SGVRViewport * viewport;
+@property (NS_NONATOMIC_IOSONLY, strong) SGVRViewport * viewport;
 
-- (BOOL)ready;
+@property (NS_NONATOMIC_IOSONLY, readonly, getter=isReady) BOOL ready;
 - (BOOL)matrixWithAspect:(Float64)aspect matrix1:(matrix_float4x4 *)matrix1;
 - (BOOL)matrixWithAspect:(Float64)aspect matrix1:(matrix_float4x4 *)matrix1 matrix2:(matrix_float4x4 *)matrix2;
 

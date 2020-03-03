@@ -14,7 +14,7 @@
 - (instancetype)initWithDevice:(id<MTLDevice>)device;
 
 @property (nonatomic) matrix_float4x4 matrix;
-@property (nonatomic, strong) id<MTLDevice> device;
-@property (nonatomic, strong) id<MTLBuffer> matrixBuffer;
+@property (NS_NONATOMIC_IOSONLY, strong) id<MTLDevice> device;
+@property (NS_NONATOMIC_IOSONLY, strong) id<MTLBuffer> matrixBuffer;
 
 @end

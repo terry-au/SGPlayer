@@ -28,12 +28,12 @@
     SGCapacity _capacities[8];
 }
 
-@property (nonatomic, strong, readonly) NSLock *lock;
-@property (nonatomic, strong, readonly) SGObjectQueue *audioQueue;
-@property (nonatomic, strong, readonly) SGObjectQueue *videoQueue;
-@property (nonatomic, strong, readonly) SGFrameOutput *frameOutput;
-@property (nonatomic, strong, readonly) SGAudioProcessor *audioProcessor;
-@property (nonatomic, strong, readonly) SGVideoProcessor *videoProcessor;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGObjectQueue *audioQueue;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGObjectQueue *videoQueue;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGFrameOutput *frameOutput;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGAudioProcessor *audioProcessor;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGVideoProcessor *videoProcessor;
 
 @end
 

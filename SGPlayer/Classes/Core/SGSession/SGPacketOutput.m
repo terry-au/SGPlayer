@@ -28,10 +28,10 @@
     } _seekFlags;
 }
 
-@property (nonatomic, strong, readonly) NSLock *lock;
-@property (nonatomic, strong, readonly) NSCondition *wakeup;
-@property (nonatomic, strong, readonly) id<SGDemuxable> demuxable;
-@property (nonatomic, strong, readonly) NSOperationQueue *operationQueue;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSCondition *wakeup;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) id<SGDemuxable> demuxable;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSOperationQueue *operationQueue;
 
 @end
 

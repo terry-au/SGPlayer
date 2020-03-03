@@ -16,7 +16,7 @@
     AVBufferRef *_buffer[SGFramePlaneCount];
 }
 
-@property (nonatomic, readonly) SwrContext *context;
+@property (NS_NONATOMIC_IOSONLY, readonly) SwrContext *context;
 
 @end
 

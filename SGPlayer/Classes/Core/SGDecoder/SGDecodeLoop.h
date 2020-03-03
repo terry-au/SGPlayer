@@ -36,17 +36,17 @@ typedef NS_ENUM(NSUInteger, SGDecodeLoopState) {
 /**
  *
  */
-@property (nonatomic, weak) id<SGDecodeLoopDelegate> delegate;
+@property (NS_NONATOMIC_IOSONLY, weak) id<SGDecodeLoopDelegate> delegate;
 
 /**
  *
  */
-@property (nonatomic, copy) SGDecoderOptions *options;
+@property (NS_NONATOMIC_IOSONLY, copy) SGDecoderOptions *options;
 
 /**
  *
  */
-- (SGDecodeLoopState)state;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGDecodeLoopState state;
 
 /**
  *

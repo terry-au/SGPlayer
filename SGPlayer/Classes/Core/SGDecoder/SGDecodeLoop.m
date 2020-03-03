@@ -20,11 +20,11 @@
     SGCapacity _capacity;
 }
 
-@property (nonatomic, copy, readonly) Class decoderClass;
-@property (nonatomic, strong, readonly) NSLock *lock;
-@property (nonatomic, strong, readonly) NSCondition *wakeup;
-@property (nonatomic, strong, readonly) NSOperationQueue *operationQueue;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSNumber *, SGDecodeContext *> *contexts;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) Class decoderClass;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSCondition *wakeup;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSOperationQueue *operationQueue;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableDictionary<NSNumber *, SGDecodeContext *> *contexts;
 
 @end
 

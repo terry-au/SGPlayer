@@ -10,7 +10,7 @@
 
 @interface SGCodecDescriptor ()
 
-@property (nonatomic, copy, readonly) NSArray<SGTimeLayout *> *timeLayouts;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTimeLayout *> *timeLayouts;
 
 @end
 

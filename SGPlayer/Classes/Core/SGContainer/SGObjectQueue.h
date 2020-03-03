@@ -21,12 +21,12 @@
 /**
  *
  */
-@property (nonatomic) BOOL shouldSortObjects;
+@property (NS_NONATOMIC_IOSONLY) BOOL shouldSortObjects;
 
 /**
  *
  */
-@property (nonatomic, readonly) SGCapacity capacity;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGCapacity capacity;
 
 /**
  *

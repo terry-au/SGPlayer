@@ -25,9 +25,9 @@
     } _flags;
 }
 
-@property (nonatomic, strong, readonly) id<SGDemuxable> demuxer;
-@property (nonatomic, strong, readonly) SGObjectQueue *frameQueue;
-@property (nonatomic, strong, readonly) NSMutableDictionary<NSNumber *, id<SGDecodable>> *decoders;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) id<SGDemuxable> demuxer;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGObjectQueue *frameQueue;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSMutableDictionary<NSNumber *, id<SGDecodable>> *decoders;
 
 @end
 

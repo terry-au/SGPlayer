@@ -27,11 +27,11 @@
     } _flags;
 }
 
-@property (nonatomic, strong, readonly) SGSonic *sonic;
-@property (nonatomic, strong, readonly) SGAudioFormatter *formatter;
-@property (nonatomic, strong, readonly) SGCodecContext *codecContext;
-@property (nonatomic, strong, readonly) SGCodecDescriptor *codecDescriptor;
-@property (nonatomic, strong, readonly) SGAudioDescriptor *audioDescriptor;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGSonic *sonic;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGAudioFormatter *formatter;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGCodecContext *codecContext;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGCodecDescriptor *codecDescriptor;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGAudioDescriptor *audioDescriptor;
 
 @end
 

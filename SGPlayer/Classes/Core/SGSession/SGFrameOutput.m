@@ -26,11 +26,11 @@
     SGCapacity _capacities[8];
 }
 
-@property (nonatomic, strong, readonly) NSLock *lock;
-@property (nonatomic, strong, readonly) SGDecodeLoop *audioDecoder;
-@property (nonatomic, strong, readonly) SGDecodeLoop *videoDecoder;
-@property (nonatomic, strong, readonly) SGPacketOutput *packetOutput;
-@property (nonatomic, strong, readonly) NSArray<SGTrack *> *finishedTracks;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGDecodeLoop *audioDecoder;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGDecodeLoop *videoDecoder;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGPacketOutput *packetOutput;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSArray<SGTrack *> *finishedTracks;
 
 @end
 

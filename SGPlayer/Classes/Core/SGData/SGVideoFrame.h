@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-@property (nonatomic, strong, readonly) SGVideoDescriptor *descriptor;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGVideoDescriptor *descriptor;
 
 /**
  *

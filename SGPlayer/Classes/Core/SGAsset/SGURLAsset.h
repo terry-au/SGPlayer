@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Indicates the URL of the asset.
  */
-@property (nonatomic, copy, readonly) NSURL *URL;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSURL *URL;
 
 @end
 

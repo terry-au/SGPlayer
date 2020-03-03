@@ -57,15 +57,18 @@
     return self;
 }
 
-- (NSError *)open
+- (BOOL)openWithError:(NSError *__autoreleasing  _Nullable *)errorOut
 {
     if (self->_context) {
-        return nil;
+        return NO;
     }
     SGFFmpegSetupIfNeeded();
     NSError *error = SGCreateFormatContext(&self->_context, self->_URL, self->_options.options, (__bridge void *)self, SGURLDemuxerInterruptHandler);
     if (error) {
-        return error;
+        if (errorOut) {
+            *errorOut = error;
+        }
+        return NO;
     }
     if (self->_context->duration > 0) {
         self->_duration = CMTimeMake(self->_context->duration, AV_TIME_BASE);
@@ -85,42 +88,51 @@
         [tracks addObject:obj];
     }
     self->_tracks = [tracks copy];
-    return nil;
+    return YES;
 }
 
-- (NSError *)close
+- (BOOL)closeWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     if (self->_context) {
         avformat_close_input(&self->_context);
         self->_context = NULL;
     }
-    return nil;
+    return YES;
 }
 
-- (NSError *)seekable
+- (BOOL)seekableWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     if (self->_context) {
         if (self->_context->pb && self->_context->pb->seekable > 0) {
-            return nil;
+            return YES;
         }
-        return SGCreateError(SGErrorCodeFormatNotSeekable, SGActionCodeFormatGetSeekable);
+        if (error) {
+            *error = SGCreateError(SGErrorCodeFormatNotSeekable, SGActionCodeFormatGetSeekable);
+        }
+        return NO;
     }
-    return SGCreateError(SGErrorCodeNoValidFormat, SGActionCodeFormatGetSeekable);
+    if (error) {
+        *error = SGCreateError(SGErrorCodeNoValidFormat, SGActionCodeFormatGetSeekable);
+    }
+    return NO;
 }
 
-- (NSError *)seekToTime:(CMTime)time
+- (BOOL)seekToTime:(CMTime)time withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
-    return [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid];
+    return [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid withError:error];
 }
 
-- (NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError *__autoreleasing  _Nullable * _Nullable)outError
 {
     if (!CMTIME_IS_NUMERIC(time)) {
-        return SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        if (outError) {
+            *outError = SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        }
+        return NO;
     }
-    NSError *error = [self seekable];
-    if (error) {
-        return error;
+    BOOL success = [self seekableWithError:outError];
+    if (!success) {
+        return NO;
     }
     if (self->_context) {
         int64_t timeStamp = CMTimeConvertScale(time, AV_TIME_BASE, kCMTimeRoundingMethod_RoundTowardZero).value;
@@ -135,12 +147,22 @@
             }
             self->_finishedTracks = nil;
         }
-        return SGGetFFError(ret, SGActionCodeFormatSeekFrame);
+        NSError *error = SGGetFFError(ret, SGActionCodeFormatSeekFrame);
+        if (error) {
+            if (outError) {
+                *outError = error;
+            }
+            return NO;
+        }
+        return YES;
     }
-    return SGCreateError(SGErrorCodeNoValidFormat, SGActionCodeFormatSeekFrame);
+    if (outError) {
+        *outError = SGCreateError(SGErrorCodeNoValidFormat, SGActionCodeFormatSeekFrame);
+    }
+    return NO;
 }
 
-- (NSError *)nextPacket:(SGPacket **)packet
+- (BOOL)nextPacket:(SGPacket **)packet withError:(NSError *__autoreleasing  _Nullable * _Nullable)outError
 {
     if (self->_context) {
         SGPacket *pkt = [SGPacket packet];
@@ -173,9 +195,18 @@
         if (error.code == SGErrorCodeDemuxerEndOfFile) {
             self->_finishedTracks = self->_tracks.copy;
         }
-        return error;
+        if (error) {
+            if (outError) {
+                *outError = error;
+            }
+            return NO;
+        }
+        return YES;
     }
-    return SGCreateError(SGErrorCodeNoValidFormat, SGActionCodeFormatReadFrame);
+    if (outError) {
+        *outError = SGCreateError(SGErrorCodeNoValidFormat, SGActionCodeFormatReadFrame);
+    }
+    return NO;
 }
 
 #pragma mark - AVFormatContext

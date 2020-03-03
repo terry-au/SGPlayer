@@ -54,32 +54,32 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-- (nullable NSError *)open;
+- (BOOL)openWithError:(NSError**)error;
 
 /**
  *
  */
-- (nullable NSError *)close;
+- (BOOL)closeWithError:(NSError**)error;
 
 /**
  *
  */
-- (nullable NSError *)seekable;
+- (BOOL)seekableWithError:(NSError**)error;
 
 /**
  *
  */
-- (nullable NSError *)seekToTime:(CMTime)time;
+- (BOOL)seekToTime:(CMTime)time withError:(NSError**)error;
 
 /**
  *
  */
-- (nullable NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter;
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError**)error;
 
 /**
  *
  */
-- (nullable NSError *)nextPacket:(SGPacket *_Nullable*_Nullable)packet;
+- (BOOL)nextPacket:(SGPacket *_Nullable*_Nullable)packet withError:(NSError**)error;
 
 @end
 

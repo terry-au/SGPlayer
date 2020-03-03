@@ -162,7 +162,7 @@ SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
 
 - (BOOL)seekable
 {
-    return [self->_demuxable seekable] == nil;
+    return [self->_demuxable seekableWithError:NULL];
 }
 
 - (BOOL)seekToTime:(CMTime)time
@@ -223,7 +223,8 @@ SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
                 break;
             } else if (self->_flags.state == SGPacketOutputStateOpening) {
                 [self->_lock unlock];
-                NSError *error = [self->_demuxable open];
+                NSError *error;
+                [self->_demuxable openWithError:&error];
                 [self->_lock lock];
                 if (self->_flags.state != SGPacketOutputStateOpening) {
                     [self->_lock unlock];
@@ -247,7 +248,8 @@ SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
                 CMTime seekingToleranceBefor = self->_seekFlags.seekToleranceBefor;
                 CMTime seekingToleranceAfter = self->_seekFlags.seekToleranceAfter;
                 [self->_lock unlock];
-                NSError *error = [self->_demuxable seekToTime:seekingTime toleranceBefor:seekingToleranceBefor toleranceAfter:seekingToleranceAfter];
+                NSError *error;
+                [self->_demuxable seekToTime:seekingTime toleranceBefore:seekingToleranceBefor toleranceAfter:seekingToleranceAfter withError:&error];
                 [self->_lock lock];
                 if (self->_flags.state == SGPacketOutputStateSeeking &&
                     CMTimeCompare(self->_seekFlags.seekTime, seekingTime) != 0) {
@@ -275,7 +277,8 @@ SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
             } else if (self->_flags.state == SGPacketOutputStateReading) {
                 [self->_lock unlock];
                 SGPacket *packet = nil;
-                NSError *error = [self->_demuxable nextPacket:&packet];
+                NSError *error;
+                [self->_demuxable nextPacket:&packet withError:&error];
                 if (error) {
                     SGLockCondEXE10(self->_lock, ^BOOL {
                         return self->_flags.state == SGPacketOutputStateReading;
@@ -290,7 +293,7 @@ SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
             }
         }
     }
-    [self->_demuxable close];
+    [self->_demuxable closeWithError:NULL];
 }
 
 #pragma mark - SGDemuxableDelegate

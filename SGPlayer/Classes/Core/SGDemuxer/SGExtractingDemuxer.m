@@ -27,6 +27,9 @@
 @property (NS_NONATOMIC_IOSONLY, strong, readonly) SGTimeLayout *offsetLayout;
 @property (NS_NONATOMIC_IOSONLY, strong, readonly) SGObjectQueue *packetQueue;
 
+- (BOOL)nextPacketInternalOvergop:(SGPacket **)packet withError:(NSError**)outError;
+- (BOOL)nextPacketInternal:(SGPacket **)packet withError:(NSError**)outError;
+
 @end
 
 @implementation SGExtractingDemuxer
@@ -55,21 +58,29 @@ SGSet1Map(void, setDelegate, id<SGDemuxableDelegate>, self->_demuxable)
 SGGet0Map(SGDemuxerOptions *, options, self->_demuxable)
 SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
 SGGet0Map(NSDictionary *, metadata, self->_demuxable)
-SGGet0Map(NSError *, close, self->_demuxable)
-SGGet0Map(NSError *, seekable, self->_demuxable)
 
 #pragma mark - Control
+
+- (BOOL)closeWithError:(NSError *__autoreleasing  _Nullable *)error
+{
+    return [self->_demuxable closeWithError:error];
+}
+
+- (BOOL)seekableWithError:(NSError *__autoreleasing  _Nullable *)error
+{
+    return [self->_demuxable seekableWithError:error];
+}
 
 - (id<SGDemuxable>)sharedDemuxer
 {
     return [self->_demuxable sharedDemuxer];
 }
 
-- (NSError *)open
+- (BOOL)openWithError:(NSError *__autoreleasing  _Nullable *)error
 {
-    NSError *error = [self->_demuxable open];
-    if (error) {
-        return error;
+    BOOL success = [self->_demuxable openWithError:error];
+    if (!success) {
+        return NO;
     }
     for (SGTrack *obj in self->_demuxable.tracks) {
         if (self->_index == obj.index) {
@@ -90,48 +101,51 @@ SGGet0Map(NSError *, seekable, self->_demuxable)
     self->_duration = SGCMTimeMultiply(duration, self->_scale);
     self->_scaleLayout = [[SGTimeLayout alloc] initWithScale:self->_scale];
     self->_offsetLayout = [[SGTimeLayout alloc] initWithOffset:CMTimeMultiply(start, -1)];
-    return nil;
+    return YES;
 }
 
-- (NSError *)seekToTime:(CMTime)time
+- (BOOL)seekToTime:(CMTime)time withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
-    return [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid];
+    return [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid withError:error];
 }
 
-- (NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
     if (!CMTIME_IS_NUMERIC(time)) {
-        return SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        if (error) {
+            *error = SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        }
+        return NO;
     }
     time = [self->_scaleLayout reconvertTimeStamp:time];
     time = [self->_offsetLayout reconvertTimeStamp:time];
-    NSError *error = [self->_demuxable seekToTime:time toleranceBefor:toleranceBefor toleranceAfter:toleranceAfter];
-    if (error) {
-        return error;
+    BOOL success = [self->_demuxable seekToTime:time toleranceBefore:toleranceBefor toleranceAfter:toleranceAfter withError:error];
+    if (!success) {
+        return NO;
     }
     [self->_packetQueue flush];
     self->_flags.finished = NO;
     self->_flags.inputting = NO;
     self->_flags.outputting = NO;
     self->_finishedTracks = nil;
-    return nil;
+    return YES;
 }
 
-- (NSError *)nextPacket:(SGPacket **)packet
+- (BOOL)nextPacket:(SGPacket **)packet withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
     if (self->_overgop) {
-        return [self nextPacketInternalOvergop:packet];
+        return [self nextPacketInternalOvergop:packet withError:error];
     }
-    return [self nextPacketInternal:packet];
+    return [self nextPacketInternal:packet withError:error];
 }
 
-- (NSError *)nextPacketInternal:(SGPacket **)packet
+- (BOOL)nextPacketInternal:(SGPacket **)packet withError:(NSError**)outError
 {
     NSError *error = nil;
     while (YES) {
         SGPacket *pkt = nil;
-        error = [self->_demuxable nextPacket:&pkt];
-        if (error) {
+        BOOL success = [self->_demuxable nextPacket:&pkt withError:&error];
+        if (!success) {
             break;
         }
         if (self->_index != pkt.track.index) {
@@ -157,10 +171,16 @@ SGGet0Map(NSError *, seekable, self->_demuxable)
     if (error.code == SGErrorCodeDemuxerEndOfFile) {
         self->_finishedTracks = self->_tracks.copy;
     }
-    return error;
+    if (error) {
+        if (outError) {
+            *outError = error;
+        }
+        return NO;
+    }
+    return YES;
 }
 
-- (NSError *)nextPacketInternalOvergop:(SGPacket **)packet
+- (BOOL)nextPacketInternalOvergop:(SGPacket **)packet withError:(NSError**)outError
 {
     NSError *error = nil;
     while (YES) {
@@ -180,8 +200,8 @@ SGGet0Map(NSError *, seekable, self->_demuxable)
             error = SGCreateError(SGErrorCodeDemuxerEndOfFile, SGActionCodeURLDemuxerFunnelNext);
             break;
         }
-        error = [self->_demuxable nextPacket:&pkt];
-        if (error) {
+        BOOL success = [self->_demuxable nextPacket:&pkt withError:&error];
+        if (!success) {
             if (error.code == SGErrorImmediateExitRequested) {
                 break;
             }
@@ -223,7 +243,13 @@ SGGet0Map(NSError *, seekable, self->_demuxable)
     if (error.code == SGErrorCodeDemuxerEndOfFile) {
         self->_finishedTracks = self->_tracks.copy;
     }
-    return error;
+    if (error) {
+        if (outError) {
+            *outError = error;
+        }
+        return NO;
+    }
+    return YES;
 }
 
 @end

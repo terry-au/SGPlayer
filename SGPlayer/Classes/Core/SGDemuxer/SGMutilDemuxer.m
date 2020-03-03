@@ -72,12 +72,12 @@
     return nil;
 }
 
-- (NSError *)open
+- (BOOL)openWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     for (id<SGDemuxable> obj in self->_demuxers) {
-        NSError *error = [obj open];
-        if (error) {
-            return error;
+        BOOL success = [obj openWithError:error];
+        if (!success) {
+            return NO;
         }
     }
     CMTime duration = kCMTimeZero;
@@ -95,54 +95,57 @@
         [indexes addObject:@(obj.index)];
     }
     self->_timeStamps = [NSMutableDictionary dictionary];
-    return nil;
+    return YES;
 }
 
-- (NSError *)close
+- (BOOL)closeWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     for (id<SGDemuxable> obj in self->_demuxers) {
-        NSError *error = [obj close];
-        if (error) {
-            return error;
+        BOOL success = [obj closeWithError:error];
+        if (!success) {
+            return NO;
         }
     }
-    return nil;
+    return YES;
 }
 
-- (NSError *)seekable
+- (BOOL)seekableWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     for (id<SGDemuxable> obj in self->_demuxers) {
-        NSError *error = [obj seekable];
-        if (error) {
-            return error;
+        BOOL success = [obj seekableWithError:error];
+        if (!success) {
+            return NO;
         }
     }
-    return nil;
+    return YES;
 }
 
-- (NSError *)seekToTime:(CMTime)time
+- (BOOL)seekToTime:(CMTime)time withError:(NSError *__autoreleasing  _Nullable *)error
 {
-    return [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid];
+    return [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid withError:error];
 }
 
-- (NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
     if (!CMTIME_IS_NUMERIC(time)) {
-        return SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        if (error) {
+            *error = SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        }
+        return NO;
     }
     for (id<SGDemuxable> obj in self->_demuxers) {
-        NSError *error = [obj seekToTime:time toleranceBefor:toleranceBefor toleranceAfter:toleranceAfter];
-        if (error) {
-            return error;
+        BOOL success = [obj seekToTime:time toleranceBefore:toleranceBefor toleranceAfter:toleranceAfter withError:error];
+        if (!success) {
+            return NO;
         }
     }
     [self->_timeStamps removeAllObjects];
     [self->_finishedDemuxers removeAllObjects];
     [self->_finishedTracksInternal removeAllObjects];
-    return nil;
+    return YES;
 }
 
-- (NSError *)nextPacket:(SGPacket **)packet
+- (BOOL)nextPacket:(SGPacket **)packet withError:(NSError *__autoreleasing  _Nullable * _Nullable)outError
 {
     NSError *error = nil;
     while (YES) {
@@ -166,10 +169,13 @@
             }
         }
         if (!demuxable) {
-            return SGCreateError(SGErrorCodeDemuxerEndOfFile, SGActionCodeMutilDemuxerNext);
+            if (outError) {
+                *outError = SGCreateError(SGErrorCodeDemuxerEndOfFile, SGActionCodeMutilDemuxerNext);
+            }
+            return NO;
         }
-        error = [demuxable nextPacket:packet];
-        if (error) {
+        BOOL success = [demuxable nextPacket:packet withError:&error];
+        if (!success) {
             if (error.code == SGErrorImmediateExitRequested) {
                 break;
             }
@@ -183,7 +189,13 @@
         [self->_timeStamps setObject:value forKey:key];
         break;
     }
-    return error;
+    if (error) {
+        if (outError) {
+            *outError = error;
+        }
+        return NO;
+    }
+    return YES;
 }
 
 @end

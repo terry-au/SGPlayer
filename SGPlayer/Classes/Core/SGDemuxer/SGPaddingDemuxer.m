@@ -29,7 +29,7 @@
 {
     if (self = [super init]) {
         self->_duration = duration;
-        [self seekToTime:kCMTimeZero];
+        [self seekToTime:kCMTimeZero withError:NULL];
     }
     return self;
 }
@@ -41,41 +41,47 @@
     return nil;
 }
 
-- (NSError *)open
+- (BOOL)openWithError:(NSError *__autoreleasing  _Nullable *)error
 {
-    return nil;
+    return YES;
 }
 
-- (NSError *)close
+- (BOOL)closeWithError:(NSError *__autoreleasing  _Nullable *)error
 {
-    return nil;
+    return YES;
 }
 
-- (NSError *)seekable
+- (BOOL)seekableWithError:(NSError *__autoreleasing  _Nullable *)error
 {
-    return nil;
+    return YES;
 }
 
-- (NSError *)seekToTime:(CMTime)time
+- (BOOL)seekToTime:(CMTime)time withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
-    return [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid];
+    return [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid withError:error];
 }
 
-- (NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
     if (!CMTIME_IS_NUMERIC(time)) {
-        return SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        if (error) {
+            *error = SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        }
+        return NO;
     }
     time = CMTimeMaximum(time, kCMTimeZero);
     time = CMTimeMinimum(time, self->_duration);
     self->_lasttime = time;
-    return nil;
+    return YES;
 }
 
-- (NSError *)nextPacket:(SGPacket **)packet
+- (BOOL)nextPacket:(SGPacket **)packet withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
     if (CMTimeCompare(self->_lasttime, self->_duration) >= 0) {
-        return SGCreateError(SGErrorCodeDemuxerEndOfFile, SGActionCodeFormatReadFrame);
+        if (error) {
+            *error = SGCreateError(SGErrorCodeDemuxerEndOfFile, SGActionCodeFormatReadFrame);
+        }
+        return NO;
     }
     CMTime timeStamp = self->_lasttime;
     CMTime duration = CMTimeSubtract(self->_duration, self->_lasttime);
@@ -91,7 +97,7 @@
     [pkt fill];
     *packet = pkt;
     self->_lasttime = self->_duration;
-    return nil;
+    return YES;
 }
 
 @end

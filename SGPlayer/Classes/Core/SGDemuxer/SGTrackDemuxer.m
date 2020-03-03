@@ -70,7 +70,7 @@
     return nil;
 }
 
-- (NSError *)open
+- (BOOL)openWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     CMTime basetime = kCMTimeZero;
     NSMutableArray<SGTrack *> *subTracks = [NSMutableArray array];
@@ -94,9 +94,9 @@
         demuxer.delegate = self->_delegate;
         [self->_layouts addObject:layout];
         [self->_demuxers addObject:demuxer];
-        NSError *error = [demuxer open];
-        if (error) {
-            return error;
+        BOOL success = [demuxer openWithError:error];
+        if (!success) {
+            return NO;
         }
         NSAssert(CMTIME_IS_VALID(demuxer.duration), @"Invaild Duration.");
         NSAssert(!demuxer.tracks.firstObject || demuxer.tracks.firstObject.type == self->_track.type, @"Invaild mediaType.");
@@ -110,38 +110,41 @@
     self->_currentIndex = 0;
     self->_currentLayout = self->_layouts.firstObject;
     self->_currentDemuxer = self->_demuxers.firstObject;
-    [self->_currentDemuxer seekToTime:kCMTimeZero];
+    [self->_currentDemuxer seekToTime:kCMTimeZero withError:NULL];
     return nil;
 }
 
-- (NSError *)close
+- (BOOL)closeWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     for (id<SGDemuxable> obj in self->_demuxers) {
-        [obj close];
+        [obj closeWithError:NULL];
     }
-    return nil;
+    return YES;
 }
 
-- (NSError *)seekable
+- (BOOL)seekableWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     for (id<SGDemuxable> obj in self->_demuxers) {
-        NSError *error = [obj seekable];
-        if (error) {
-            return error;
+        BOOL success = [obj seekableWithError:error];
+        if (!success) {
+            return NO;
         }
     }
-    return nil;
+    return YES;
 }
 
-- (NSError *)seekToTime:(CMTime)time
+- (BOOL)seekToTime:(CMTime)time withError:(NSError *__autoreleasing  _Nullable *)error
 {
-    return [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid];
+    return [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid withError:error];
 }
 
-- (NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
     if (!CMTIME_IS_NUMERIC(time)) {
-        return SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        if (error) {
+            *error = SGCreateError(SGErrorCodeInvlidTime, SGActionCodeFormatSeekFrame);
+        }
+        return NO;
     }
     time = CMTimeMaximum(time, kCMTimeZero);
     time = CMTimeMinimum(time, self->_duration);
@@ -163,19 +166,22 @@
     self->_currentIndex = currentIndex;
     self->_currentLayout = currentLayout;
     self->_currentDemuxer = currentDemuxer;
-    return [self->_currentDemuxer seekToTime:time toleranceBefor:toleranceBefor toleranceAfter:toleranceAfter];
+    return [self->_currentDemuxer seekToTime:time toleranceBefore:toleranceBefor toleranceAfter:toleranceAfter withError:error];
 }
 
-- (NSError *)nextPacket:(SGPacket **)packet
+- (BOOL)nextPacket:(SGPacket **)packet withError:(NSError *__autoreleasing  _Nullable * _Nullable)outError
 {
     NSError *error = nil;
     while (YES) {
         if (!self->_currentDemuxer) {
-            error = SGCreateError(SGErrorCodeDemuxerEndOfFile, SGActionCodeFormatReadFrame);
+            if (outError) {
+                *outError = SGCreateError(SGErrorCodeDemuxerEndOfFile, SGActionCodeFormatReadFrame);
+            }
+            return NO;
             break;
         }
-        error = [self->_currentDemuxer nextPacket:packet];
-        if (error) {
+        BOOL success = [self->_currentDemuxer nextPacket:packet withError:&error];
+        if (!success) {
             if (error.code == SGErrorImmediateExitRequested) {
                 break;
             }
@@ -184,7 +190,7 @@
                 self->_currentIndex = nextIndex;
                 self->_currentLayout = [self->_layouts objectAtIndex:nextIndex];
                 self->_currentDemuxer = [self->_demuxers objectAtIndex:nextIndex];
-                [self->_currentDemuxer seekToTime:kCMTimeZero];
+                [self->_currentDemuxer seekToTime:kCMTimeZero withError:NULL];
             } else {
                 self->_currentIndex = 0;
                 self->_currentLayout = nil;
@@ -200,7 +206,13 @@
     if (error.code == SGErrorCodeDemuxerEndOfFile) {
         self->_finishedTracks = self->_tracks.copy;
     }
-    return error;
+    if (error) {
+        if (outError) {
+            *outError = error;
+        }
+        return NO;
+    }
+    return YES;
 }
 
 @end

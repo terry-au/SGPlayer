@@ -34,6 +34,7 @@
 @implementation SGFrameReader
 
 @synthesize selectedTracks = _selectedTracks;
+@synthesize decoderOptions = _decoderOptions;
 
 - (instancetype)initWithAsset:(SGAsset *)asset
 {
@@ -48,13 +49,16 @@
 
 - (void)dealloc
 {
-    [self close];
+    [self closeWithError:NULL];
 }
 
 #pragma mark - Mapping
 
 SGGet0Map(CMTime, duration, self->_demuxer)
-SGGet0Map(NSError *, seekable, self->_demuxer);
+-(BOOL)seekableWithError:(NSError *__autoreleasing  _Nullable *)error
+{
+    return [self->_demuxer seekableWithError:error];
+}
 SGGet0Map(NSDictionary *, metadata, self->_demuxer)
 SGGet0Map(SGDemuxerOptions *, options, self->_demuxer)
 SGGet0Map(NSArray<SGTrack *> *, tracks, self->_demuxer)
@@ -76,52 +80,57 @@ SGSet11Map(void, setDemuxerOptions, setOptions, SGDemuxerOptions *, self->_demux
     }
 }
 
+-(SGDecoderOptions *)decoderOptions
+{
+    return self->_decoderOptions;
+}
+
 #pragma mark - Control
 
-- (NSError *)open
+- (BOOL)openWithError:(NSError *__autoreleasing  _Nullable *)error
 {
-    NSError *error = [self->_demuxer open];
-    if (!error) {
+    BOOL success = [self->_demuxer openWithError:error];
+    if (success) {
         self->_selectedTracks = [self->_demuxer.tracks copy];
         self->_decoders = [[NSMutableDictionary alloc] init];
         self->_frameQueue = [[SGObjectQueue alloc] init];
         self->_frameQueue.shouldSortObjects = YES;
     }
-    return error;
+    return success;
 }
 
-- (NSError *)close
+- (BOOL)closeWithError:(NSError *__autoreleasing  _Nullable *)error
 {
     self->_decoders = nil;
     self->_frameQueue = nil;
-    return [self->_demuxer close];
+    return [self->_demuxer closeWithError:error];
 }
 
-- (NSError *)seekToTime:(CMTime)time
+- (BOOL)seekToTime:(CMTime)time withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
-    return [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid];
+    return [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid withError:error];
 }
 
-- (NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
-    NSError *error = [self seekToTime:time toleranceBefor:toleranceBefor toleranceAfter:toleranceAfter];
-    if (!error) {
+    BOOL success = [self->_demuxer seekToTime:time toleranceBefore:toleranceBefor toleranceAfter:toleranceAfter withError:error];
+    if (success) {
         for (id<SGDecodable> obj in self->_decoders.allValues) {
             [obj flush];
         }
         [self->_frameQueue flush];
         self->_flags.noMorePacket = NO;
     }
-    return error;
+    return success;
 }
 
-- (NSError *)selectTracks:(NSArray<SGTrack *> *)tracks
+- (BOOL)selectTracks:(NSArray<SGTrack *> *)tracks withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
     self->_selectedTracks = [tracks copy];
-    return nil;
+    return YES;
 }
 
-- (NSError *)nextFrame:(__kindof SGFrame **)frame
+- (BOOL)nextFrame:(__kindof SGFrame **)frame withError:(NSError *__autoreleasing  _Nullable * _Nullable)error
 {
     NSError *err= nil;
     __kindof SGFrame *ret = nil;
@@ -134,7 +143,7 @@ SGSet11Map(void, setDemuxerOptions, setOptions, SGDemuxerOptions *, self->_demux
             continue;
         }
         SGPacket *packet = nil;
-        [self->_demuxer nextPacket:&packet];
+        [self->_demuxer nextPacket:&packet withError:NULL];
         NSArray<__kindof SGFrame *> *objs = nil;
         if (packet) {
             if (![self->_selectedTracks containsObject:packet.track]) {
@@ -176,7 +185,13 @@ SGSet11Map(void, setDemuxerOptions, setOptions, SGDemuxerOptions *, self->_demux
             [ret unlock];
         }
     }
-    return err;
+    if (err) {
+        if (error) {
+            *error = err;
+        }
+        return NO;
+    }
+    return YES;
 }
 
 #pragma mark - SGDemuxableDelegate

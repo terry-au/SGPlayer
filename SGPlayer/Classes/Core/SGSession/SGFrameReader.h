@@ -12,6 +12,8 @@
 #import "SGAsset.h"
 #import "SGFrame.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol SGFrameReaderDelegate;
 
 @interface SGFrameReader : NSObject
@@ -47,12 +49,12 @@
 /**
  *
  */
-@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSArray<SGTrack *> *selectedTracks;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly, nullable) NSArray<SGTrack *> *selectedTracks;
 
 /**
  *
  */
-@property (NS_NONATOMIC_IOSONLY, copy, readonly) NSDictionary *metadata;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly, nullable) NSDictionary *metadata;
 
 /**
  *
@@ -62,37 +64,37 @@
 /**
  *
  */
-- (NSError *)open;
+- (BOOL)openWithError:(NSError**)error;
 
 /**
  *
  */
-- (NSError *)close;
+- (BOOL)closeWithError:(NSError**)error;
 
 /**
  *
  */
-- (NSError *)seekable;
+- (BOOL)seekableWithError:(NSError**)error;
 
 /**
  *
  */
-- (NSError *)seekToTime:(CMTime)time;
+- (BOOL)seekToTime:(CMTime)time withError:(NSError**)error;
 
 /**
  *
  */
-- (NSError *)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter;
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError**)error;
 
 /**
  *
  */
-- (NSError *)selectTracks:(NSArray<SGTrack *> *)tracks;
+- (BOOL)selectTracks:(NSArray<SGTrack *> *)tracks withError:(NSError**)error;
 
 /**
  *
  */
-- (NSError *)nextFrame:(__kindof SGFrame **)frame;
+- (BOOL)nextFrame:(__kindof SGFrame *_Nullable*_Nullable)frame withError:(NSError**)error;
 
 @end
 
@@ -104,3 +106,5 @@
 - (BOOL)frameReaderShouldAbortBlockingFunctions:(SGFrameReader *)frameReader;
 
 @end
+
+NS_ASSUME_NONNULL_END

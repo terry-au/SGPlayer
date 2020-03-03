@@ -7,13 +7,13 @@
 //
 
 #import <Metal/Metal.h>
-#import <GLKit/GLKit.h>
+#import <simd/simd.h>
 
 @interface SGMetalProjection : NSObject
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device;
 
-@property (nonatomic) GLKMatrix4 matrix;
+@property (nonatomic) matrix_float4x4 matrix;
 @property (nonatomic, strong) id<MTLDevice> device;
 @property (nonatomic, strong) id<MTLBuffer> matrixBuffer;
 

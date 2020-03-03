@@ -7,13 +7,15 @@
 //
 
 #import "SGMotionSensor.h"
+#import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import "SGVector.h"
 
 @interface SGMotionSensor ()
 
 @property (nonatomic) CGFloat defalutRotateY;
-@property (nonatomic) GLKMatrix4 deviceToDisplay;
-@property (nonatomic) GLKMatrix4 worldToInertialReferenceFrame;
+@property (nonatomic) matrix_float4x4 deviceToDisplay;
+@property (nonatomic) matrix_float4x4 worldToInertialReferenceFrame;
 @property (nonatomic, strong) CMMotionManager * manager;
 @property (nonatomic) UIInterfaceOrientation orientation;
 
@@ -24,7 +26,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.deviceToDisplay = GLKMatrix4Identity;
+        self.deviceToDisplay = matrix_identity_float4x4;
         self.manager = [[CMMotionManager alloc] init];
         self.worldToInertialReferenceFrame = [self getRotateEulerMatrixX:-90 Y:0 Z:90];
         switch ([UIApplication sharedApplication].statusBarOrientation) {
@@ -51,7 +53,7 @@
         switch (orientation) {
             case UIInterfaceOrientationPortrait:
             case UIInterfaceOrientationUnknown:
-                self.deviceToDisplay = GLKMatrix4Identity;
+                self.deviceToDisplay = matrix_identity_float4x4;
                 break;
             case UIInterfaceOrientationPortraitUpsideDown:
                 self.deviceToDisplay = [self getRotateEulerMatrixX:0 Y:0 Z:180];
@@ -88,53 +90,53 @@
     self.manager = nil;
 }
 
-- (GLKMatrix4)matrix
+- (matrix_float4x4)matrix
 {
     if (!self.manager.isDeviceMotionActive ||
         !self.manager.isDeviceMotionAvailable) {
-        return GLKMatrix4Identity;
+        return matrix_identity_float4x4;
     }
     CMDeviceMotion * motion = self.manager.deviceMotion;
     if (!motion) {
-        return GLKMatrix4Identity;
+        return matrix_identity_float4x4;
     }
     self.orientation = [UIApplication sharedApplication].statusBarOrientation;
     CMRotationMatrix rotationMatrix = motion.attitude.rotationMatrix;
-    GLKMatrix4 inertialReferenceFrameToDevice = GLKMatrix4Transpose([self glMatrixFromRotationMatrix:rotationMatrix]);
-    GLKMatrix4 worldToDevice = GLKMatrix4Multiply(inertialReferenceFrameToDevice, self.worldToInertialReferenceFrame);
-    GLKMatrix4 worldToDisplay = GLKMatrix4Multiply(self.deviceToDisplay, worldToDevice);
-    GLKMatrix4 ret = GLKMatrix4RotateY(worldToDisplay, GLKMathDegreesToRadians(self.defalutRotateY));
+    matrix_float4x4 inertialReferenceFrameToDevice = matrix_transpose([self glMatrixFromRotationMatrix:rotationMatrix]);
+    matrix_float4x4 worldToDevice = matrix_multiply(inertialReferenceFrameToDevice, self.worldToInertialReferenceFrame);
+    matrix_float4x4 worldToDisplay = matrix_multiply(self.deviceToDisplay, worldToDevice);
+    matrix_float4x4 ret = SGMatrix4x4RotateY(worldToDisplay, SGDegreesToRadians(self.defalutRotateY));
     return ret;
 }
 
-- (GLKMatrix4)glMatrixFromRotationMatrix:(CMRotationMatrix)rotationMatrix
+- (matrix_float4x4)glMatrixFromRotationMatrix:(CMRotationMatrix)rotationMatrix
 {
-    GLKMatrix4 glRotationMatrix;
+    matrix_float4x4 glRotationMatrix;
     
-    glRotationMatrix.m00 = rotationMatrix.m11;
-    glRotationMatrix.m01 = rotationMatrix.m12;
-    glRotationMatrix.m02 = rotationMatrix.m13;
-    glRotationMatrix.m03 = 0.0f;
+    glRotationMatrix.columns[0][0] = rotationMatrix.m11;
+    glRotationMatrix.columns[0][1] = rotationMatrix.m12;
+    glRotationMatrix.columns[0][2] = rotationMatrix.m13;
+    glRotationMatrix.columns[0][3] = 0.0f;
     
-    glRotationMatrix.m10 = rotationMatrix.m21;
-    glRotationMatrix.m11 = rotationMatrix.m22;
-    glRotationMatrix.m12 = rotationMatrix.m23;
-    glRotationMatrix.m13 = 0.0f;
+    glRotationMatrix.columns[1][0] = rotationMatrix.m21;
+    glRotationMatrix.columns[1][1] = rotationMatrix.m22;
+    glRotationMatrix.columns[1][2] = rotationMatrix.m23;
+    glRotationMatrix.columns[1][3] = 0.0f;
     
-    glRotationMatrix.m20 = rotationMatrix.m31;
-    glRotationMatrix.m21 = rotationMatrix.m32;
-    glRotationMatrix.m22 = rotationMatrix.m33;
-    glRotationMatrix.m23 = 0.0f;
+    glRotationMatrix.columns[2][0] = rotationMatrix.m31;
+    glRotationMatrix.columns[2][1] = rotationMatrix.m32;
+    glRotationMatrix.columns[2][2] = rotationMatrix.m33;
+    glRotationMatrix.columns[2][3] = 0.0f;
     
-    glRotationMatrix.m30 = 0.0f;
-    glRotationMatrix.m31 = 0.0f;
-    glRotationMatrix.m32 = 0.0f;
-    glRotationMatrix.m33 = 1.0f;
+    glRotationMatrix.columns[3][0] = 0.0f;
+    glRotationMatrix.columns[3][1] = 0.0f;
+    glRotationMatrix.columns[3][2] = 0.0f;
+    glRotationMatrix.columns[3][3] = 1.0f;
     
     return glRotationMatrix;
 }
 
-- (GLKMatrix4)getRotateEulerMatrixX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z
+- (matrix_float4x4)getRotateEulerMatrixX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z
 {
     x *= (float)(M_PI / 180.0f);
     y *= (float)(M_PI / 180.0f);
@@ -147,23 +149,23 @@
     float sz = (float) sin(z);
     float cxsy = cx * sy;
     float sxsy = sx * sy;
-    GLKMatrix4 matrix;
-    matrix.m[0] = cy * cz;
-    matrix.m[1] = -cy * sz;
-    matrix.m[2] = sy;
-    matrix.m[3] = 0.0f;
-    matrix.m[4] = cxsy * cz + cx * sz;
-    matrix.m[5] = -cxsy * sz + cx * cz;
-    matrix.m[6] = -sx * cy;
-    matrix.m[7] = 0.0f;
-    matrix.m[8] = -sxsy * cz + sx * sz;
-    matrix.m[9] = sxsy * sz + sx * cz;
-    matrix.m[10] = cx * cy;
-    matrix.m[11] = 0.0f;
-    matrix.m[12] = 0.0f;
-    matrix.m[13] = 0.0f;
-    matrix.m[14] = 0.0f;
-    matrix.m[15] = 1.0f;
+    matrix_float4x4 matrix;
+    matrix.columns[0].x = cy * cz;
+    matrix.columns[0].y = -cy * sz;
+    matrix.columns[0].z = sy;
+    matrix.columns[0].w = 0.0f;
+    matrix.columns[1].x = cxsy * cz + cx * sz;
+    matrix.columns[1].y = -cxsy * sz + cx * cz;
+    matrix.columns[1].z = -sx * cy;
+    matrix.columns[1].w = 0.0f;
+    matrix.columns[2].x = -sxsy * cz + sx * sz;
+    matrix.columns[2].y = sxsy * sz + sx * cz;
+    matrix.columns[2].z = cx * cy;
+    matrix.columns[2].w = 0.0f;
+    matrix.columns[3].x = 0.0f;
+    matrix.columns[3].y = 0.0f;
+    matrix.columns[3].z = 0.0f;
+    matrix.columns[3].w = 1.0f;
     return matrix;
 }
 

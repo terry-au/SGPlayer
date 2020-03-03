@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GLKit/GLKit.h>
+#import <simd/simd.h>
 
 @interface SGMotionSensor : NSObject
 
 @property (nonatomic, readonly) BOOL ready;
-@property (nonatomic, readonly) GLKMatrix4 matrix;
+@property (nonatomic, readonly) matrix_float4x4 matrix;
 
 - (void)start;
 - (void)stop;

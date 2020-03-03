@@ -86,7 +86,7 @@
 - (int)delay
 {
     int64_t delay = swr_get_delay(self->_context, self->_outputDescriptor.sampleRate);
-    NSAssert(delay < INT32_MAX, @"Invalid delay %i", delay);
+    NSAssert(delay < INT32_MAX, @"Invalid delay %lli", delay);
     return (int)delay;
 }
 

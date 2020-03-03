@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55095DA5240DF1EA00B288CB /* SGVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55095DA4240DF1EA00B288CB /* SGVector.h */; };
+		55095DA6240DF1EA00B288CB /* SGVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55095DA4240DF1EA00B288CB /* SGVector.h */; };
+		55095DA7240DF1EA00B288CB /* SGVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55095DA4240DF1EA00B288CB /* SGVector.h */; };
 		55E40E8823D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
 		55E40E8923D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
 		55E40E8A23D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
@@ -591,6 +594,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55095DA4240DF1EA00B288CB /* SGVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGVector.h; sourceTree = "<group>"; };
 		55E40E8623D2E82E0027A2D5 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCapacity.swift; sourceTree = "<group>"; };
 		55E40E8B23D2F3970027A2D5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -960,6 +964,7 @@
 		9C03E5E9212E60F7001F0E1B /* SGVR */ = {
 			isa = PBXGroup;
 			children = (
+				55095DA4240DF1EA00B288CB /* SGVector.h */,
 				9C03E5EA212E616B001F0E1B /* SGMotionSensor.h */,
 				9C03E5EB212E616B001F0E1B /* SGMotionSensor.m */,
 				9C03E5EE212E645B001F0E1B /* SGVRProjection.h */,
@@ -1645,6 +1650,7 @@
 				9C8D6B7622C4A19500985D55 /* SGMetalSphereModel.h in Headers */,
 				9C86384421904A0900D730EC /* SGObjectPool.h in Headers */,
 				9C86384621904A0900D730EC /* SGObjectQueue.h in Headers */,
+				55095DA6240DF1EA00B288CB /* SGVector.h in Headers */,
 				9CB01C94219E863D00B36CFA /* SGMutilDemuxer.h in Headers */,
 				9CFA2361230BD00400061AAC /* imgutils.h in Headers */,
 				9CE7192A219C48AC00256485 /* SGExtractingDemuxer.h in Headers */,
@@ -1754,6 +1760,7 @@
 				9CD79EE92190068E00E39A7D /* SGObjectQueue.h in Headers */,
 				9CD79EFB2190068E00E39A7D /* SGClock+Internal.h in Headers */,
 				9CD79EFC2190068E00E39A7D /* SGAsset.h in Headers */,
+				55095DA7240DF1EA00B288CB /* SGVector.h in Headers */,
 				9CD79EFF2190068E00E39A7D /* SGDefines.h in Headers */,
 				9CFA236E230BD00C00061AAC /* imgutils.h in Headers */,
 				9CE7192B219C48AC00256485 /* SGExtractingDemuxer.h in Headers */,
@@ -1837,6 +1844,7 @@
 				9C853F1221BFD85D005552C6 /* SGVideoDescriptor.h in Headers */,
 				9C525D5121AEC421005C5708 /* SGAudioDescriptor.h in Headers */,
 				9C55337121B25EC000119235 /* SGData.h in Headers */,
+				55095DA5240DF1EA00B288CB /* SGVector.h in Headers */,
 				9CE71915219C3F7900256485 /* SGURLSegment.h in Headers */,
 				9C11816522C4E23200A12FD4 /* SGMetalViewport.h in Headers */,
 				9C4190FD21B00FC600134099 /* SGMutableTrack.h in Headers */,

@@ -15,6 +15,7 @@
 #import "SGMetal.h"
 #import "SGMacro.h"
 #import "SGLock.h"
+#import "SGVector.h"
 
 @interface SGVideoRenderer () <MTKViewDelegate>
 
@@ -405,11 +406,11 @@
         [frame unlock];
         return;
     }
-    GLKMatrix4 baseMatrix = GLKMatrix4Identity;
+    matrix_float4x4 baseMatrix = matrix_identity_float4x4;
     NSInteger rotate = [frame.metadata[@"rotate"] integerValue];
     if (rotate && (rotate % 90) == 0) {
-        float radians = GLKMathDegreesToRadians(-rotate);
-        baseMatrix = GLKMatrix4RotateZ(baseMatrix, radians);
+        float radians = SGDegreesToRadians(-rotate);
+        baseMatrix = SGMatrix4x4RotateZ(baseMatrix, radians);
         SGRational size = {
             presentationSize.num * ABS(cos(radians)) + presentationSize.den * ABS(sin(radians)),
             presentationSize.num * ABS(sin(radians)) + presentationSize.den * ABS(cos(radians)),
@@ -447,25 +448,25 @@
         }
             break;
         case SGDisplayModeVR: {
-            GLKMatrix4 matrix = GLKMatrix4Identity;
+            matrix_float4x4 matrix = matrix_identity_float4x4;
             Float64 aspect = (Float64)drawable.texture.width / drawable.texture.height;
             if (![self->_matrixMaker matrixWithAspect:aspect matrix1:&matrix]) {
                 break;
             }
-            self->_projection1.matrix = GLKMatrix4Multiply(baseMatrix, matrix);
+            self->_projection1.matrix = matrix_multiply(baseMatrix, matrix);
             projections = @[self->_projection1];
             viewports[0] = [SGMetalViewport viewportWithLayerSize:layerSize];
         }
             break;
         case SGDisplayModeVRBox: {
-            GLKMatrix4 matrix1 = GLKMatrix4Identity;
-            GLKMatrix4 matrix2 = GLKMatrix4Identity;
+            matrix_float4x4 matrix1 = matrix_identity_float4x4;
+            matrix_float4x4 matrix2 = matrix_identity_float4x4;
             Float64 aspect = (Float64)drawable.texture.width / drawable.texture.height / 2.0;
             if (![self->_matrixMaker matrixWithAspect:aspect matrix1:&matrix1 matrix2:&matrix2]) {
                 break;
             }
-            self->_projection1.matrix = GLKMatrix4Multiply(baseMatrix, matrix1);
-            self->_projection2.matrix = GLKMatrix4Multiply(baseMatrix, matrix2);
+            self->_projection1.matrix = matrix_multiply(baseMatrix, matrix1);
+            self->_projection2.matrix = matrix_multiply(baseMatrix, matrix2);
             projections = @[self->_projection1, self->_projection2];
             viewports[0] = [SGMetalViewport viewportWithLayerSizeForLeft:layerSize];
             viewports[1] = [SGMetalViewport viewportWithLayerSizeForRight:layerSize];

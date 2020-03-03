@@ -8,6 +8,10 @@
 
 #import "SGProcessor.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGVideoProcessor : NSObject <SGProcessor>
 
 @end
+
+NS_ASSUME_NONNULL_END

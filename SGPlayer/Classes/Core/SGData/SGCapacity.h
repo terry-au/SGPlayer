@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SGTime.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef struct SGCapacity {
     int size;
     int count;
@@ -23,3 +25,5 @@ SGCapacity SGCapacityMaximum(SGCapacity c1, SGCapacity c2);
 BOOL SGCapacityIsEqual(SGCapacity c1, SGCapacity c2);
 BOOL SGCapacityIsEnough(SGCapacity c1);
 BOOL SGCapacityIsEmpty(SGCapacity c1);
+
+NS_ASSUME_NONNULL_END

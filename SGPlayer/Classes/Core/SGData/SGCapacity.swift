@@ -26,7 +26,26 @@ public extension SGCapacity {
     }
 }
 
-extension SGCapacity: Equatable {
+extension SGCapacity: Comparable {
+    public static func < (c1: SGCapacity, c2: SGCapacity) -> Bool {
+        if CMTimeCompare(c1.duration, c2.duration) < 0 {
+            return true;
+        } else if CMTimeCompare(c1.duration, c2.duration) > 0 {
+            return false;
+        }
+        if c1.count < c2.count {
+            return true;
+        } else if c1.count > c2.count {
+            return false;
+        }
+        if c1.size < c2.size {
+            return true;
+        } else if c1.size > c2.size {
+            return false;
+        }
+        return false;
+    }
+    
     @inlinable public static func == (lhs: SGCapacity, rhs: SGCapacity) -> Bool {
         return SGCapacityIsEqual(lhs, rhs)
     }

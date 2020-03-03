@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SGAudioDescriptor.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGSonic : NSObject
 
 /**
@@ -25,27 +27,27 @@
 /**
  *
  */
-@property (nonatomic, copy, readonly) SGAudioDescriptor *descriptor;
+@property (NS_NONATOMIC_IOSONLY, copy, readonly) SGAudioDescriptor *descriptor;
 
 /**
  *
  */
-@property (nonatomic) float speed;
+@property (NS_NONATOMIC_IOSONLY) float speed;
 
 /**
  *
  */
-@property (nonatomic) float pitch;
+@property (NS_NONATOMIC_IOSONLY) float pitch;
 
 /**
  *
  */
-@property (nonatomic) float rate;
+@property (NS_NONATOMIC_IOSONLY) float rate;
 
 /**
  *
  */
-@property (nonatomic) float volume;
+@property (NS_NONATOMIC_IOSONLY) float volume;
 
 /**
  *
@@ -60,21 +62,23 @@
 /**
  *
  */
-- (int)samplesInput;
+@property (NS_NONATOMIC_IOSONLY, readonly) int samplesInput;
 
 /**
  *
  */
-- (int)samplesAvailable;
+@property (NS_NONATOMIC_IOSONLY, readonly) int samplesAvailable;
 
 /**
  *
  */
-- (int)write:(uint8_t **)data nb_samples:(int)nb_samples;
+- (int)write:(uint8_t *_Nullable*_Nonnull)data nb_samples:(int)nb_samples;
 
 /**
  *
  */
-- (int)read:(uint8_t **)data nb_samples:(int)nb_samples;
+- (int)read:(uint8_t *_Nullable*_Nonnull)data nb_samples:(int)nb_samples;
 
 @end
+
+NS_ASSUME_NONNULL_END

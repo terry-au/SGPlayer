@@ -10,22 +10,24 @@
 #import "SGAudioDescriptor.h"
 #import "SGAudioFrame.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGAudioFormatter : NSObject
 
 /**
  *
  */
-@property (nonatomic, copy) SGAudioDescriptor *descriptor;
+@property (nonatomic, copy, nullable) SGAudioDescriptor *descriptor;
 
 /**
  *
  */
-- (SGAudioFrame *)format:(SGAudioFrame *)frame;
+- (nullable SGAudioFrame *)format:(SGAudioFrame *)frame;
 
 /**
  *
  */
-- (SGAudioFrame *)finish;
+- (nullable SGAudioFrame *)finish;
 
 /**
  *
@@ -33,3 +35,5 @@
 - (void)flush;
 
 @end
+
+NS_ASSUME_NONNULL_END

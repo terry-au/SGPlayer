@@ -11,6 +11,8 @@
 #import "SGCapacity.h"
 #import "SGFrame.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol SGProcessor <NSObject>
 
 /**
@@ -21,12 +23,12 @@
 /**
  *
  */
-- (__kindof SGFrame *)putFrame:(__kindof SGFrame *)frame;
+- (nullable __kindof SGFrame *)putFrame:(__kindof SGFrame *)frame;
 
 /**
  *
  */
-- (__kindof SGFrame *)finish;
+- (nullable __kindof SGFrame *)finish;
 
 /**
  *
@@ -44,3 +46,5 @@
 - (void)close;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -10,6 +10,8 @@
 #import "SGPLFImage.h"
 #import "SGVideoDescriptor.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGVideoFrame : SGFrame
 
 /**
@@ -20,21 +22,23 @@
 /**
  *
  */
-- (int *)linesize;
+@property (readonly) int *linesize NS_RETURNS_INNER_POINTER;
 
 /**
  *
  */
-- (uint8_t **)data;
+@property (readonly) uint8_t *_Nullable*_Nonnull data NS_RETURNS_INNER_POINTER;
 
 /**
  *
  */
-- (CVPixelBufferRef)pixelBuffer;
+@property (readonly, nullable) CVPixelBufferRef pixelBuffer;
 
 /**
  *
  */
-- (SGPLFImage *)image;
+- (nullable SGPLFImage *)image;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -10,6 +10,8 @@
 #import "SGTrack.h"
 #import "SGData.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 static int const SGFramePlaneCount = 8;
 
 @interface SGFrame : NSObject <SGData>
@@ -22,7 +24,7 @@ static int const SGFramePlaneCount = 8;
 /**
  *
  */
-@property (nonatomic, strong, readonly) SGTrack *track;
+@property (nonatomic, strong, readonly, nullable) SGTrack *track;
 
 /**
  *
@@ -50,3 +52,5 @@ static int const SGFramePlaneCount = 8;
 @property (nonatomic, readonly) int size;
 
 @end
+
+NS_ASSUME_NONNULL_END

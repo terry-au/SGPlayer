@@ -68,10 +68,7 @@
     return [ret copy];
 }
 
-- (SGCapacity)capacity
-{
-    return self->_capacity;
-}
+@synthesize capacity=_capacity;
 
 - (void)flush
 {

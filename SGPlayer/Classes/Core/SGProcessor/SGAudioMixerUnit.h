@@ -10,12 +10,14 @@
 #import "SGAudioFrame.h"
 #import "SGCapacity.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGAudioMixerUnit : NSObject
 
 /**
  *
  */
-@property (nonatomic, readonly) CMTimeRange timeRange;
+@property (NS_NONATOMIC_IOSONLY, readonly) CMTimeRange timeRange;
 
 /**
  *
@@ -30,7 +32,7 @@
 /**
  *
  */
-- (SGCapacity)capacity;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGCapacity capacity;
 
 /**
  *
@@ -38,3 +40,5 @@
 - (void)flush;
 
 @end
+
+NS_ASSUME_NONNULL_END

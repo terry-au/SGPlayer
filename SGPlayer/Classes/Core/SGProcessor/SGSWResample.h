@@ -14,8 +14,8 @@
 /**
  *
  */
-@property (nonatomic, copy) SGAudioDescriptor *inputDescriptor;
-@property (nonatomic, copy) SGAudioDescriptor *outputDescriptor;
+@property (NS_NONATOMIC_IOSONLY, copy, nullable) SGAudioDescriptor *inputDescriptor;
+@property (NS_NONATOMIC_IOSONLY, copy, nullable) SGAudioDescriptor *outputDescriptor;
 
 /**
  *
@@ -25,16 +25,16 @@
 /**
  *
  */
-- (int)write:(uint8_t **)data nb_samples:(int)nb_samples;
+- (int)write:(uint8_t *_Nullable*_Nonnull)data nb_samples:(int)nb_samples;
 
 /**
  *
  */
-- (int)read:(uint8_t **)data nb_samples:(int)nb_samples;
+- (int)read:(uint8_t *_Nullable*_Nonnull)data nb_samples:(int)nb_samples;
 
 /**
  *
  */
-- (int)delay;
+@property (NS_NONATOMIC_IOSONLY, readonly) int delay;
 
 @end

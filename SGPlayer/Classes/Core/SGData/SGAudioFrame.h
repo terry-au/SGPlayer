@@ -9,6 +9,8 @@
 #import "SGFrame.h"
 #import "SGAudioDescriptor.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGAudioFrame : SGFrame
 
 /**
@@ -24,11 +26,13 @@
 /**
  *
  */
-- (int *)linesize;
+@property (readonly) int *linesize NS_RETURNS_INNER_POINTER;
 
 /**
  *
  */
-- (uint8_t **)data;
+@property (readonly) uint8_t *_Nullable*_Nonnull data NS_RETURNS_INNER_POINTER;
 
 @end
+
+NS_ASSUME_NONNULL_END

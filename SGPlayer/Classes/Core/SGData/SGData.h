@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreMedia/CoreMedia.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *
  */
@@ -59,3 +61,5 @@ typedef NS_OPTIONS(NSUInteger, SGDataFlags) {
 @property (nonatomic, readonly) int size;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -78,10 +78,7 @@
     return self->_data;
 }
 
-- (CVPixelBufferRef)pixelBuffer
-{
-    return self->_pixelBuffer;
-}
+@synthesize pixelBuffer=_pixelBuffer;
 
 - (SGPLFImage *)image
 {

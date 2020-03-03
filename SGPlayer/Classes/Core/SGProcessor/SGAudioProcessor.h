@@ -9,6 +9,10 @@
 #import "SGProcessor.h"
 #import "SGAudioDescriptor.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGAudioProcessor : NSObject <SGProcessor>
 
 @end
+
+NS_ASSUME_NONNULL_END

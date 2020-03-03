@@ -11,6 +11,8 @@
 #import "SGAudioFrame.h"
 #import "SGCapacity.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGAudioMixer : NSObject
 
 + (instancetype)new NS_UNAVAILABLE;
@@ -34,17 +36,17 @@
 /**
  *
  */
-- (SGAudioFrame *)putFrame:(SGAudioFrame *)frame;
+- (nullable SGAudioFrame *)putFrame:(SGAudioFrame *)frame;
 
 /**
  *
  */
-- (SGAudioFrame *)finish;
+- (nullable SGAudioFrame *)finish;
 
 /**
  *
  */
-- (SGCapacity)capacity;
+@property (nonatomic, readonly) SGCapacity capacity;
 
 /**
  *
@@ -52,3 +54,5 @@
 - (void)flush;
 
 @end
+
+NS_ASSUME_NONNULL_END

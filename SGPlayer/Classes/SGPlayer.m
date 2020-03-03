@@ -43,8 +43,6 @@ NSNotificationName const SGPlayerDidChangeInfosNotification = @"SGPlayerDidChang
 
 @property (nonatomic, strong, readonly) NSLock *lock;
 @property (nonatomic, strong, readonly) SGClock *clock;
-@property (nonatomic, strong, readonly) SGAudioRenderer *audioRenderer;
-@property (nonatomic, strong, readonly) SGVideoRenderer *videoRenderer;
 
 @end
 

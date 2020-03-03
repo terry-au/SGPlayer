@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion
     Use this method to get synchronized state and time information.
  */
-- (BOOL)stateInfo:(SGStateInfo *)stateInfo timeInfo:(SGTimeInfo *)timeInfo error:(NSError **)error;
+- (BOOL)stateInfo:(nullable SGStateInfo *)stateInfo timeInfo:(nullable SGTimeInfo *)timeInfo error:(NSError **)error;
 
 @end
 
@@ -226,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion
     The life cycle is consistent with the player. The settings for the renderer will always take effect.
  */
-@property (readonly) SGAudioRenderer *audioRenderer;
+@property (nonatomic, strong, readonly) SGAudioRenderer *audioRenderer;
 
 /*!
  @property videoRenderer
@@ -236,7 +236,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion
     The life cycle is consistent with the player. The settings for the renderer will always take effect.
  */
-@property (readonly) SGVideoRenderer *videoRenderer;
+@property (nonatomic, strong, readonly) SGVideoRenderer *videoRenderer;
 
 @end
 

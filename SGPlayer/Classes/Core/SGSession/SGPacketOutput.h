@@ -103,7 +103,7 @@ typedef NS_ENUM(NSUInteger, SGPacketOutputState) {
 /**
  *
  */
-- (BOOL)seekable;
+@property (NS_NONATOMIC_IOSONLY, readonly, getter=isSeekable) BOOL seekable;
 
 /**
  *

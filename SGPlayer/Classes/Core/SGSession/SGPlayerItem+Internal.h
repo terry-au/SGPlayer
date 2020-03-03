@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, SGPlayerItemState) {
 /**
  *
  */
-- (BOOL)seekable;
+@property (NS_NONATOMIC_IOSONLY, readonly, getter=isSeekable) BOOL seekable;
 
 /**
  *

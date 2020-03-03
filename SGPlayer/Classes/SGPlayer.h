@@ -23,40 +23,40 @@ NS_ASSUME_NONNULL_BEGIN
     When a player is Created, a copy of the shared options is made.
     After modifying the options, call -replaceWithXXX: to apply the new options.
  */
-@property (nonatomic, strong) SGOptions *options;
+@property (NS_NONATOMIC_IOSONLY, strong) SGOptions *options;
 
 /*!
  @property error
  @abstract
     Get player error information.
  */
-@property (readonly, strong, nullable) NSError *error;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong, nullable) NSError *error;
 
 /*!
  @property timeInfo
  @abstract
     Get player time information.
  */
-@property (readonly) SGTimeInfo timeInfo;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGTimeInfo timeInfo;
 
 /*!
- @property sstateInfo
+ @property stateInfo
  @abstract
     Get player state information.
  */
-@property (readonly) SGStateInfo sstateInfo;
+@property (NS_NONATOMIC_IOSONLY, readonly) SGStateInfo stateInfo;
 
 /*!
  @method stateInfo:timeInfo:error:
  @abstract
     Get player state and time information.
  @result
-    Returns YES if the information was fill to the params.
+    Returns \c YES if the information was set to the params.
  
  @discussion
     Use this method to get synchronized state and time information.
  */
-- (BOOL)stateInfo:(nullable SGStateInfo *)stateInfo timeInfo:(nullable SGTimeInfo *)timeInfo error:(NSError **)error;
+- (BOOL)stateInfo:(nullable SGStateInfo *)stateInfo timeInfo:(nullable SGTimeInfo *)timeInfo error:(NSError **)error NS_SWIFT_NOTHROW;
 
 @end
 
@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Indicates the current item of the Player.
  @result
-    Returns nil if the player is idle.
+    Returns \c nil if the player is idle.
  */
 @property (nonatomic, strong, readonly, nullable) SGPlayerItem *currentItem;
 
@@ -87,20 +87,20 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  @method replaceWithURL:
  @abstract
-    Equivalent:
+    Equivalent to:
         SGAsset *asset = [[SGURLAsset alloc] initWithURL:URL];
         [self replaceWithAsset:asset];
  */
-- (BOOL)replaceWithURL:(NSURL *)URL;
+- (BOOL)replaceWithURL:(nullable NSURL *)URL;
 
 /*!
  @method replaceWithAsset:
  @abstract
-    Equivalent:
+    Equivalent to:
         SGPlayerItem *item = [[SGPlayerItem alloc] initWithAsset:asset];
         [self replaceWithPlayerItem:item];
  */
-- (BOOL)replaceWithAsset:(SGAsset *)asset;
+- (BOOL)replaceWithAsset:(nullable SGAsset *)asset;
 
 /*!
  @method replaceWithPlayerItem:
@@ -108,9 +108,9 @@ NS_ASSUME_NONNULL_BEGIN
     Replaces the player's current item with the specified player item.
  
  @discussion
-    After calling this method, the player will be reset and automatically start loading new item.
+    After calling this method, the player will be reset and automatically start loading the new item.
  */
-- (BOOL)replaceWithPlayerItem:(SGPlayerItem *)item;
+- (BOOL)replaceWithPlayerItem:(nullable SGPlayerItem *)item;
 
 @end
 
@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  @property pausesWhenEnteredBackground
  @abstract
-    Indicates whether to automatically pause when application did enter background.
+    Indicates whether to automatically pause when application enters the background.
     Default is NO.
  */
 @property (nonatomic) BOOL pausesWhenEnteredBackground;
@@ -159,7 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  @property pausesWhenEnteredBackgroundIfNoAudioTrack
  @abstract
-    Indicates whether to automatically pause when application did enter background if no audio track.
+    Indicates whether to automatically pause when application enters the background if there's no audio track.
     Default is YES.
  */
 @property (nonatomic) BOOL pausesWhenEnteredBackgroundIfNoAudioTrack;
@@ -180,16 +180,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)pause;
 
 /*!
- @method seekable
+ @property seekable
  @abstract
     Indicates whether it is possible to seek.
  */
-- (BOOL)seekable;
+@property (NS_NONATOMIC_IOSONLY, readonly, getter=isSeekable) BOOL seekable;
 
 /*!
  @method seekToTime:
  @abstract
-    Equivalent:
+    Equivalent to:
         [self seekToTime:time result:nil];
  */
 - (BOOL)seekToTime:(CMTime)time;
@@ -197,20 +197,20 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  @method seekToTime:result:
  @abstract
-    Equivalent:
-        [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid result:result];
+    Equivalent to:
+        [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid result:result];
  */
 - (BOOL)seekToTime:(CMTime)time result:(nullable SGSeekResult)result;
 
 /*!
- @method seekToTime:toleranceBefor:toleranceAfter:result:
+ @method seekToTime:toleranceBefore:toleranceAfter:result:
  @abstract
     Moves the playback cursor.
 
  @discussion
     Use this method to seek to a specified time for the current player item and to be notified when the seek operation is complete. The result handler for any prior seek request that is still in process will be invoked immediately with the error parameter. If the new request completes without being interrupted by another seek request or by any other operation the specified result handler will be invoked without error.
  */
-- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(nullable SGSeekResult)result;
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(nullable SGSeekResult)result;
 
 @end
 
@@ -226,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion
     The life cycle is consistent with the player. The settings for the renderer will always take effect.
  */
-@property (nonatomic, strong, readonly) SGAudioRenderer *audioRenderer;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly, nullable) SGAudioRenderer *audioRenderer;
 
 /*!
  @property videoRenderer
@@ -236,21 +236,21 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion
     The life cycle is consistent with the player. The settings for the renderer will always take effect.
  */
-@property (nonatomic, strong, readonly) SGVideoRenderer *videoRenderer;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly, nullable) SGVideoRenderer *videoRenderer;
 
 @end
 
 #pragma mark - Notification
 
 /*!
- @constant SGPlayerDidChangeInfosNotification
+ @constant SGPlayerDidChangeInfoNotification
  @abstract
     A notification that fires whenever information changes.
  
  @discussion
     This notification will be triggered by a change in playback state or playback time.
  */
-SGPLAYER_EXTERN NSNotificationName const SGPlayerDidChangeInfosNotification;
+SGPLAYER_EXTERN NSNotificationName const SGPlayerDidChangeInfoNotification;
 
 /*!
  @constant SGPlayerTimeInfoUserInfoKey
@@ -301,15 +301,15 @@ SGPLAYER_EXTERN NSString * const SGPlayerInfoActionUserInfoKey;
  @abstract
     Block unwanted actions.
  */
-@property (nonatomic) SGInfoAction actionMask;
+@property (NS_NONATOMIC_IOSONLY) SGInfoAction actionMask;
 
 /*!
  @property minimumTimeInfoInterval
  @abstract
     Indicates the minimum interval at which the time info change triggers the notification.
-    Default is 1.0f.
+    Default is 1.0 (1 second).
  */
-@property (nonatomic) NSTimeInterval minimumTimeInfoInterval;
+@property (NS_NONATOMIC_IOSONLY) NSTimeInterval minimumTimeInfoInterval;
 
 /*!
  @property notificationQueue
@@ -317,7 +317,7 @@ SGPLAYER_EXTERN NSString * const SGPlayerInfoActionUserInfoKey;
     Indicates in which queue the notification will be executed.
     Default is main queue.
  */
-@property (nonatomic, strong) NSOperationQueue *notificationQueue;
+@property (NS_NONATOMIC_IOSONLY, strong) NSOperationQueue *notificationQueue;
 
 @end
 

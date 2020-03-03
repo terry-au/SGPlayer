@@ -114,7 +114,7 @@ typedef NS_ENUM(NSUInteger, SGFrameOutputState) {
 /**
  *
  */
-@property (nonatomic, readonly) BOOL seekable;
+@property (NS_NONATOMIC_IOSONLY, readonly, getter=isSeekable) BOOL seekable;
 
 /**
  *

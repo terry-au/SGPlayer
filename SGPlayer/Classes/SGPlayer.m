@@ -21,7 +21,7 @@
 NSString * const SGPlayerTimeInfoUserInfoKey   = @"SGPlayerTimeInfoUserInfoKey";
 NSString * const SGPlayerStateInfoUserInfoKey  = @"SGPlayerStateInfoUserInfoKey";
 NSString * const SGPlayerInfoActionUserInfoKey = @"SGPlayerInfoActionUserInfoKey";
-NSNotificationName const SGPlayerDidChangeInfosNotification = @"SGPlayerDidChangeInfosNotification";
+NSNotificationName const SGPlayerDidChangeInfoNotification = @"SGPlayerDidChangeInfosNotification";
 
 @interface SGPlayer () <SGClockDelegate, SGRenderableDelegate, SGPlayerItemDelegate>
 
@@ -41,8 +41,8 @@ NSNotificationName const SGPlayerDidChangeInfosNotification = @"SGPlayerDidChang
     } _flags;
 }
 
-@property (nonatomic, strong, readonly) NSLock *lock;
-@property (nonatomic, strong, readonly) SGClock *clock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) NSLock *lock;
+@property (NS_NONATOMIC_IOSONLY, strong, readonly) SGClock *clock;
 
 @end
 
@@ -213,7 +213,7 @@ NSNotificationName const SGPlayerDidChangeInfosNotification = @"SGPlayerDidChang
     return timeInfo;
 }
 
-- (SGStateInfo)sstateInfo
+- (SGStateInfo)stateInfo
 {
     SGStateInfo stateInfo;
     [self stateInfo:&stateInfo timeInfo:nil error:nil];
@@ -396,10 +396,10 @@ NSNotificationName const SGPlayerDidChangeInfosNotification = @"SGPlayerDidChang
     });
 }
 
--  (BOOL)seekable
+-  (BOOL)isSeekable
 {
     SGPlayerItem *currentItem = [self currentItem];
-    return [currentItem seekable];
+    return [currentItem isSeekable];
 }
 
 - (BOOL)seekToTime:(CMTime)time
@@ -409,10 +409,10 @@ NSNotificationName const SGPlayerDidChangeInfosNotification = @"SGPlayerDidChang
 
 - (BOOL)seekToTime:(CMTime)time result:(SGSeekResult)result
 {
-    return [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid result:result];
+    return [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid result:result];
 }
 
-- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result
 {
     __block NSUInteger seekingCount = 0;
     __block SGPlayerItem *currentItem = nil;
@@ -629,7 +629,7 @@ NSNotificationName const SGPlayerDidChangeInfosNotification = @"SGPlayerDidChang
                     SGPlayerInfoActionUserInfoKey : @(action)};
     return ^{
         [self callback:^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:SGPlayerDidChangeInfosNotification
+            [[NSNotificationCenter defaultCenter] postNotificationName:SGPlayerDidChangeInfoNotification
                                                                 object:self
                                                               userInfo:userInfo];
         }];

@@ -227,7 +227,7 @@ SGSet1Map(void, setDecoderOptions, SGDecoderOptions *, self->_frameOutput)
     });
 }
 
-- (BOOL)seekable
+- (BOOL)isSeekable
 {
     return self->_frameOutput.seekable;
 }

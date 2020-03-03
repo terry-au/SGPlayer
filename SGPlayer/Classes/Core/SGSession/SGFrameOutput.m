@@ -245,9 +245,9 @@ SGSet11Map(void, setDemuxerOptions, setOptions, SGDemuxerOptions *, self->_packe
     });
 }
 
-- (BOOL)seekable
+- (BOOL)isSeekable
 {
-    return [self->_packetOutput seekable];
+    return [self->_packetOutput isSeekable];
 }
 
 - (BOOL)seekToTime:(CMTime)time

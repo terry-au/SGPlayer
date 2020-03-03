@@ -160,7 +160,7 @@ SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
 
 #pragma mark - Seeking
 
-- (BOOL)seekable
+- (BOOL)isSeekable
 {
     return [self->_demuxable seekableWithError:NULL];
 }
@@ -177,7 +177,7 @@ SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
 
 - (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result
 {
-    if (![self seekable]) {
+    if (![self isSeekable]) {
         return NO;
     }
     return SGLockCondEXE10(self->_lock, ^BOOL {

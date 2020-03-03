@@ -68,7 +68,7 @@
     }
 }
 
-- (BOOL)ready
+- (BOOL)isReady
 {
     if (self.manager.isDeviceMotionAvailable) {
         return self.manager.deviceMotion && self.manager.isDeviceMotionActive;
@@ -87,7 +87,8 @@
 - (void)stop
 {
     [self.manager stopDeviceMotionUpdates];
-    self.manager = nil;
+    // reset the manager.
+    self.manager = [[CMMotionManager alloc] init];
 }
 
 - (matrix_float4x4)matrix
@@ -167,6 +168,19 @@
     matrix.columns[3].z = 0.0f;
     matrix.columns[3].w = 1.0f;
     return matrix;
+}
+
+@end
+
+@implementation SGMotionSensor (deprecated)
+
+- (BOOL)ready
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLog(@"The function -[SGMotionSensor ready] was called inside your code. make sure you are calling -[SGMotionSensor isReady] instead. This will only be displayed once.");
+    });
+    return self.isReady;
 }
 
 @end

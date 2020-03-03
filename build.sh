@@ -5,8 +5,11 @@ set -e
 PLATFORM=$1
 ACTION=$2
 
-FFMPEG_VERSION=n4.2
+FFMPEG_VERSION=n4.2.2
 OPENSSL_VERSION=OpenSSL_1_0_2s
+
+# We don't want package managers to mess up the build
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
 if [ "$ACTION" = "build" ]; then
     sh scripts/init-openssl.sh $PLATFORM $OPENSSL_VERSION

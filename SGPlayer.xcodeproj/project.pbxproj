@@ -10,6 +10,9 @@
 		55095DA5240DF1EA00B288CB /* SGVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55095DA4240DF1EA00B288CB /* SGVector.h */; };
 		55095DA6240DF1EA00B288CB /* SGVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55095DA4240DF1EA00B288CB /* SGVector.h */; };
 		55095DA7240DF1EA00B288CB /* SGVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55095DA4240DF1EA00B288CB /* SGVector.h */; };
+		55DD3C09240E069D0004BCD6 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C08240E069D0004BCD6 /* libiconv.tbd */; };
+		55DD3C0A240E06B30004BCD6 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C08240E069D0004BCD6 /* libiconv.tbd */; };
+		55DD3C0B240E06B40004BCD6 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C08240E069D0004BCD6 /* libiconv.tbd */; };
 		55E40E8823D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
 		55E40E8923D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
 		55E40E8A23D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
@@ -595,6 +598,7 @@
 
 /* Begin PBXFileReference section */
 		55095DA4240DF1EA00B288CB /* SGVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGVector.h; sourceTree = "<group>"; };
+		55DD3C08240E069D0004BCD6 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		55E40E8623D2E82E0027A2D5 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCapacity.swift; sourceTree = "<group>"; };
 		55E40E8B23D2F3970027A2D5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -914,6 +918,7 @@
 				9CFA232D230BCD4400061AAC /* libavformat.a in Frameworks */,
 				9CFA232E230BCD4400061AAC /* libssl.a in Frameworks */,
 				9CFA232F230BCD4400061AAC /* libswresample.a in Frameworks */,
+				55DD3C0A240E06B30004BCD6 /* libiconv.tbd in Frameworks */,
 				9CFA2330230BCD4400061AAC /* libavcodec.a in Frameworks */,
 				9CFA2331230BCD4400061AAC /* libswscale.a in Frameworks */,
 				9CFA2332230BCD4400061AAC /* libavfilter.a in Frameworks */,
@@ -932,6 +937,7 @@
 				9CFA2346230BCE5100061AAC /* libavformat.a in Frameworks */,
 				9CFA2347230BCE5100061AAC /* libavfilter.a in Frameworks */,
 				9CFA2348230BCE5100061AAC /* libcrypto.a in Frameworks */,
+				55DD3C0B240E06B40004BCD6 /* libiconv.tbd in Frameworks */,
 				9CFA2349230BCE5100061AAC /* libavcodec.a in Frameworks */,
 				9CFA234A230BCE5100061AAC /* libswresample.a in Frameworks */,
 				9CD79EDB2190068E00E39A7D /* UIKit.framework in Frameworks */,
@@ -944,6 +950,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DD3C09240E069D0004BCD6 /* libiconv.tbd in Frameworks */,
 				9CFA2333230BCE3200061AAC /* libavcodec.a in Frameworks */,
 				9CFA2334230BCE3200061AAC /* libavfilter.a in Frameworks */,
 				9CFA2335230BCE3200061AAC /* libavformat.a in Frameworks */,
@@ -1080,6 +1087,7 @@
 		9C4793421E71402E00AD4289 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55DD3C08240E069D0004BCD6 /* libiconv.tbd */,
 				55E40E9123D2F3CC0027A2D5 /* libz.tbd */,
 				55E40E8F23D2F3C50027A2D5 /* liblzma.tbd */,
 				55E40E8D23D2F3AA0027A2D5 /* VideoToolbox.framework */,

@@ -13,6 +13,15 @@
 		55DD3C09240E069D0004BCD6 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C08240E069D0004BCD6 /* libiconv.tbd */; };
 		55DD3C0A240E06B30004BCD6 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C08240E069D0004BCD6 /* libiconv.tbd */; };
 		55DD3C0B240E06B40004BCD6 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C08240E069D0004BCD6 /* libiconv.tbd */; };
+		55DD3C0C240E50EC0004BCD6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E9123D2F3CC0027A2D5 /* libz.tbd */; };
+		55DD3C0D240E50ED0004BCD6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E9123D2F3CC0027A2D5 /* libz.tbd */; };
+		55DD3C0E240E50F20004BCD6 /* liblzma.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E8F23D2F3C50027A2D5 /* liblzma.tbd */; };
+		55DD3C0F240E50F30004BCD6 /* liblzma.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E8F23D2F3C50027A2D5 /* liblzma.tbd */; };
+		55DD3C10240E50F70004BCD6 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E8D23D2F3AA0027A2D5 /* VideoToolbox.framework */; };
+		55DD3C11240E50F80004BCD6 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E8D23D2F3AA0027A2D5 /* VideoToolbox.framework */; };
+		55DD3C13240E54830004BCD6 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C12240E54830004BCD6 /* libbz2.tbd */; };
+		55DD3C14240E54940004BCD6 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C12240E54830004BCD6 /* libbz2.tbd */; };
+		55DD3C15240E54950004BCD6 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD3C12240E54830004BCD6 /* libbz2.tbd */; };
 		55E40E8823D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
 		55E40E8923D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
 		55E40E8A23D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
@@ -599,6 +608,7 @@
 /* Begin PBXFileReference section */
 		55095DA4240DF1EA00B288CB /* SGVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGVector.h; sourceTree = "<group>"; };
 		55DD3C08240E069D0004BCD6 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		55DD3C12240E54830004BCD6 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		55E40E8623D2E82E0027A2D5 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCapacity.swift; sourceTree = "<group>"; };
 		55E40E8B23D2F3970027A2D5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -916,6 +926,7 @@
 				9CFA232B230BCD4400061AAC /* libavutil.a in Frameworks */,
 				9CFA232C230BCD4400061AAC /* libcrypto.a in Frameworks */,
 				9CFA232D230BCD4400061AAC /* libavformat.a in Frameworks */,
+				55DD3C14240E54940004BCD6 /* libbz2.tbd in Frameworks */,
 				9CFA232E230BCD4400061AAC /* libssl.a in Frameworks */,
 				9CFA232F230BCD4400061AAC /* libswresample.a in Frameworks */,
 				55DD3C0A240E06B30004BCD6 /* libiconv.tbd in Frameworks */,
@@ -931,13 +942,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DD3C13240E54830004BCD6 /* libbz2.tbd in Frameworks */,
 				9CFA2343230BCE5100061AAC /* libavutil.a in Frameworks */,
 				9CFA2344230BCE5100061AAC /* libswscale.a in Frameworks */,
+				55DD3C11240E50F80004BCD6 /* VideoToolbox.framework in Frameworks */,
 				9CFA2345230BCE5100061AAC /* libssl.a in Frameworks */,
 				9CFA2346230BCE5100061AAC /* libavformat.a in Frameworks */,
+				55DD3C0D240E50ED0004BCD6 /* libz.tbd in Frameworks */,
 				9CFA2347230BCE5100061AAC /* libavfilter.a in Frameworks */,
 				9CFA2348230BCE5100061AAC /* libcrypto.a in Frameworks */,
 				55DD3C0B240E06B40004BCD6 /* libiconv.tbd in Frameworks */,
+				55DD3C0F240E50F30004BCD6 /* liblzma.tbd in Frameworks */,
 				9CFA2349230BCE5100061AAC /* libavcodec.a in Frameworks */,
 				9CFA234A230BCE5100061AAC /* libswresample.a in Frameworks */,
 				9CD79EDB2190068E00E39A7D /* UIKit.framework in Frameworks */,
@@ -952,11 +967,15 @@
 			files = (
 				55DD3C09240E069D0004BCD6 /* libiconv.tbd in Frameworks */,
 				9CFA2333230BCE3200061AAC /* libavcodec.a in Frameworks */,
+				55DD3C10240E50F70004BCD6 /* VideoToolbox.framework in Frameworks */,
 				9CFA2334230BCE3200061AAC /* libavfilter.a in Frameworks */,
 				9CFA2335230BCE3200061AAC /* libavformat.a in Frameworks */,
+				55DD3C0C240E50EC0004BCD6 /* libz.tbd in Frameworks */,
 				9CFA2336230BCE3200061AAC /* libavutil.a in Frameworks */,
+				55DD3C15240E54950004BCD6 /* libbz2.tbd in Frameworks */,
 				9CFA2337230BCE3200061AAC /* libcrypto.a in Frameworks */,
 				9CFA2338230BCE3200061AAC /* libssl.a in Frameworks */,
+				55DD3C0E240E50F20004BCD6 /* liblzma.tbd in Frameworks */,
 				9CFA2339230BCE3200061AAC /* libswresample.a in Frameworks */,
 				9CFA233A230BCE3200061AAC /* libswscale.a in Frameworks */,
 				9CCC5F21200C9BBB00E833DA /* UIKit.framework in Frameworks */,
@@ -1087,6 +1106,7 @@
 		9C4793421E71402E00AD4289 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55DD3C12240E54830004BCD6 /* libbz2.tbd */,
 				55DD3C08240E069D0004BCD6 /* libiconv.tbd */,
 				55E40E9123D2F3CC0027A2D5 /* libz.tbd */,
 				55E40E8F23D2F3C50027A2D5 /* liblzma.tbd */,
@@ -2419,7 +2439,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/tvOS/universal/lib";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.libobjc.SGPlayer.tvOS;
 				PRODUCT_NAME = SGPlayer;
@@ -2457,7 +2477,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/tvOS/universal/lib";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.libobjc.SGPlayer.tvOS;
 				PRODUCT_NAME = SGPlayer;
@@ -2609,7 +2629,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/iOS/universal/lib";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.libobjc.SGPlayer.iOS;
 				PRODUCT_NAME = SGPlayer;
@@ -2644,7 +2664,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/iOS/universal/lib";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.libobjc.SGPlayer.iOS;
 				PRODUCT_NAME = SGPlayer;

@@ -9,6 +9,7 @@
 #ifndef SGVector_h
 #define SGVector_h
 
+#include <tgmath.h>
 #include <simd/simd.h>
 
 static inline float SGDegreesToRadians(float degrees) { return degrees * (M_PI / 180); };
@@ -89,7 +90,7 @@ static inline matrix_float4x4 SGMatrix4x4MakeZRotation(float radians)
 static inline matrix_float4x4 SGMatrix4x4RotateX(matrix_float4x4 matrix, float radians)
 {
     matrix_float4x4 rm = SGMatrix4x4MakeXRotation(radians);
-    return matrix_multiply (matrix, rm);
+    return matrix_multiply(matrix, rm);
 }
 
 static inline matrix_float4x4 SGMatrix4x4RotateY(matrix_float4x4 matrix, float radians)

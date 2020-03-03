@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <simd/simd.h>
+#import <simd/matrix_types.h>
 
 @interface SGMotionSensor : NSObject
 

@@ -22,7 +22,7 @@
 {
     if (self = [super init]) {
         self.player = [[SGPlayer alloc] init];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(infoChanged:) name:SGPlayerDidChangeInfosNotification object:self.player];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(infoChanged:) name:SGPlayerDidChangeInfoNotification object:self.player];
     }
     return self;
 }

@@ -50,7 +50,7 @@ typedef NS_ENUM(NSUInteger, SGScalingMode) {
  @discussion
     Main thread only.
  */
-@property (nonatomic, strong) SGPLFView *view;
+@property (nonatomic, strong, nullable) SGPLFView *view;
 
 /*!
  @property viewport

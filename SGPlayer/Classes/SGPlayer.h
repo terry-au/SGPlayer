@@ -242,6 +242,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Notification
 
+__BEGIN_DECLS
+
 /*!
  @constant SGPlayerDidChangeInfoNotification
  @abstract
@@ -272,6 +274,8 @@ SGPLAYER_EXTERN NSString * const SGPlayerStateInfoUserInfoKey;
     The user info key to get the actions that triggers the notification.
  */
 SGPLAYER_EXTERN NSString * const SGPlayerInfoActionUserInfoKey;
+
+__END_DECLS
 
 @interface SGPlayer ()
 

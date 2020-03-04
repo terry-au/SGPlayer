@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreMedia/CoreMedia.h>
 
+__BEGIN_DECLS
+
 BOOL SGCMTimeIsValid(CMTime time, BOOL infinity);
 
 CMTime SGCMTimeValidate(CMTime time, CMTime defaultTime, BOOL infinity);
@@ -18,3 +20,5 @@ CMTime SGCMTimeDivide(CMTime time, CMTime divisor);
 
 CMTimeRange SGCMTimeRangeFitting(CMTimeRange timeRange);
 CMTimeRange SGCMTimeRangeGetIntersection(CMTimeRange timeRange1, CMTimeRange timeRange2);
+
+__END_DECLS

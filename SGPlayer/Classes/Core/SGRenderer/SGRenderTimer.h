@@ -13,7 +13,7 @@
 - (instancetype)initWithHandler:(dispatch_block_t)handler;
 
 @property (nonatomic) NSTimeInterval timeInterval;
-@property (nonatomic) BOOL paused;
+@property (nonatomic, getter=isPaused) BOOL paused;
 
 - (void)start;
 - (void)stop;

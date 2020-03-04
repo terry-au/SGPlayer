@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Check if the descriptor is equal to another.
  */
-- (BOOL)isEqualToDescriptor:(SGAudioDescriptor *)descriptor;
+- (BOOL)isEqualToDescriptor:(nullable SGAudioDescriptor *)descriptor;
 
 @end
 

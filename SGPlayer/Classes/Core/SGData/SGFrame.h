@@ -17,7 +17,7 @@ static int const SGFramePlaneCount = 8;
 @interface SGFrame : NSObject <SGData>
 
 /**
- *
+ * \c AVFrame pointer
  */
 @property (NS_NONATOMIC_IOSONLY, readonly) void *coreptr;
 

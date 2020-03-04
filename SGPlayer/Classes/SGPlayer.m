@@ -431,7 +431,7 @@ NSNotificationName const SGPlayerDidChangeInfoNotification = @"SGPlayerDidChange
         return NO;
     }
     SGWeakify(self)
-    return [currentItem seekToTime:time toleranceBefor:toleranceBefor toleranceAfter:toleranceAfter result:^(CMTime time, NSError *error) {
+    return [currentItem seekToTime:time toleranceBefore:toleranceBefor toleranceAfter:toleranceAfter result:^(CMTime time, NSError *error) {
         SGStrongify(self)
         SGLockCondEXE11(self->_lock, ^BOOL {
             return seekingCount == self->_flags.seekingIndex;

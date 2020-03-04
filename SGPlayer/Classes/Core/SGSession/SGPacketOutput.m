@@ -172,10 +172,10 @@ SGSet1Map(void, setOptions, SGDemuxerOptions *, self->_demuxable)
 
 - (BOOL)seekToTime:(CMTime)time result:(SGSeekResult)result
 {
-    return [self seekToTime:time toleranceBefor:kCMTimeInvalid toleranceAfter:kCMTimeInvalid result:result];
+    return [self seekToTime:time toleranceBefore:kCMTimeInvalid toleranceAfter:kCMTimeInvalid result:result];
 }
 
-- (BOOL)seekToTime:(CMTime)time toleranceBefor:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result
 {
     if (![self isSeekable]) {
         return NO;

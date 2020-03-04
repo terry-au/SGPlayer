@@ -25,13 +25,7 @@ static inline matrix_float4x4 SGMatrix4x4MakeLookAt(float eyeX, float eyeY, floa
     vector_float3 u = vector_normalize(vector_cross(uv, n));
     vector_float3 v = vector_cross(n, u);
     
-    matrix_float4x4 m = simd_matrix((vector_float4){ u[0], v[0], n[0], 0.0f},
-                     (vector_float4){u[1], v[1], n[1], 0.0f},
-                     (vector_float4){u[2], v[2], n[2], 0.0f},
-                     (vector_float4){vector_dot(-u, ev),
-                     vector_dot(-v, ev),
-                     vector_dot(-n, ev),
-                     1.0f });
+    matrix_float4x4 m = simd_matrix_from_rows(simd_make_float4(u, simd_dot(-u, ev)), simd_make_float4(v, simd_dot(-v, ev)), simd_make_float4(n, simd_dot(-n, ev)), (vector_float4){0,0,0,1});
     
     return m;
 }

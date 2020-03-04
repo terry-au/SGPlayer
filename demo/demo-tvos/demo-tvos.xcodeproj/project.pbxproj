@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55DD3C20240F3BE50004BCD6 /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C86356921902E5000D730EC /* SGPlayer.framework */; };
+		55DD3C21240F3BE50004BCD6 /* SGPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C86356921902E5000D730EC /* SGPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C6901F821901D3C00B546E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6901F721901D3C00B546E3 /* AppDelegate.m */; };
 		9C6901FB21901D3C00B546E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6901FA21901D3C00B546E3 /* ViewController.m */; };
 		9C6901FE21901D3C00B546E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C6901FC21901D3C00B546E3 /* Main.storyboard */; };
 		9C69020021901D3D00B546E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C6901FF21901D3D00B546E3 /* Assets.xcassets */; };
 		9C69020321901D3D00B546E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C69020221901D3D00B546E3 /* main.m */; };
-		9C86356A21902E5000D730EC /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C86356921902E5000D730EC /* SGPlayer.framework */; };
 		9C8637E72190479F00D730EC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8637E62190479F00D730EC /* AudioToolbox.framework */; };
 		9C8637E9219047A400D730EC /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8637E8219047A400D730EC /* VideoToolbox.framework */; };
 		9C8637EB219047A900D730EC /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8637EA219047A900D730EC /* libbz2.tbd */; };
@@ -21,7 +22,22 @@
 		9CD90238230BE08E00A358AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD90237230BE08E00A358AA /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		55DD3C22240F3BE50004BCD6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				55DD3C21240F3BE50004BCD6 /* SGPlayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		55DD3C1F240F3BC10004BCD6 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = "../../demo-common/SampleCode.xcconfig"; sourceTree = "<group>"; };
 		9C6901F321901D3C00B546E3 /* SGPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6901F621901D3C00B546E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9C6901F721901D3C00B546E3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -46,11 +62,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C86356A21902E5000D730EC /* SGPlayer.framework in Frameworks */,
 				9CD90238230BE08E00A358AA /* AVFoundation.framework in Frameworks */,
 				9C8637E72190479F00D730EC /* AudioToolbox.framework in Frameworks */,
 				9C8637E9219047A400D730EC /* VideoToolbox.framework in Frameworks */,
 				9C8637EF219047B400D730EC /* libiconv.tbd in Frameworks */,
+				55DD3C20240F3BE50004BCD6 /* SGPlayer.framework in Frameworks */,
 				9C8637EB219047A900D730EC /* libbz2.tbd in Frameworks */,
 				9C8637ED219047AE00D730EC /* libz.tbd in Frameworks */,
 			);
@@ -79,6 +95,7 @@
 		9C6901F521901D3C00B546E3 /* demo-tvos */ = {
 			isa = PBXGroup;
 			children = (
+				55DD3C1F240F3BC10004BCD6 /* SampleCode.xcconfig */,
 				9C6901F621901D3C00B546E3 /* AppDelegate.h */,
 				9C6901F721901D3C00B546E3 /* AppDelegate.m */,
 				9C6901F921901D3C00B546E3 /* ViewController.h */,
@@ -124,6 +141,7 @@
 				9C6901EF21901D3C00B546E3 /* Sources */,
 				9C6901F021901D3C00B546E3 /* Frameworks */,
 				9C6901F121901D3C00B546E3 /* Resources */,
+				55DD3C22240F3BE50004BCD6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -315,6 +333,7 @@
 		};
 		9C69020721901D3D00B546E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55DD3C1F240F3BC10004BCD6 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
@@ -324,15 +343,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-tvos";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-tvos${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = SGPlayer;
-				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Debug;
 		};
 		9C69020821901D3D00B546E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55DD3C1F240F3BC10004BCD6 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
@@ -342,9 +361,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-tvos";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-tvos${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = SGPlayer;
-				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Release;

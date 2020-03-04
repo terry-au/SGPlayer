@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55DD3C1D240F3B350004BCD6 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
 		9C0D004E200C784D0079D609 /* SGAVPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SGAVPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0EABCA21905574004D5604 /* SGPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SGPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C2167171E7F81E900272348 /* SGPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SGPlatform.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/demo-eihmyibiajxgvzgpltouukszknss/Build/Products/Debug-iphoneos/SGPlatform.framework"; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		9C49E5FC23053DBD00C5FB1F /* demo-common */ = {
 			isa = PBXGroup;
 			children = (
+				55DD3C1D240F3B350004BCD6 /* SampleCode.xcconfig */,
 				9C49E5FE23053DBD00C5FB1F /* SGVideoItem.h */,
 				9C49E5FD23053DBD00C5FB1F /* SGVideoItem.m */,
 			);
@@ -261,6 +263,7 @@
 /* Begin XCBuildConfiguration section */
 		9CB925261E7942AC00DE6721 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55DD3C1D240F3B350004BCD6 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -317,6 +320,7 @@
 		};
 		9CB925271E7942AC00DE6721 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55DD3C1D240F3B350004BCD6 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -374,7 +378,7 @@
 				INFOPLIST_FILE = "demo-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-macos";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-macos${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = SGPlayer;
 			};
 			name = Debug;
@@ -389,7 +393,7 @@
 				INFOPLIST_FILE = "demo-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-macos";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-macos${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = SGPlayer;
 			};
 			name = Release;

@@ -27,7 +27,7 @@
 - (instancetype)initWithDemuxables:(NSArray<id<SGDemuxable>> *)demuxables
 {
     if (self = [super init]) {
-        self->_demuxers = demuxables;
+        self->_demuxers = [demuxables copy];
         self->_finishedDemuxers = [NSMutableArray array];
         self->_finishedTracksInternal = [NSMutableArray array];
     }

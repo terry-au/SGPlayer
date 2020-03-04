@@ -609,7 +609,7 @@
 		55095DA4240DF1EA00B288CB /* SGVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGVector.h; sourceTree = "<group>"; };
 		55DD3C08240E069D0004BCD6 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		55DD3C12240E54830004BCD6 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
-		55E40E8623D2E82E0027A2D5 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		55E40E8623D2E82E0027A2D5 /* SGPlayer.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = SGPlayer.modulemap; sourceTree = "<group>"; };
 		55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCapacity.swift; sourceTree = "<group>"; };
 		55E40E8B23D2F3970027A2D5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		55E40E8D23D2F3AA0027A2D5 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
@@ -1259,7 +1259,7 @@
 			isa = PBXGroup;
 			children = (
 				9CEFA6DA1E7122BF00835CAB /* Info.plist */,
-				55E40E8623D2E82E0027A2D5 /* module.modulemap */,
+				55E40E8623D2E82E0027A2D5 /* SGPlayer.modulemap */,
 				9C478EF31E7139E500AD4289 /* Classes */,
 			);
 			path = SGPlayer;
@@ -2214,7 +2214,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/macOS/universal/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
+				MODULEMAP_FILE = SGPlayer/SGPlayer.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = com.libobjc.SGPlayer.macOS;
 				PRODUCT_NAME = SGPlayer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2251,7 +2251,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/macOS/universal/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
+				MODULEMAP_FILE = SGPlayer/SGPlayer.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = com.libobjc.SGPlayer.macOS;
 				PRODUCT_NAME = SGPlayer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2286,8 +2286,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/tvOS/universal/lib";
-				MACH_O_TYPE = mh_dylib;
-				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
+				MODULEMAP_FILE = SGPlayer/SGPlayer.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = com.libobjc.SGPlayer.tvOS;
 				PRODUCT_NAME = SGPlayer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2322,8 +2321,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/tvOS/universal/lib";
-				MACH_O_TYPE = mh_dylib;
-				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
+				MODULEMAP_FILE = SGPlayer/SGPlayer.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = com.libobjc.SGPlayer.tvOS;
 				PRODUCT_NAME = SGPlayer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2473,8 +2471,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/iOS/universal/lib";
-				MACH_O_TYPE = mh_dylib;
-				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
+				MODULEMAP_FILE = SGPlayer/SGPlayer.modulemap;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -2512,8 +2509,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/build/iOS/universal/lib";
-				MACH_O_TYPE = mh_dylib;
-				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
+				MODULEMAP_FILE = SGPlayer/SGPlayer.modulemap;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",

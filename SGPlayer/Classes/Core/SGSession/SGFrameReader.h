@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter withError:(NSError**)error;
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefore toleranceAfter:(CMTime)toleranceAfter withError:(NSError**)error;
 
 /**
  *

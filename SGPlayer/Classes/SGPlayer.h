@@ -210,7 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion
     Use this method to seek to a specified time for the current player item and to be notified when the seek operation is complete. The result handler for any prior seek request that is still in process will be invoked immediately with the error parameter. If the new request completes without being interrupted by another seek request or by any other operation the specified result handler will be invoked without error.
  */
-- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(nullable SGSeekResult)result;
+- (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefore toleranceAfter:(CMTime)toleranceAfter result:(nullable SGSeekResult)result;
 
 @end
 

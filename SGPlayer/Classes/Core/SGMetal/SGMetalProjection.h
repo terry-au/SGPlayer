@@ -7,7 +7,7 @@
 //
 
 #import <Metal/Metal.h>
-#import <simd/simd.h>
+#include <simd/matrix_types.h>
 
 @interface SGMetalProjection : NSObject
 

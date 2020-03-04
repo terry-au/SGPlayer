@@ -262,9 +262,9 @@ SGSet11Map(void, setDemuxerOptions, setOptions, SGDemuxerOptions *, self->_packe
 
 - (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result
 {
-    SGWeakify(self)
+    SGWeakify(self);
     return [self->_packetOutput seekToTime:time toleranceBefore:toleranceBefor toleranceAfter:toleranceAfter result:^(CMTime time, NSError *error) {
-        SGStrongify(self)
+        SGStrongify(self);
         if (!error) {
             [self->_audioDecoder flush];
             [self->_videoDecoder flush];

@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SGMetalRenderPipeline : NSObject
 
-- (instancetype)initWithDevice:(id<MTLDevice>)device library:(id<MTLLibrary>)library;
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
+- (instancetype)initWithDevice:(id<MTLDevice>)device library:(id<MTLLibrary>)library NS_DESIGNATED_INITIALIZER;
 
 @property (NS_NONATOMIC_IOSONLY, strong) id<MTLDevice> device;
 @property (NS_NONATOMIC_IOSONLY, strong) id<MTLLibrary> library;

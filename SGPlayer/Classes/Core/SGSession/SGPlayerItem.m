@@ -244,9 +244,9 @@ SGSet1Map(void, setDecoderOptions, SGDecoderOptions *, self->_frameOutput)
 
 - (BOOL)seekToTime:(CMTime)time toleranceBefore:(CMTime)toleranceBefor toleranceAfter:(CMTime)toleranceAfter result:(SGSeekResult)result
 {
-    SGWeakify(self)
+    SGWeakify(self);
     return ![self->_frameOutput seekToTime:time toleranceBefore:toleranceBefor toleranceAfter:toleranceAfter result:^(CMTime time, NSError *error) {
-        SGStrongify(self)
+        SGStrongify(self);
         if (!error) {
             SGLockEXE10(self->_lock, ^SGBlock {
                 [self->_audioProcessor flush];

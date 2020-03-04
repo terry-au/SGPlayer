@@ -11,8 +11,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define SGWeakify(obj) __weak typeof(obj) weak_obj = obj;
-#define SGStrongify(obj) __strong typeof(weak_obj) obj = weak_obj;
+#define SGWeakify(obj) __weak typeof(obj) weak_obj = obj
+#define SGStrongify(obj) __strong typeof(weak_obj) obj = weak_obj
 
 #ifdef DEBUG
 #define SGPlayerLog(...) NSLog(__VA_ARGS__)

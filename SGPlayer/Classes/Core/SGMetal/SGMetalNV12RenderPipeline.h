@@ -8,6 +8,12 @@
 
 #import "SGMetalRenderPipeline.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGMetalNV12RenderPipeline : SGMetalRenderPipeline
 
+- (instancetype)initWithDevice:(id<MTLDevice>)device library:(id<MTLLibrary>)library NS_DESIGNATED_INITIALIZER;
+
 @end
+
+NS_ASSUME_NONNULL_END

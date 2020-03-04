@@ -304,9 +304,9 @@
     }
     __block NSUInteger framesFetched = 0;
     __block NSTimeInterval currentMediaTime = CACurrentMediaTime();
-    SGWeakify(self)
+    SGWeakify(self);
     SGVideoFrame *newFrame = [self->_delegate renderable:self fetchFrame:^BOOL(CMTime *desire, BOOL *drop) {
-        SGStrongify(self)
+        SGStrongify(self);
         return SGLockCondEXE10(self->_lock, ^BOOL {
             framesFetched = self->_flags.framesFetched;
             return self->_currentFrame && framesFetched != 0;
@@ -524,9 +524,9 @@
     self->_metalView.translatesAutoresizingMaskIntoConstraints = NO;
     self->_metalView.colorPixelFormat = MTLPixelFormatBGRA8Unorm;
     self->_metalView.delegate = self;
-    SGWeakify(self)
+    SGWeakify(self);
     self->_fetchTimer = [[SGRenderTimer alloc] initWithHandler:^{
-        SGStrongify(self)
+        SGStrongify(self);
         [self fetchTimerHandler];
     }];
     [self updateMetalView];

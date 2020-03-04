@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55DD3C26240F3E390004BCD6 /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB6951721906D2F00196E54 /* SGPlayer.framework */; };
+		55DD3C27240F3E390004BCD6 /* SGPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB6951721906D2F00196E54 /* SGPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C36DD421E79537500959FDA /* google-help-vr.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9C36DD401E79537500959FDA /* google-help-vr.mp4 */; };
 		9C36DD431E79537500959FDA /* i-see-fire.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9C36DD411E79537500959FDA /* i-see-fire.mp4 */; };
 		9C3DD1661E8FBD090003B17A /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB9253E1E79478C00DE6721 /* VideoToolbox.framework */; };
 		9C3DD16A1E8FBD150003B17A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3DD1691E8FBD150003B17A /* AudioToolbox.framework */; };
 		9C49E5FF23053DBD00C5FB1F /* SGVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C49E5FD23053DBD00C5FB1F /* SGVideoItem.m */; };
-		9CB6951821906D2F00196E54 /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB6951721906D2F00196E54 /* SGPlayer.framework */; };
 		9CB925191E7942AC00DE6721 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB925181E7942AC00DE6721 /* AppDelegate.m */; };
 		9CB9251C1E7942AC00DE6721 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9251B1E7942AC00DE6721 /* main.m */; };
 		9CB9251F1E7942AC00DE6721 /* SGListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9251E1E7942AC00DE6721 /* SGListViewController.m */; };
@@ -24,6 +25,20 @@
 		9CB9253B1E79477600DE6721 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB9253A1E79477600DE6721 /* libbz2.tbd */; };
 		9CD90236230BDF5F00A358AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD90235230BDF5F00A358AA /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		55DD3C28240F3E390004BCD6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				55DD3C27240F3E390004BCD6 /* SGPlayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		55DD3C1D240F3B350004BCD6 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
@@ -69,11 +84,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CB6951821906D2F00196E54 /* SGPlayer.framework in Frameworks */,
 				9CD90236230BDF5F00A358AA /* AVFoundation.framework in Frameworks */,
 				9C3DD16A1E8FBD150003B17A /* AudioToolbox.framework in Frameworks */,
 				9C3DD1661E8FBD090003B17A /* VideoToolbox.framework in Frameworks */,
 				9CB925371E79476E00DE6721 /* libiconv.tbd in Frameworks */,
+				55DD3C26240F3E390004BCD6 /* SGPlayer.framework in Frameworks */,
 				9CB9253B1E79477600DE6721 /* libbz2.tbd in Frameworks */,
 				9CB925391E79477200DE6721 /* libz.tbd in Frameworks */,
 			);
@@ -175,6 +190,7 @@
 				9CB925101E7942AC00DE6721 /* Sources */,
 				9CB925111E7942AC00DE6721 /* Frameworks */,
 				9CB925121E7942AC00DE6721 /* Resources */,
+				55DD3C28240F3E390004BCD6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

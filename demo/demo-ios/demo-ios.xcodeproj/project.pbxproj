@@ -411,10 +411,6 @@
 				INFOPLIST_FILE = "demo-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-Objc",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-ios${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = SGPlayer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -431,10 +427,6 @@
 				INFOPLIST_FILE = "demo-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-Objc",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-ios${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = SGPlayer;
 				PROVISIONING_PROFILE_SPECIFIER = "";

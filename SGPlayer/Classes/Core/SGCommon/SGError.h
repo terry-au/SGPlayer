@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 SGPLAYER_EXTERN NSErrorDomain const SGErrorDomain;
 SGPLAYER_EXTERN NSErrorUserInfoKey const SGErrorUserInfoKeyOperation;
+SGPLAYER_EXTERN NSErrorUserInfoKey const SGErrorUserInfoKeyFFMpegErrorNumber;
 
 typedef NS_ERROR_ENUM(SGErrorDomain, SGErrorCode) {
     SGErrorCodeUnknown = 0,

@@ -8,6 +8,8 @@
 
 #import "SGDemuxable.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGExtractingDemuxer : NSObject <SGDemuxable>
 
 /**
@@ -47,3 +49,5 @@
 @property (NS_NONATOMIC_IOSONLY) BOOL overgop;
 
 @end
+
+NS_ASSUME_NONNULL_END

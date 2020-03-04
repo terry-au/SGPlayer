@@ -8,6 +8,8 @@
 
 #import "SGDemuxable.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGPaddingDemuxer : NSObject <SGDemuxable>
 
 /**
@@ -22,3 +24,5 @@
 - (instancetype)initWithDuration:(CMTime)duration;
 
 @end
+
+NS_ASSUME_NONNULL_END

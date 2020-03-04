@@ -8,6 +8,8 @@
 
 #import "SGDemuxable.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SGURLDemuxer : NSObject <SGDemuxable>
 
 + (instancetype)new NS_UNAVAILABLE;
@@ -28,3 +30,5 @@
 @property (NS_NONATOMIC_IOSONLY, copy, readonly) NSURL *URL;
 
 @end
+
+NS_ASSUME_NONNULL_END

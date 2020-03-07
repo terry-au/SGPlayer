@@ -29,7 +29,11 @@ void SGPLFViewInsertSubview(SGPLFView *superView, SGPLFView *subView, NSInteger 
 
 SGPLFImage *SGPLFViewGetCurrentSnapshot(SGPLFView *view)
 {
-    CGFloat scale = view.window.screen.backingScaleFactor;
+    NSScreen *screen = view.window.screen;
+    if (!screen) {
+        screen = [NSScreen mainScreen];
+    }
+    CGFloat scale = screen.backingScaleFactor;
     NSSize viewPointSize = view.bounds.size;
     CGSize size = CGSizeMake(viewPointSize.width * scale,
                              viewPointSize.height * scale);

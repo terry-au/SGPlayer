@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Check if the descriptor is equal to another.
  */
-- (BOOL)isEqualToDescriptor:(SGVideoDescriptor *)descriptor;
+- (BOOL)isEqualToDescriptor:(nullable SGVideoDescriptor *)descriptor;
 
 @end
 

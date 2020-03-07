@@ -33,7 +33,7 @@ CGImageRef _Nullable SGPLFImageCGImageWithCVPexelBuffer(CVPixelBufferRef pixelBu
 
 // RGB data buffer
 SGPLFImage *_Nullable SGPLFImageWithRGBData(uint8_t *rgb_data, int linesize, int width, int height);
-CGImageRef SGPLFImageCGImageWithRGBData(uint8_t *rgb_data, int linesize, int width, int height) CF_RETURNS_RETAINED;
+CGImageRef _Nullable SGPLFImageCGImageWithRGBData(uint8_t *rgb_data, int linesize, int width, int height) CF_RETURNS_RETAINED;
 
 __END_DECLS
 

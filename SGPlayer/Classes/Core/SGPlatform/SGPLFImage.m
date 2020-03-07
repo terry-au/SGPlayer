@@ -17,7 +17,7 @@ SGPLFImage * SGPLFImageWithCGImage(CGImageRef image)
 
 SGPLFImage * SGPLFImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer)
 {
-    CIImage *ciImage = SGPLFImageCIImageWithCVPexelBuffer(pixelBuffer);
+    CIImage *ciImage = SGPLFImageCIImageWithCVPixelBuffer(pixelBuffer);
     if (!ciImage) return nil;
     NSCIImageRep *imageRep = [NSCIImageRep imageRepWithCIImage:ciImage];
     NSImage *image = [[NSImage alloc] initWithSize:imageRep.size];
@@ -25,7 +25,7 @@ SGPLFImage * SGPLFImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer)
     return image;
 }
 
-CIImage * SGPLFImageCIImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer)
+CIImage * SGPLFImageCIImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer)
 {
     if (@available(macOS 10.11, *)) {
         CIImage *image = [CIImage imageWithCVPixelBuffer:pixelBuffer];
@@ -44,12 +44,12 @@ SGPLFImage * SGPLFImageWithCGImage(CGImageRef image)
 
 SGPLFImage * SGPLFImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer)
 {
-    CIImage *ciImage = SGPLFImageCIImageWithCVPexelBuffer(pixelBuffer);
+    CIImage *ciImage = SGPLFImageCIImageWithCVPixelBuffer(pixelBuffer);
     if (!ciImage) return nil;
     return [UIImage imageWithCIImage:ciImage];
 }
 
-CIImage * SGPLFImageCIImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer)
+CIImage * SGPLFImageCIImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer)
 {
     CIImage *image = [CIImage imageWithCVPixelBuffer:pixelBuffer];
     return image;
@@ -57,7 +57,7 @@ CIImage * SGPLFImageCIImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer)
 
 #endif
 
-CGImageRef SGPLFImageCGImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer)
+CGImageRef SGPLFImageCGImageWithCVPixelBuffer(CVPixelBufferRef pixelBuffer)
 {
     CVPixelBufferLockBaseAddress(pixelBuffer, 0);
     
@@ -79,7 +79,7 @@ CGImageRef SGPLFImageCGImageWithCVPexelBuffer(CVPixelBufferRef pixelBuffer)
                                                  8,
                                                  bytesPerRow,
                                                  colorSpace,
-                                                 kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+                                                 kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedFirst);
     
     CGImageRef imageRef = CGBitmapContextCreateImage(context);
     

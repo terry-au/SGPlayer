@@ -37,8 +37,8 @@ _SGPLFViewGetCurrentSnapshot
 
 _SGPLFImageWithCGImage
 _SGPLFImageWithCVPixelBuffer
-_SGPLFImageCIImageWithCVPexelBuffer
-_SGPLFImageCGImageWithCVPexelBuffer
+_SGPLFImageCIImageWithCVPixelBuffer
+_SGPLFImageCGImageWithCVPixelBuffer
 _SGPLFImageWithRGBData
 _SGPLFImageCGImageWithRGBData
 

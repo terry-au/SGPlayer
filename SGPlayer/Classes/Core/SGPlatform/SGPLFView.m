@@ -29,8 +29,10 @@ void SGPLFViewInsertSubview(SGPLFView *superView, SGPLFView *subView, NSInteger 
 
 SGPLFImage *SGPLFViewGetCurrentSnapshot(SGPLFView *view)
 {
-    CGSize size = CGSizeMake(view.bounds.size.width * SGPLFScreenGetScale(),
-                             view.bounds.size.height * SGPLFScreenGetScale());
+    CGFloat scale = view.window.screen.backingScaleFactor;
+    NSSize viewPointSize = view.bounds.size;
+    CGSize size = CGSizeMake(viewPointSize.width * scale,
+                             viewPointSize.height * scale);
     CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = CGBitmapContextCreate(nil,
                                                  size.width,
@@ -41,7 +43,7 @@ SGPLFImage *SGPLFViewGetCurrentSnapshot(SGPLFView *view)
                                                  (CGBitmapInfo)kCGImageAlphaPremultipliedLast);
     [view.layer renderInContext:context];
     CGImageRef imageRef = CGBitmapContextCreateImage(context);
-    NSImage *image = [[NSImage alloc] initWithCGImage:imageRef size:size];
+    NSImage *image = [[NSImage alloc] initWithCGImage:imageRef size:viewPointSize];
     CGColorSpaceRelease(rgbColorSpace);
     CGContextRelease(context);
     CGImageRelease(imageRef);

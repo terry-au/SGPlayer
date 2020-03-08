@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, SGFrameOutputState) {
 /**
  *
  */
-- (instancetype)initWithAsset:(SGAsset *)asset;
+- (instancetype)initWithAsset:(SGAsset *)asset NS_DESIGNATED_INITIALIZER;
 
 /**
  *

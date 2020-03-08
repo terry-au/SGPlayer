@@ -22,7 +22,7 @@
 /**
  *
  */
-- (instancetype)initWithClock:(SGClock *)clock;
+- (instancetype)initWithClock:(SGClock *)clock NS_DESIGNATED_INITIALIZER;
 
 /**
  *
@@ -44,7 +44,7 @@
 /**
  *
  */
-- (instancetype)initWithClock:(SGClock *)clock;
+- (instancetype)initWithClock:(SGClock *)clock NS_DESIGNATED_INITIALIZER;
 
 /**
  *

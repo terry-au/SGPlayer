@@ -13,10 +13,12 @@
 
 @interface SGObjectQueue : NSObject
 
+- (instancetype)init;
+
 /**
  *
  */
-- (instancetype)initWithMaxCount:(uint64_t)maxCount;
+- (instancetype)initWithMaxCount:(uint64_t)maxCount NS_DESIGNATED_INITIALIZER;
 
 /**
  *

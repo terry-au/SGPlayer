@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Initializes an SGPlayerItem with asset.
  */
-- (instancetype)initWithAsset:(SGAsset *)asset;
+- (instancetype)initWithAsset:(SGAsset *)asset NS_DESIGNATED_INITIALIZER;
 
 /*!
  @property error

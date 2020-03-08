@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SGMutableTrack : SGTrack
 
+- (instancetype)initWithType:(SGMediaType)type index:(NSInteger)index NS_DESIGNATED_INITIALIZER;
+
 /*!
  @property subTracks
  @abstract

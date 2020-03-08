@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Initializes an SGURLAsset with the given URL.
  */
-- (instancetype)initWithURL:(NSURL *)URL;
+- (instancetype)initWithURL:(NSURL *)URL NS_DESIGNATED_INITIALIZER;
 
 /*!
  @property URL

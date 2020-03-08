@@ -21,14 +21,14 @@ typedef NS_OPTIONS(NSUInteger, SGTrackSelectionAction) {
 /*!
  @property tracks
  @abstract
-    Provides array of SGTrackSelection tracks.
+    Provides array of \c SGTrackSelection tracks.
  */
 @property (NS_NONATOMIC_IOSONLY, copy, nullable) NSArray<SGTrack *> *tracks;
 
 /*!
  @property weights
  @abstract
-    Provides array of SGTrackSelection weights.
+    Provides array of \c SGTrackSelection weights.
  */
 @property (NS_NONATOMIC_IOSONLY, copy, nullable) NSArray<NSNumber *> *weights;
 

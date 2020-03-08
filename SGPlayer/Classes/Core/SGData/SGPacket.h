@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SGPacket : NSObject <SGData>
 
 /**
- *
+ * \c AVPacket pointer
  */
 @property (nonatomic, readonly) void *coreptr;
 

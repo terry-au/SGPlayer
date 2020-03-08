@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *
  */
-- (instancetype)initWithDuration:(CMTime)duration;
+- (instancetype)initWithDuration:(CMTime)duration NS_DESIGNATED_INITIALIZER;
 
 /**
  *

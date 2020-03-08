@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract
     Initializes an SGURLSegment.
  */
-- (instancetype)initWithURL:(NSURL *)URL index:(NSInteger)index timeRange:(CMTimeRange)timeRange scale:(CMTime)scale;
+- (instancetype)initWithURL:(NSURL *)URL index:(NSInteger)index timeRange:(CMTimeRange)timeRange scale:(CMTime)scale NS_DESIGNATED_INITIALIZER;
 
 /*!
  @property URL

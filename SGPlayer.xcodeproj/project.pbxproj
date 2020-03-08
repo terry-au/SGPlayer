@@ -28,9 +28,9 @@
 		55DD3C19240EF8780004BCD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCC5F15200C9B8600E833DA /* Foundation.framework */; };
 		55DD3C1A240EF8790004BCD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCC5F15200C9B8600E833DA /* Foundation.framework */; };
 		55DD3C1B240EF87A0004BCD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCC5F15200C9B8600E833DA /* Foundation.framework */; };
-		55E40E8823D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
-		55E40E8923D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
-		55E40E8A23D2F2C70027A2D5 /* SGCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */; };
+		55E40E8823D2F2C70027A2D5 /* SGCapacityAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacityAdditions.swift */; };
+		55E40E8923D2F2C70027A2D5 /* SGCapacityAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacityAdditions.swift */; };
+		55E40E8A23D2F2C70027A2D5 /* SGCapacityAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E40E8723D2F2C70027A2D5 /* SGCapacityAdditions.swift */; };
 		55E40E8C23D2F3980027A2D5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E8B23D2F3970027A2D5 /* CoreVideo.framework */; };
 		55E40E8E23D2F3AA0027A2D5 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E8D23D2F3AA0027A2D5 /* VideoToolbox.framework */; };
 		55E40E9023D2F3C50027A2D5 /* liblzma.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E40E8F23D2F3C50027A2D5 /* liblzma.tbd */; };
@@ -611,7 +611,7 @@
 		55DD3C12240E54830004BCD6 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		55DD3C49241062310004BCD6 /* SGPlayer.exp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.exports; path = SGPlayer.exp; sourceTree = "<group>"; };
 		55E40E8623D2E82E0027A2D5 /* SGPlayer.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = SGPlayer.modulemap; sourceTree = "<group>"; };
-		55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCapacity.swift; sourceTree = "<group>"; };
+		55E40E8723D2F2C70027A2D5 /* SGCapacityAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGCapacityAdditions.swift; sourceTree = "<group>"; };
 		55E40E8B23D2F3970027A2D5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		55E40E8D23D2F3AA0027A2D5 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		55E40E8F23D2F3C50027A2D5 /* liblzma.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = liblzma.tbd; path = usr/lib/liblzma.tbd; sourceTree = SDKROOT; };
@@ -1285,7 +1285,7 @@
 				9CA57921219D69580061093B /* SGTimeLayout.m */,
 				9CC649FD2181A8C000453B3E /* SGCapacity.h */,
 				9CC649FE2181A8C000453B3E /* SGCapacity.m */,
-				55E40E8723D2F2C70027A2D5 /* SGCapacity.swift */,
+				55E40E8723D2F2C70027A2D5 /* SGCapacityAdditions.swift */,
 			);
 			path = SGData;
 			sourceTree = "<group>";
@@ -2006,7 +2006,7 @@
 				9C17554D22C5B5B3003A93BC /* SGRenderTimer.m in Sources */,
 				9C86383021904A0900D730EC /* SGAsset.m in Sources */,
 				9C86383121904A0900D730EC /* SGOptions.m in Sources */,
-				55E40E8923D2F2C70027A2D5 /* SGCapacity.swift in Sources */,
+				55E40E8923D2F2C70027A2D5 /* SGCapacityAdditions.swift in Sources */,
 				9CE7192D219C48AC00256485 /* SGExtractingDemuxer.m in Sources */,
 				9C8D6B6122C4A19500985D55 /* SGMetalYUVRenderPipeline.m in Sources */,
 				9C86383221904A0900D730EC /* SGTime.m in Sources */,
@@ -2092,7 +2092,7 @@
 				9C17554E22C5B5B3003A93BC /* SGRenderTimer.m in Sources */,
 				9CD79ED72190068E00E39A7D /* SGAsset.m in Sources */,
 				9CD79ED82190068E00E39A7D /* SGOptions.m in Sources */,
-				55E40E8A23D2F2C70027A2D5 /* SGCapacity.swift in Sources */,
+				55E40E8A23D2F2C70027A2D5 /* SGCapacityAdditions.swift in Sources */,
 				9CE7192E219C48AC00256485 /* SGExtractingDemuxer.m in Sources */,
 				9C8D6B6222C4A19500985D55 /* SGMetalYUVRenderPipeline.m in Sources */,
 				9CD79ED92190068E00E39A7D /* SGTime.m in Sources */,
@@ -2122,7 +2122,7 @@
 				9C8D6B5422C4A19500985D55 /* SGMetalTextureLoader.m in Sources */,
 				9C03E5F1212E645B001F0E1B /* SGVRProjection.m in Sources */,
 				9C525D5421AEC421005C5708 /* SGAudioDescriptor.m in Sources */,
-				55E40E8823D2F2C70027A2D5 /* SGCapacity.swift in Sources */,
+				55E40E8823D2F2C70027A2D5 /* SGCapacityAdditions.swift in Sources */,
 				9C11816822C4E23200A12FD4 /* SGMetalViewport.m in Sources */,
 				9C262A3E22B3450F006C8542 /* SGDecoderOptions.m in Sources */,
 				9C43D51221872D3F00235169 /* SGLock.m in Sources */,

@@ -12,6 +12,8 @@
 
 @interface SGMutableAsset : SGAsset
 
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+
 /*!
  @property tracks
  @abstract

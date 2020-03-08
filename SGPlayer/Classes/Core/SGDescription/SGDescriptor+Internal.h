@@ -13,12 +13,14 @@
 
 @interface SGAudioDescriptor ()
 
-- (instancetype)initWithFrame:(AVFrame *)frame;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFrame:(AVFrame *)frame NS_DESIGNATED_INITIALIZER;
 
 @end
 
 @interface SGVideoDescriptor ()
 
-- (instancetype)initWithFrame:(AVFrame *)frame;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFrame:(AVFrame *)frame NS_DESIGNATED_INITIALIZER;
 
 @end

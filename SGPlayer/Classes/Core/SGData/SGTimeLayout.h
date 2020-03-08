@@ -13,15 +13,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SGTimeLayout : NSObject <NSCopying>
 
-/**
- *
- */
-- (instancetype)initWithScale:(CMTime)scale;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  *
  */
-- (instancetype)initWithOffset:(CMTime)offset;
+- (instancetype)initWithScale:(CMTime)scale NS_DESIGNATED_INITIALIZER;
+
+/**
+ *
+ */
+- (instancetype)initWithOffset:(CMTime)offset NS_DESIGNATED_INITIALIZER;
 
 /**
  *

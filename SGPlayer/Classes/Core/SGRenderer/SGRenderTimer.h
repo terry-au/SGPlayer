@@ -10,7 +10,10 @@
 
 @interface SGRenderTimer : NSObject
 
-- (instancetype)initWithHandler:(dispatch_block_t)handler;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithHandler:(dispatch_block_t)handler NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic) NSTimeInterval timeInterval;
 @property (nonatomic, getter=isPaused) BOOL paused;

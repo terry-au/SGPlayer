@@ -24,7 +24,7 @@ set -e
 FF_ALL_ARCHS=
 FF_ALL_ARCHS_IOS="armv7 arm64 i386 x86_64"
 FF_ALL_ARCHS_TVOS="arm64 x86_64"
-FF_ALL_ARCHS_MACOS="x86_64"
+FF_ALL_ARCHS_MACOS="x86_64 arm64"
 
 FF_PLATFORM=$1
 FF_ACTION=$2
@@ -77,7 +77,7 @@ elif [ "$FF_PLATFORM" = "tvOS" ]; then
 elif [ "$FF_PLATFORM" = "macOS" ]; then
     FF_ALL_ARCHS=$FF_ALL_ARCHS_MACOS
 else
-    echo "You must specific an platform 'iOS, tvOS, macOS'.\n"
+    echo "You must specific a platform 'iOS, tvOS, macOS'.\n"
     exit 1
 fi
 

@@ -162,6 +162,12 @@ elif [ "$FF_PLATFORM" = "macOS" ]; then
         FF_XCRUN_PLATFORM="MacOSX"
         FF_XCRUN_OSVERSION="-mmacosx-version-min=10.11"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_INTEL"
+    elif [ "$FF_ARCH" = "arm64" ]; then
+        FF_BUILD_NAME="ffmpeg-arm64"
+        FF_BUILD_NAME_OPENSSL=openssl-arm64
+        FF_XCRUN_PLATFORM="MacOSX"
+        FF_XCRUN_OSVERSION="-mmacosx-version-min=11.0"
+        FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
     else
         echo "unknown architecture $FF_PLATFORM, $FF_ARCH";
     exit 1

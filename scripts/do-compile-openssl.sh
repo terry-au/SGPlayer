@@ -118,6 +118,11 @@ elif [ "$FF_PLATFORM" = "macOS" ]; then
         FF_XCRUN_PLATFORM="MacOSX"
         FF_XCRUN_OSVERSION="-DHAVE_FORK=0 -mmacosx-version-min=10.11"
         OPENSSL_CFG_FLAGS="darwin64-x86_64-cc $OPENSSL_CFG_FLAGS"
+    elif [ "$FF_ARCH" = "arm64" ]; then
+        FF_BUILD_NAME="openssl-arm64"
+        FF_XCRUN_PLATFORM="MacOSX"
+        FF_XCRUN_OSVERSION="-DHAVE_FORK=0 -mmacosx-version-min=11.0"
+        OPENSSL_CFG_FLAGS="darwin64-arm64-cc $OPENSSL_CFG_FLAGS"
     else
         echo "unknown architecture $FF_PLATFORM, $FF_ARCH";
         exit 1

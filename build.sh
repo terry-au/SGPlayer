@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -e
 
@@ -6,7 +6,7 @@ PLATFORM=$1
 ACTION=$2
 
 FFMPEG_VERSION=n4.2.2
-OPENSSL_VERSION=OpenSSL_1_0_2s
+OPENSSL_VERSION=OpenSSL_1_1_1g
 
 # We don't want package managers to mess up the build
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin

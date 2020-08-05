@@ -185,8 +185,8 @@ echo "\n--------------------"
 echo "[*] configurate openssl"
 echo "--------------------"
 
-OPENSSL_CFG_FLAGS="$OPENSSL_CFG_FLAGS $FF_XCODE_BITCODE"
-OPENSSL_CFG_FLAGS="$OPENSSL_CFG_FLAGS --openssldir=$FF_BUILD_PREFIX"
+#OPENSSL_CFG_FLAGS="$OPENSSL_CFG_FLAGS $FF_XCODE_BITCODE"
+OPENSSL_CFG_FLAGS="$OPENSSL_CFG_FLAGS --openssldir=$FF_BUILD_PREFIX --prefix=$FF_BUILD_PREFIX"
 
 # xcode configuration
 export DEBUG_INFORMATION_FORMAT=dwarf-with-dsym

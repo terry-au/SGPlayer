@@ -6,8 +6,8 @@
 //  Copyright © 2018 single. All rights reserved.
 //
 
-#import "SGProcessor.h"
-#import "SGAudioDescriptor.h"
+#import <SGPlayer/SGProcessor.h>
+#import <SGPlayer/SGAudioDescriptor.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

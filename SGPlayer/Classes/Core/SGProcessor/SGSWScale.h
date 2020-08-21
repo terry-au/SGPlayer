@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGVideoDescriptor.h"
+#import <SGPlayer/SGVideoDescriptor.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

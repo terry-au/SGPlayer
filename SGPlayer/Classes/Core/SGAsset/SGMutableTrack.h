@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGSegment.h"
-#import "SGTrack.h"
+#import <SGPlayer/SGSegment.h>
+#import <SGPlayer/SGTrack.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

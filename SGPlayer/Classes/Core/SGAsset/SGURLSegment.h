@@ -6,7 +6,10 @@
 //  Copyright © 2018 single. All rights reserved.
 //
 
-#import "SGSegment.h"
+#import <Foundation/Foundation.h>
+#import <CoreMedia/CMTime.h>
+#import <CoreMedia/CMTimeRange.h>
+#import <SGPlayer/SGSegment.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGTrack.h"
-#import "SGData.h"
+#import <CoreMedia/CMTime.h>
+#import <SGPlayer/SGTrack.h>
+#import <SGPlayer/SGData.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGAudioDescriptor.h"
-#import "SGTime.h"
+#import <SGPlayer/SGAudioDescriptor.h>
+#import <SGPlayer/SGTime.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

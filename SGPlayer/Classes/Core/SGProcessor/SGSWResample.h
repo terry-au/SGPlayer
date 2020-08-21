@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGAudioDescriptor.h"
+#import <SGPlayer/SGAudioDescriptor.h>
 
 @interface SGSWResample : NSObject
 

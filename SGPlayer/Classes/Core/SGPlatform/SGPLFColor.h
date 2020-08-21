@@ -6,7 +6,7 @@
 //  Copyright © 2017年 single. All rights reserved.
 //
 
-#import "SGPLFObject.h"
+#import <SGPlayer/SGPLFObject.h>
 
 #if SGPLATFORM_TARGET_OS_MAC
 

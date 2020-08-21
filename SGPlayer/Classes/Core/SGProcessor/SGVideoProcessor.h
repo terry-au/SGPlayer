@@ -6,7 +6,7 @@
 //  Copyright © 2019 single. All rights reserved.
 //
 
-#import "SGProcessor.h"
+#import <SGPlayer/SGProcessor.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

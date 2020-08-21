@@ -6,7 +6,8 @@
 //  Copyright © 2017 single. All rights reserved.
 //
 
-#import "SGPlayerHeader.h"
+#import <Foundation/Foundation.h>
+#import <SGPlayer/SGPlayerHeader.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

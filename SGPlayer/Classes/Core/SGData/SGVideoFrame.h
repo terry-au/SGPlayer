@@ -6,9 +6,9 @@
 //  Copyright © 2018年 single. All rights reserved.
 //
 
-#import "SGFrame.h"
-#import "SGPLFImage.h"
-#import "SGVideoDescriptor.h"
+#import <SGPlayer/SGFrame.h>
+#import <SGPlayer/SGPLFImage.h>
+#import <SGPlayer/SGVideoDescriptor.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

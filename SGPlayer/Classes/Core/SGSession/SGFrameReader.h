@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGDemuxerOptions.h"
-#import "SGDecoderOptions.h"
-#import "SGAsset.h"
-#import "SGFrame.h"
+#import <SGPlayer/SGDemuxerOptions.h>
+#import <SGPlayer/SGDecoderOptions.h>
+#import <SGPlayer/SGAsset.h>
+#import <SGPlayer/SGFrame.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

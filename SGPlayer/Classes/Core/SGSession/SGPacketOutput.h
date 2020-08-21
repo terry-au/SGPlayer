@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGDemuxerOptions.h"
-#import "SGPacket.h"
-#import "SGAsset.h"
+#import <SGPlayer/SGDemuxerOptions.h>
+#import <SGPlayer/SGPacket.h>
+#import <SGPlayer/SGAsset.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

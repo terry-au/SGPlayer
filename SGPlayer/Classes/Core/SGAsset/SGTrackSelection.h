@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGTrack.h"
+#import <SGPlayer/SGTrack.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

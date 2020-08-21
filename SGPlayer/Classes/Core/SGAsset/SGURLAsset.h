@@ -6,7 +6,8 @@
 //  Copyright © 2018 single. All rights reserved.
 //
 
-#import "SGAsset.h"
+#import <Foundation/Foundation.h>
+#import <SGPlayer/SGAsset.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

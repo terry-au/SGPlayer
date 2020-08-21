@@ -6,7 +6,7 @@
 //  Copyright © 2017年 single. All rights reserved.
 //
 
-#import "SGPLFObject.h"
+#import <SGPlayer/SGPLFObject.h>
 #import <CoreVideo/CoreVideo.h>
 #import <CoreImage/CoreImage.h>
 

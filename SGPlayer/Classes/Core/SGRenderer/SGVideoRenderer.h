@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGVideoFrame.h"
-#import "SGVRViewport.h"
-#import "SGPLFImage.h"
-#import "SGPLFView.h"
+#import <SGPlayer/SGVideoFrame.h>
+#import <SGPlayer/SGVRViewport.h>
+#import <SGPlayer/SGPLFImage.h>
+#import <SGPlayer/SGPLFView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

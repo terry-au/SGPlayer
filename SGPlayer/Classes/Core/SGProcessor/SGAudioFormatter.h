@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGAudioDescriptor.h"
-#import "SGAudioFrame.h"
+#import <SGPlayer/SGAudioDescriptor.h>
+#import <SGPlayer/SGAudioFrame.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

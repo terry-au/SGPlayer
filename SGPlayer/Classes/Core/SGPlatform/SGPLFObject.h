@@ -9,7 +9,7 @@
 #ifndef SGPLFObject_h
 #define SGPLFObject_h
 
-#import "SGPLFTargets.h"
+#import <SGPlayer/SGPLFTargets.h>
 
 #if SGPLATFORM_TARGET_OS_MAC
 

@@ -6,9 +6,9 @@
 //  Copyright © 2017年 single. All rights reserved.
 //
 
-#import "SGPLFObject.h"
-#import "SGPLFImage.h"
-#import "SGPLFColor.h"
+#import <SGPlayer/SGPLFObject.h>
+#import <SGPlayer/SGPLFImage.h>
+#import <SGPlayer/SGPLFColor.h>
 
 #if SGPLATFORM_TARGET_OS_MAC
 

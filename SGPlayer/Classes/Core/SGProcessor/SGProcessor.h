@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGTrackSelection.h"
-#import "SGCapacity.h"
-#import "SGFrame.h"
+#import <SGPlayer/SGTrackSelection.h>
+#import <SGPlayer/SGCapacity.h>
+#import <SGPlayer/SGFrame.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018 single. All rights reserved.
 //
 
-#import "SGDemuxable.h"
+#import <SGPlayer/SGDemuxable.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

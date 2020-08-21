@@ -6,9 +6,10 @@
 //  Copyright © 2018 single. All rights reserved.
 //
 
-#import "SGAsset.h"
-#import "SGDefines.h"
-#import "SGMutableTrack.h"
+#import <Foundation/Foundation.h>
+#import <SGPlayer/SGAsset.h>
+#import <SGPlayer/SGDefines.h>
+#import <SGPlayer/SGMutableTrack.h>
 
 @interface SGMutableAsset : SGAsset
 

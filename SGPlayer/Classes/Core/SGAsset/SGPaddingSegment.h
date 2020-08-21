@@ -6,7 +6,7 @@
 //  Copyright © 2019 single. All rights reserved.
 //
 
-#import "SGSegment.h"
+#import <SGPlayer/SGSegment.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

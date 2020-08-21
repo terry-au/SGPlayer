@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGProcessorOptions.h"
-#import "SGDecoderOptions.h"
-#import "SGDemuxerOptions.h"
+#import <SGPlayer/SGProcessorOptions.h>
+#import <SGPlayer/SGDecoderOptions.h>
+#import <SGPlayer/SGDemuxerOptions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

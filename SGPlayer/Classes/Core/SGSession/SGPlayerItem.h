@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGTrackSelection.h"
-#import "SGAsset.h"
-#import "SGTrack.h"
+#import <SGPlayer/SGTrackSelection.h>
+#import <SGPlayer/SGAsset.h>
+#import <SGPlayer/SGTrack.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SGDefines.h"
+#import <SGPlayer/SGDefines.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

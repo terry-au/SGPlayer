@@ -20,7 +20,7 @@
     return self;
 }
 
-- (void)setMatrix:(matrix_float4x4)matrix
+- (void)setMatrix:(simd_float4x4)matrix
 {
     self->_matrix = matrix;
     ((SGMetalMatrix *)self.matrixBuffer.contents)->mvp = matrix;

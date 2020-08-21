@@ -14,8 +14,8 @@
 @interface SGMotionSensor ()
 
 @property (nonatomic) CGFloat defalutRotateY;
-@property (nonatomic) matrix_float4x4 deviceToDisplay;
-@property (nonatomic) matrix_float4x4 worldToInertialReferenceFrame;
+@property (nonatomic) simd_float4x4 deviceToDisplay;
+@property (nonatomic) simd_float4x4 worldToInertialReferenceFrame;
 @property (nonatomic, strong) CMMotionManager * manager;
 @property (nonatomic) UIInterfaceOrientation orientation;
 
@@ -91,7 +91,7 @@
     self.manager = [[CMMotionManager alloc] init];
 }
 
-- (matrix_float4x4)matrix
+- (simd_float4x4)matrix
 {
     if (!self.manager.isDeviceMotionActive ||
         !self.manager.isDeviceMotionAvailable) {
@@ -103,16 +103,16 @@
     }
     self.orientation = [UIApplication sharedApplication].statusBarOrientation;
     CMRotationMatrix rotationMatrix = motion.attitude.rotationMatrix;
-    matrix_float4x4 inertialReferenceFrameToDevice = matrix_transpose([self glMatrixFromRotationMatrix:rotationMatrix]);
-    matrix_float4x4 worldToDevice = matrix_multiply(inertialReferenceFrameToDevice, self.worldToInertialReferenceFrame);
-    matrix_float4x4 worldToDisplay = matrix_multiply(self.deviceToDisplay, worldToDevice);
-    matrix_float4x4 ret = SGMatrix4x4RotateY(worldToDisplay, SGDegreesToRadians(self.defalutRotateY));
+    simd_float4x4 inertialReferenceFrameToDevice = matrix_transpose([self glMatrixFromRotationMatrix:rotationMatrix]);
+    simd_float4x4 worldToDevice = matrix_multiply(inertialReferenceFrameToDevice, self.worldToInertialReferenceFrame);
+    simd_float4x4 worldToDisplay = matrix_multiply(self.deviceToDisplay, worldToDevice);
+    simd_float4x4 ret = SGMatrix4x4RotateY(worldToDisplay, SGDegreesToRadians(self.defalutRotateY));
     return ret;
 }
 
-- (matrix_float4x4)glMatrixFromRotationMatrix:(CMRotationMatrix)rotationMatrix
+- (simd_float4x4)glMatrixFromRotationMatrix:(CMRotationMatrix)rotationMatrix
 {
-    matrix_float4x4 glRotationMatrix;
+    simd_float4x4 glRotationMatrix;
     
     glRotationMatrix.columns[0][0] = rotationMatrix.m11;
     glRotationMatrix.columns[0][1] = rotationMatrix.m12;
@@ -137,7 +137,7 @@
     return glRotationMatrix;
 }
 
-- (matrix_float4x4)getRotateEulerMatrixX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z
+- (simd_float4x4)getRotateEulerMatrixX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z
 {
     x *= (float)(M_PI / 180.0f);
     y *= (float)(M_PI / 180.0f);
@@ -150,7 +150,7 @@
     float sz = (float) sin(z);
     float cxsy = cx * sy;
     float sxsy = sx * sy;
-    matrix_float4x4 matrix;
+    simd_float4x4 matrix;
     matrix.columns[0].x = cy * cz;
     matrix.columns[0].y = -cy * sz;
     matrix.columns[0].z = sy;

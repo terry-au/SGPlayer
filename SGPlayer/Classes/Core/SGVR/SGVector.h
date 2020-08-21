@@ -14,7 +14,7 @@
 
 static inline float SGDegreesToRadians(float degrees) { return degrees * (M_PI / 180); };
 
-static inline matrix_float4x4 SGMatrix4x4MakeLookAt(float eyeX, float eyeY, float eyeZ,
+static inline simd_float4x4 SGMatrix4x4MakeLookAt(float eyeX, float eyeY, float eyeZ,
                                                     float centerX, float centerY, float centerZ,
                                                     float upX, float upY, float upZ)
 {
@@ -25,80 +25,80 @@ static inline matrix_float4x4 SGMatrix4x4MakeLookAt(float eyeX, float eyeY, floa
     vector_float3 u = simd_normalize(simd_cross(uv, n));
     vector_float3 v = simd_cross(n, u);
     
-    matrix_float4x4 m = simd_matrix_from_rows(simd_make_float4(u, simd_dot(-u, ev)),
+    simd_float4x4 m = simd_matrix_from_rows(simd_make_float4(u, simd_dot(-u, ev)),
                                               simd_make_float4(v, simd_dot(-v, ev)),
                                               simd_make_float4(n, simd_dot(-n, ev)),
-                                              (vector_float4){0,0,0,1});
+                                              (simd_float4){0,0,0,1});
     
     return m;
 }
 
-static inline matrix_float4x4 SGMatrix4x4MakePerspective(float fovyRadians, float aspect, float nearZ, float farZ)
+static inline simd_float4x4 SGMatrix4x4MakePerspective(float fovyRadians, float aspect, float nearZ, float farZ)
 {
     float cotan = 1.0f / tan(fovyRadians / 2.0f);
     
-    matrix_float4x4 m = simd_matrix((vector_float4){cotan / aspect, 0.0f, 0.0f, 0.0f},
-                     (vector_float4){0.0f, cotan, 0.0f, 0.0f},
-                     (vector_float4){0.0f, 0.0f, (farZ + nearZ) / (nearZ - farZ), -1.0f},
-                     (vector_float4){0.0f, 0.0f, (2.0f * farZ * nearZ) / (nearZ - farZ), 0.0f});
+    simd_float4x4 m = simd_matrix((simd_float4){cotan / aspect, 0.0f, 0.0f, 0.0f},
+                     (simd_float4){0.0f, cotan, 0.0f, 0.0f},
+                     (simd_float4){0.0f, 0.0f, (farZ + nearZ) / (nearZ - farZ), -1.0f},
+                     (simd_float4){0.0f, 0.0f, (2.0f * farZ * nearZ) / (nearZ - farZ), 0.0f});
     
     return m;
 }
 
-static inline matrix_float4x4 SGMatrix4x4MakeXRotation(float radians)
+static inline simd_float4x4 SGMatrix4x4MakeXRotation(float radians)
 {
     float cos = cos(radians);
     float sin = sin(radians);
     
-    matrix_float4x4 m = simd_matrix((vector_float4){ 1.0f, 0.0f, 0.0f, 0.0f},
-        (vector_float4){0.0f, cos, sin, 0.0f},
-        (vector_float4){0.0f, -sin, cos, 0.0f},
-        (vector_float4){0.0f, 0.0f, 0.0f, 1.0f});
+    simd_float4x4 m = simd_matrix((simd_float4){ 1.0f, 0.0f, 0.0f, 0.0f},
+        (simd_float4){0.0f, cos, sin, 0.0f},
+        (simd_float4){0.0f, -sin, cos, 0.0f},
+        (simd_float4){0.0f, 0.0f, 0.0f, 1.0f});
     
     return m;
 }
 
-static inline matrix_float4x4 SGMatrix4x4MakeYRotation(float radians)
+static inline simd_float4x4 SGMatrix4x4MakeYRotation(float radians)
 {
     float cos = cos(radians);
     float sin = sin(radians);
     
-    matrix_float4x4 m = simd_matrix((vector_float4){cos, 0.0f, -sin, 0.0f},
-                     (vector_float4){0.0f, 1.0f, 0.0f, 0.0f},
-                     (vector_float4){sin, 0.0f, cos, 0.0f},
-                     (vector_float4){0.0f, 0.0f, 0.0f, 1.0f});
+    simd_float4x4 m = simd_matrix((simd_float4){cos, 0.0f, -sin, 0.0f},
+                     (simd_float4){0.0f, 1.0f, 0.0f, 0.0f},
+                     (simd_float4){sin, 0.0f, cos, 0.0f},
+                     (simd_float4){0.0f, 0.0f, 0.0f, 1.0f});
     
     return m;
 }
 
-static inline matrix_float4x4 SGMatrix4x4MakeZRotation(float radians)
+static inline simd_float4x4 SGMatrix4x4MakeZRotation(float radians)
 {
     float cos = cos(radians);
     float sin = sin(radians);
     
-    matrix_float4x4 m = simd_matrix((vector_float4){cos, sin, 0.0f, 0.0f},
-        (vector_float4){-sin, cos, 0.0f, 0.0f},
-        (vector_float4){0.0f, 0.0f, 1.0f, 0.0f},
-        (vector_float4){0.0f, 0.0f, 0.0f, 1.0f});
+    simd_float4x4 m = simd_matrix((simd_float4){cos, sin, 0.0f, 0.0f},
+        (simd_float4){-sin, cos, 0.0f, 0.0f},
+        (simd_float4){0.0f, 0.0f, 1.0f, 0.0f},
+        (simd_float4){0.0f, 0.0f, 0.0f, 1.0f});
     
     return m;
 }
 
-static inline matrix_float4x4 SGMatrix4x4RotateX(matrix_float4x4 matrix, float radians)
+static inline simd_float4x4 SGMatrix4x4RotateX(simd_float4x4 matrix, float radians)
 {
-    matrix_float4x4 rm = SGMatrix4x4MakeXRotation(radians);
+    simd_float4x4 rm = SGMatrix4x4MakeXRotation(radians);
     return matrix_multiply(matrix, rm);
 }
 
-static inline matrix_float4x4 SGMatrix4x4RotateY(matrix_float4x4 matrix, float radians)
+static inline simd_float4x4 SGMatrix4x4RotateY(simd_float4x4 matrix, float radians)
 {
-    matrix_float4x4 rm = SGMatrix4x4MakeYRotation(radians);
+    simd_float4x4 rm = SGMatrix4x4MakeYRotation(radians);
     return matrix_multiply(matrix, rm);
 }
 
-static inline matrix_float4x4 SGMatrix4x4RotateZ(matrix_float4x4 matrix, float radians)
+static inline simd_float4x4 SGMatrix4x4RotateZ(simd_float4x4 matrix, float radians)
 {
-    matrix_float4x4 rm = SGMatrix4x4MakeZRotation(radians);
+    simd_float4x4 rm = SGMatrix4x4MakeZRotation(radians);
     return matrix_multiply(matrix, rm);
 }
 

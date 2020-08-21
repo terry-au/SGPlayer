@@ -406,7 +406,7 @@
         [frame unlock];
         return;
     }
-    matrix_float4x4 baseMatrix = matrix_identity_float4x4;
+    simd_float4x4 baseMatrix = matrix_identity_float4x4;
     NSInteger rotate = [frame.metadata[@"rotate"] integerValue];
     if (rotate && (rotate % 90) == 0) {
         float radians = SGDegreesToRadians(-rotate);
@@ -448,7 +448,7 @@
         }
             break;
         case SGDisplayModeVR: {
-            matrix_float4x4 matrix = matrix_identity_float4x4;
+            simd_float4x4 matrix = matrix_identity_float4x4;
             Float64 aspect = (Float64)drawable.texture.width / drawable.texture.height;
             if (![self->_matrixMaker matrixWithAspect:aspect matrix1:&matrix]) {
                 break;
@@ -459,8 +459,8 @@
         }
             break;
         case SGDisplayModeVRBox: {
-            matrix_float4x4 matrix1 = matrix_identity_float4x4;
-            matrix_float4x4 matrix2 = matrix_identity_float4x4;
+            simd_float4x4 matrix1 = matrix_identity_float4x4;
+            simd_float4x4 matrix2 = matrix_identity_float4x4;
             Float64 aspect = (Float64)drawable.texture.width / drawable.texture.height / 2.0;
             if (![self->_matrixMaker matrixWithAspect:aspect matrix1:&matrix1 matrix2:&matrix2]) {
                 break;

@@ -84,7 +84,7 @@ FFMPEG_CFG_FLAGS_INTEL="$FFMPEG_CFG_FLAGS_INTEL --disable-asm"
 FFMPEG_CFG_FLAGS_INTEL="$FFMPEG_CFG_FLAGS_INTEL --disable-mmx"
 FFMPEG_CFG_FLAGS_INTEL="$FFMPEG_CFG_FLAGS_INTEL --assert-level=2"
 
-# armv7, armv7s, arm64
+# armv7, armv7s, arm64, arm64e
 FFMPEG_CFG_FLAGS_ARM=
 FFMPEG_CFG_FLAGS_ARM="$FFMPEG_CFG_FLAGS_ARM --enable-pic"
 FFMPEG_CFG_FLAGS_ARM="$FFMPEG_CFG_FLAGS_ARM --enable-neon"
@@ -130,25 +130,32 @@ if [ "$FF_PLATFORM" = "iOS" ]; then
         FF_BUILD_NAME="ffmpeg-i386"
         FF_BUILD_NAME_OPENSSL=openssl-i386
         FF_XCRUN_PLATFORM="iPhoneSimulator"
-        FF_XCRUN_OSVERSION="-mios-simulator-version-min=8.0"
+        FF_XCRUN_OSVERSION="-mios-simulator-version-min=12.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_INTEL"
     elif [ "$FF_ARCH" = "x86_64" ]; then
         FF_BUILD_NAME="ffmpeg-x86_64"
         FF_BUILD_NAME_OPENSSL=openssl-x86_64
         FF_XCRUN_PLATFORM="iPhoneSimulator"
-        FF_XCRUN_OSVERSION="-mios-simulator-version-min=8.0"
+        FF_XCRUN_OSVERSION="-mios-simulator-version-min=12.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_INTEL"
     elif [ "$FF_ARCH" = "armv7" ]; then
         FF_BUILD_NAME="ffmpeg-armv7"
         FF_BUILD_NAME_OPENSSL=openssl-armv7
         FF_XCRUN_PLATFORM="iPhoneOS"
-        FF_XCRUN_OSVERSION="-miphoneos-version-min=8.0"
+        FF_XCRUN_OSVERSION="-miphoneos-version-min=12.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
     elif [ "$FF_ARCH" = "arm64" ]; then
         FF_BUILD_NAME="ffmpeg-arm64"
         FF_BUILD_NAME_OPENSSL=openssl-arm64
         FF_XCRUN_PLATFORM="iPhoneOS"
-        FF_XCRUN_OSVERSION="-miphoneos-version-min=8.0"
+        FF_XCRUN_OSVERSION="-miphoneos-version-min=12.0"
+        FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
+        FF_GASPP_EXPORT="GASPP_FIX_XCODE5=1"
+    elif [ "$FF_ARCH" = "arm64e" ]; then
+        FF_BUILD_NAME="ffmpeg-arm64e"
+        FF_BUILD_NAME_OPENSSL=openssl-arm64e
+        FF_XCRUN_PLATFORM="iPhoneOS"
+        FF_XCRUN_OSVERSION="-miphoneos-version-min=12.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
         FF_GASPP_EXPORT="GASPP_FIX_XCODE5=1"
     else
@@ -177,13 +184,13 @@ elif [ "$FF_PLATFORM" = "tvOS" ]; then
         FF_BUILD_NAME="ffmpeg-x86_64"
         FF_BUILD_NAME_OPENSSL=openssl-x86_64
         FF_XCRUN_PLATFORM="AppleTVSimulator"
-        FF_XCRUN_OSVERSION="-mtvos-simulator-version-min=10.2"
+        FF_XCRUN_OSVERSION="-mtvos-simulator-version-min=12.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_INTEL"
     elif [ "$FF_ARCH" = "arm64" ]; then
         FF_BUILD_NAME="ffmpeg-arm64"
         FF_BUILD_NAME_OPENSSL=openssl-arm64
         FF_XCRUN_PLATFORM="AppleTVOS"
-        FF_XCRUN_OSVERSION="-mtvos-version-min=10.2"
+        FF_XCRUN_OSVERSION="-mtvos-version-min=12.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
         FF_GASPP_EXPORT="GASPP_FIX_XCODE5=1"
     else

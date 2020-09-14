@@ -103,14 +103,14 @@
     }
     self.orientation = [UIApplication sharedApplication].statusBarOrientation;
     CMRotationMatrix rotationMatrix = motion.attitude.rotationMatrix;
-    simd_float4x4 inertialReferenceFrameToDevice = matrix_transpose([self glMatrixFromRotationMatrix:rotationMatrix]);
+    simd_float4x4 inertialReferenceFrameToDevice = simd_transpose([self simdMatrixFromRotationMatrix:rotationMatrix]);
     simd_float4x4 worldToDevice = matrix_multiply(inertialReferenceFrameToDevice, self.worldToInertialReferenceFrame);
     simd_float4x4 worldToDisplay = matrix_multiply(self.deviceToDisplay, worldToDevice);
     simd_float4x4 ret = SGMatrix4x4RotateY(worldToDisplay, SGDegreesToRadians(self.defalutRotateY));
     return ret;
 }
 
-- (simd_float4x4)glMatrixFromRotationMatrix:(CMRotationMatrix)rotationMatrix
+- (simd_float4x4)simdMatrixFromRotationMatrix:(CMRotationMatrix)rotationMatrix
 {
     simd_float4x4 glRotationMatrix;
     

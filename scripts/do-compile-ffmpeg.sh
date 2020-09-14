@@ -155,7 +155,7 @@ if [ "$FF_PLATFORM" = "iOS" ]; then
         FF_BUILD_NAME="ffmpeg-arm64e"
         FF_BUILD_NAME_OPENSSL=openssl-arm64e
         FF_XCRUN_PLATFORM="iPhoneOS"
-        FF_XCRUN_OSVERSION="-miphoneos-version-min=12.0"
+        FF_XCRUN_OSVERSION="-miphoneos-version-min=12.0 -target arm64e-apple-ios12.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
         FF_GASPP_EXPORT="GASPP_FIX_XCODE5=1"
     else
@@ -166,6 +166,12 @@ elif [ "$FF_PLATFORM" = "macOS" ]; then
     if [ "$FF_ARCH" = "x86_64" ]; then
         FF_BUILD_NAME="ffmpeg-x86_64"
         FF_BUILD_NAME_OPENSSL=openssl-x86_64
+        FF_XCRUN_PLATFORM="MacOSX"
+        FF_XCRUN_OSVERSION="-mmacosx-version-min=10.11"
+        FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_INTEL"
+    elif [ "$FF_ARCH" = "x86_64h" ]; then
+        FF_BUILD_NAME="ffmpeg-x86_64h"
+        FF_BUILD_NAME_OPENSSL=openssl-x86_64h
         FF_XCRUN_PLATFORM="MacOSX"
         FF_XCRUN_OSVERSION="-mmacosx-version-min=10.11"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_INTEL"
@@ -208,7 +214,7 @@ echo "osversion:  $FF_XCRUN_OSVERSION"
 
 #--------------------
 echo "===================="
-echo "[*] make ios toolchain $FF_BUILD_NAME"
+echo "[*] make $FF_PLATFORM toolchain $FF_BUILD_NAME"
 echo "===================="
 
 FF_BUILD_SOURCE="$FF_BUILD_ROOT/source/$FF_PLATFORM/$FF_BUILD_NAME"

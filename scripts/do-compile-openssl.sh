@@ -123,6 +123,11 @@ elif [ "$FF_PLATFORM" = "macOS" ]; then
         FF_XCRUN_PLATFORM="MacOSX"
         FF_XCRUN_OSVERSION="-DHAVE_FORK=0 -mmacosx-version-min=10.11"
         OPENSSL_CFG_FLAGS="darwin64-x86_64-cc $OPENSSL_CFG_FLAGS"
+    elif [ "$FF_ARCH" = "x86_64h" ]; then
+        FF_BUILD_NAME="openssl-x86_64h"
+        FF_XCRUN_PLATFORM="MacOSX"
+        FF_XCRUN_OSVERSION="-DHAVE_FORK=0 -target x86_64h-apple-macos10.11"
+        OPENSSL_CFG_FLAGS="darwin64-x86_64-cc $OPENSSL_CFG_FLAGS"
     elif [ "$FF_ARCH" = "arm64" ]; then
         FF_BUILD_NAME="openssl-arm64"
         FF_XCRUN_PLATFORM="MacOSX"
@@ -158,7 +163,7 @@ echo "osversion:  $FF_XCRUN_OSVERSION"
 
 #--------------------
 echo "===================="
-echo "[*] make ios toolchain $FF_BUILD_NAME"
+echo "[*] make $FF_PLATFORM toolchain $FF_BUILD_NAME"
 echo "===================="
 
 

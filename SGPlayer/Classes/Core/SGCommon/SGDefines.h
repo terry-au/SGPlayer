@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreMedia/CoreMedia.h>
+#import <CoreMedia/CMTime.h>
 
 #if defined(__cplusplus)
 #define SGPLAYER_EXTERN extern "C"

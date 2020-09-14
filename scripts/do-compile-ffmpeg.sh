@@ -155,7 +155,7 @@ if [ "$FF_PLATFORM" = "iOS" ]; then
         FF_BUILD_NAME="ffmpeg-arm64e"
         FF_BUILD_NAME_OPENSSL=openssl-arm64e
         FF_XCRUN_PLATFORM="iPhoneOS"
-        FF_XCRUN_OSVERSION="-miphoneos-version-min=12.0 -target arm64e-apple-ios12.0"
+        FF_XCRUN_OSVERSION="-miphoneos-version-min=12.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
         FF_GASPP_EXPORT="GASPP_FIX_XCODE5=1"
     else

@@ -181,6 +181,7 @@ elif [ "$FF_PLATFORM" = "macOS" ]; then
         FF_XCRUN_PLATFORM="MacOSX"
         FF_XCRUN_OSVERSION="-mmacosx-version-min=11.0"
         FFMPEG_CFG_FLAGS="$FFMPEG_CFG_FLAGS $FFMPEG_CFG_FLAGS_ARM"
+        FF_GASPP_EXPORT="GASPP_FIX_XCODE5=1"
     else
         echo "unknown architecture $FF_PLATFORM, $FF_ARCH";
     exit 1

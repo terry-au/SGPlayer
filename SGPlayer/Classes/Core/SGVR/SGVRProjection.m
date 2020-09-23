@@ -18,11 +18,11 @@
 #if SGPLATFORM_TARGET_OS_IPHONE
 @property (nonatomic, strong) SGMotionSensor * sensor;
 #endif
-@property (nonatomic) simd_float4x4 lastMatrix11;
-@property (nonatomic) simd_float4x4 lastMatrix21;
-@property (nonatomic) simd_float4x4 lastMatrix22;
-@property (nonatomic) BOOL lastMatrix1Available;
-@property (nonatomic) BOOL lastMatrix2Available;
+@property (NS_NONATOMIC_IOSONLY) simd_float4x4 lastMatrix11;
+@property (NS_NONATOMIC_IOSONLY) simd_float4x4 lastMatrix21;
+@property (NS_NONATOMIC_IOSONLY) simd_float4x4 lastMatrix22;
+@property (NS_NONATOMIC_IOSONLY) BOOL lastMatrix1Available;
+@property (NS_NONATOMIC_IOSONLY) BOOL lastMatrix2Available;
 
 @end
 

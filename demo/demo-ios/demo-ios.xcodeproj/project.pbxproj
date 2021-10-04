@@ -23,6 +23,8 @@
 		9CD90232230BDF1900A358AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD90231230BDF1900A358AA /* AVFoundation.framework */; };
 		9CD90233230BDF2200A358AA /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3DD16B1E8FBD420003B17A /* VideoToolbox.framework */; };
 		9CD90234230BDF2C00A358AA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3DD16D1E8FBD4A0003B17A /* AudioToolbox.framework */; };
+		CDE04A30270B0A35008EA672 /* elephants-dream.webm in Resources */ = {isa = PBXBuildFile; fileRef = CDE04A2E270B0A35008EA672 /* elephants-dream.webm */; };
+		CDE04A31270B0A35008EA672 /* big-buck-bunny_trailer.webm in Resources */ = {isa = PBXBuildFile; fileRef = CDE04A2F270B0A35008EA672 /* big-buck-bunny_trailer.webm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +65,8 @@
 		9C886BA71E78EC9F00F2CFD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C9824A41FAB073B00142215 /* SGPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SGPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD90231230BDF1900A358AA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CDE04A2E270B0A35008EA672 /* elephants-dream.webm */ = {isa = PBXFileReference; lastKnownFileType = file; name = "elephants-dream.webm"; path = "../../../../../../Downloads/elephants-dream.webm"; sourceTree = "<group>"; };
+		CDE04A2F270B0A35008EA672 /* big-buck-bunny_trailer.webm */ = {isa = PBXFileReference; lastKnownFileType = file; name = "big-buck-bunny_trailer.webm"; path = "../../../../../../Downloads/big-buck-bunny_trailer.webm"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		9C886B961E78EC9F00F2CFD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDE04A2F270B0A35008EA672 /* big-buck-bunny_trailer.webm */,
+				CDE04A2E270B0A35008EA672 /* elephants-dream.webm */,
 				9C886BA21E78EC9F00F2CFD1 /* Assets.xcassets */,
 				9C36DD441E79538500959FDA /* google-help-vr.mp4 */,
 				9C36DD451E79538500959FDA /* i-see-fire.mp4 */,
@@ -182,7 +188,7 @@
 				TargetAttributes = {
 					9C886B921E78EC9F00F2CFD1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 79WDBYQ4TC;
+						DevelopmentTeam = WVW2QXS9H2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -218,6 +224,8 @@
 				9C886BA61E78EC9F00F2CFD1 /* LaunchScreen.storyboard in Resources */,
 				9C886BA31E78EC9F00F2CFD1 /* Assets.xcassets in Resources */,
 				9C36DD461E79538500959FDA /* google-help-vr.mp4 in Resources */,
+				CDE04A31270B0A35008EA672 /* big-buck-bunny_trailer.webm in Resources */,
+				CDE04A30270B0A35008EA672 /* elephants-dream.webm in Resources */,
 				9C886BA11E78EC9F00F2CFD1 /* Main.storyboard in Resources */,
 				9C02F6521E79293A00932489 /* SGPlayViewController.xib in Resources */,
 				9C36DD471E79538500959FDA /* i-see-fire.mp4 in Resources */,
@@ -375,11 +383,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 79WDBYQ4TC;
+				DEVELOPMENT_TEAM = WVW2QXS9H2;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "demo-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-ios${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "terrlewis.gitlab.io.SGPlayer.demo-ios79WDBYQ4TC";
 				PRODUCT_NAME = SGPlayer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -391,11 +400,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 79WDBYQ4TC;
+				DEVELOPMENT_TEAM = WVW2QXS9H2;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "demo-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.libobjc.SGPlayer.demo-ios${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "terrlewis.gitlab.io.SGPlayer.demo-ios79WDBYQ4TC";
 				PRODUCT_NAME = SGPlayer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
